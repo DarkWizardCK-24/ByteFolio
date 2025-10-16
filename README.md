@@ -7,16 +7,17 @@ ByteFolio is a modern, responsive portfolio web app built with React and Vite �
 1. Reusable Components 🧩: Modular React components for easy maintenance and scalability.
 2. Tailwind CSS Styling 🎨: Beautiful, responsive design with Tailwind’s utility-first approach.
 3. Vercel Hosting 🚀: Fast, reliable deployment with automatic scaling.
-4. Comprehensive Sections 📋:
-  1. 🛠️ Experience: Highlight your professional journey with detailed work history.
-  2. 🎓 Education: Showcase your academic background.
-  3. 🏆 Certifications: Display your professional achievements.
-  4. 💻 Projects: Feature your best projects with links to demos and repositories.
-  5. 🧠 Skills: List your technical skills with visual flair.
+4. Accessible Links 🔗: Screen-reader-friendly navigation and external links (GitHub, LinkedIn, etc.).
+5. Smooth Animations 🎉: Engaging transitions and hover effects for a premium experience.
+6. Cross-Platform 🌐: Optimized for desktop, tablet, and mobile browsers.
 
-5. Accessible Links 🔗: Screen-reader-friendly navigation and external links (GitHub, LinkedIn, etc.).
-6. Smooth Animations 🎉: Engaging transitions and hover effects for a premium experience.
-7. Cross-Platform 🌐: Optimized for desktop, tablet, and mobile browsers.
+# 📋 Comprehensive Sections 
+
+1. 🛠️ Experience: Highlight your professional journey with detailed work history.
+2. 🎓 Education: Showcase your academic background.
+3. 🏆 Certifications: Display your professional achievements.
+4. 💻 Projects: Feature your best projects with links to demos and repositories.
+5. 🧠 Skills: List your technical skills with visual flair.
 
 
 # 🛠️ Tech Stack
