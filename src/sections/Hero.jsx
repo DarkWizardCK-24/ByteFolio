@@ -23,7 +23,7 @@ const Hero = () => {
               <div className="inline-block px-4 py-2 glass rounded-full border border-accent/30">
                 <p className="text-accent font-semibold text-sm flex items-center gap-2">
                   <Sparkles size={16} className="animate-pulse" />
-                  Welcome to my portfolio
+                  Welcome to my portfolio<br/>My call sign is DarkWizãrd 
                 </p>
               </div>
               <h1 className="text-6xl md:text-6xl  font-bold text-text leading-tight">

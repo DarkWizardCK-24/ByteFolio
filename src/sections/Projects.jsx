@@ -10,8 +10,8 @@ const webProjects = [
     image:
       "projects/web/web7.png",
     skills: ["React.js", "Javascript", "Tailwind CSS", "Vercel"],
-    github: "#",
-    live: "#",
+    github: "https://github.com/DarkWizardCK-24/ByteFolio",
+    live: "https://byte-folio.vercel.app/",
   },
   {
     title: "Profolio Website",
@@ -19,8 +19,8 @@ const webProjects = [
       "A modern, responsive portfolio built with Next.js and JavaScript to showcase my projects, skills, and journey. It features smooth Framer Motion animations, a clean UI, and is optimized for speed, SEO, and accessibility, hosted on Vercel.",
     image: "projects/web/web6.png",
     skills: ["Next.js", "Javascript", "Tailwind CSS", "Vercel"],
-    github: "#",
-    live: "#",
+    github: "https://github.com/DarkWizardCK-24/ProFolio",
+    live: "https://portfolio-nextjs-pearl-eight.vercel.app/",
   },
   {
     title: "Secure Spark",
