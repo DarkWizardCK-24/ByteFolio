@@ -121,7 +121,7 @@ const flutterProjects = [
   {
     title: "DecXNote",
     description:
-      "A sleek Flutter to-do app featuring a stunning card-swiper interface for fun, efficient task management. Built with Firebase Authentication and real-time database sync, it offers a glassmorphic UI, secure login, and cross-platform support making it a modern, engaging way to create, swipe, and organize tasks effortlessly.",
+      "A sleek Flutter to-do app with a card-swiper interface for fun task management. Features Firebase Authentication, real-time database sync, glassmorphic UI, secure login, cross-platform support, and checklist items for easy task organization.",
     image: "projects/flutter/flutter7.png",
     skills: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/DarkWizardCK-24/DecXNote",
