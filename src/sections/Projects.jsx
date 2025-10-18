@@ -119,12 +119,12 @@ const flutterProjects = [
     github: "https://github.com/DarkWizardCK-24/CredVault",
   },
   {
-    title: "Deck Note",
+    title: "DecXNote",
     description:
       "A sleek Flutter to-do app featuring a stunning card-swiper interface for fun, efficient task management. Built with Firebase Authentication and real-time database sync, it offers a glassmorphic UI, secure login, and cross-platform support making it a modern, engaging way to create, swipe, and organize tasks effortlessly.",
     image: "projects/flutter/flutter7.png",
     skills: ["Flutter", "Dart", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/Deck-Note",
+    github: "https://github.com/DarkWizardCK-24/DecXNote",
   },
 ];
 
