@@ -126,6 +126,14 @@ const flutterProjects = [
     skills: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/DarkWizardCK-24/DecXNote",
   },
+  {
+    title: "H₂Orbit",
+    description:
+      "A sleek, AI-powered Flutter app for smart hydration tracking. Predicts needs using behavior, weather, and lifestyle; syncs instantly via Firebase with full offline support. Features weather-adjusted recommendations, context-aware notifications, precise beverage & caffeine tracking, and a stunning glassmorphism ocean UI with fluid animations.",
+    image: "projects/flutter/flutter8.png",
+    skills: ["Flutter", "Dart", "Firebase"],
+    github: "https://github.com/DarkWizardCK-24/H2Orbit",
+  },
 ];
 
 const Projects = () => {
