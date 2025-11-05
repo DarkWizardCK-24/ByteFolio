@@ -5,7 +5,7 @@ import TimelineItem from "../components/TimelineItem.jsx";
 const experiences = [
   {
     title: "Flutter Developer - Prosoft Informatics Pvt Ltd, Navi Mumbai",
-    period: "May 2025 - Sept 2025",
+    period: "May 2025 - Nov 2025",
     description:
       "Developed mobile applications of medical services with a focus on performance and user experience on android and iOS.",
     details: ["Flutter and Dart", "Xcode", "VsCode"],
