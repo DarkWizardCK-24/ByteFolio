@@ -22,6 +22,9 @@ import {
   SiAndroidstudio,
   SiMongodb,
   SiXcode,
+  SiDjango,
+  SiFastapi,
+  SiPython,
 } from "react-icons/si";
 import { FaDartLang } from "react-icons/fa6";
 import { Zap, Code2, Wrench, Layers, Cpu, } from "lucide-react";
@@ -75,6 +78,11 @@ const skillCategories = [
         icon: FaDartLang,
         gradient: "from-orange-500/20 to-red-500/20",
       },
+      {
+        name: "Python",
+        icon: SiPython,
+        gradient: "from-purple-500/20 to-pink-500/20",
+      },
     ],
   },
   {
@@ -120,6 +128,16 @@ const skillCategories = [
         name: "MongoDB",
         icon: SiMongodb,
         gradient: "from-purple-500/20 to-pink-500/20",
+      },
+      {
+        name: "Django",
+        icon: SiDjango,
+        gradient: "from-orange-500/20 to-red-500/20",
+      },
+      {
+        name: "FastAPI",
+        icon: SiFastapi,
+        gradient: "from-green-500/20 to-emerald-500/20",
       },
     ],
   },
