@@ -134,6 +134,14 @@ const flutterProjects = [
     skills: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/DarkWizardCK-24/H2Orbit",
   },
+  {
+    title: "Ghost Signal",
+    description:
+      "A high-performance, dark-neon secret message toolkit. Features smart Morse auto-decoding, Caesar cipher brute-forcing, and advanced linguistic steganography. Built with Flutter & FastAPI.",
+    image: "projects/flutter/flutter9.png",
+    skills: ["Flutter", "Dart", "Python", "FastAPI"],
+    github: "https://github.com/DarkWizardCK-24/Ghost-Signal",
+  },
 ];
 
 const Projects = () => {
