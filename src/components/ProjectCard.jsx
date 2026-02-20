@@ -3,29 +3,39 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, Eye } from "lucide-react";
 import ProjectModal from "./ProjectModal.jsx";
 
-// Derives a colored badge from the project's skills array
-const getBadge = (project) => {
+// Returns ALL relevant badges for a project (multiple allowed)
+const getBadges = (project) => {
   const skills = project.skills?.map((s) => s.toLowerCase()) ?? [];
+  const badges = [];
 
   if (skills.some((s) => s.includes("next.js") || s === "nextjs"))
-    return { label: "Next.js", color: "bg-orange-500/20 text-orange-400 border-orange-500/40" };
+    badges.push({ label: "Next.js", color: "bg-orange-500/20 text-orange-400 border-orange-500/40" });
   if (skills.some((s) => s.includes("django")))
-    return { label: "Django", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40" };
+    badges.push({ label: "Django", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40" });
   if (skills.some((s) => s.includes("python") || s.includes("fastapi")))
-    return { label: "Python", color: "bg-pink-500/20 text-pink-400 border-pink-500/40" };
+    badges.push({ label: "Python", color: "bg-pink-500/20 text-pink-400 border-pink-500/40" });
   if (skills.some((s) => s.includes("flutter") || s.includes("dart")))
-    return { label: "Flutter", color: "bg-green-500/20 text-green-400 border-green-500/40" };
-  if (skills.some((s) => ["react.js", "react", "javascript", "html", "css", "tailwind css", "vercel", "node.js"].includes(s)))
-    return { label: "Web", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" };
+    badges.push({ label: "Flutter", color: "bg-green-500/20 text-green-400 border-green-500/40" });
+  if (skills.some((s) => s.includes("firebase")))
+    badges.push({ label: "Firebase", color: "bg-red-500/20 text-red-400 border-red-500/40" });
+  if (skills.some((s) => s.includes("supabase")))
+    badges.push({ label: "Supabase", color: "bg-teal-400/20 text-teal-300 border-teal-400/40" });
+  if (
+    badges.length === 0 &&
+    skills.some((s) =>
+      ["react.js", "react", "javascript", "html", "css", "tailwind css", "vercel", "node.js"].includes(s)
+    )
+  )
+    badges.push({ label: "Web", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" });
 
-  return { label: "Project", color: "bg-gray-500/20 text-gray-400 border-gray-500/40" };
+  return badges.length > 0 ? badges : [{ label: "Project", color: "bg-gray-500/20 text-gray-400 border-gray-500/40" }];
 };
 
 const ProjectCard = ({ project, index }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  const badge = getBadge(project);
+  const badges = getBadges(project);
   const thumbnail = Array.isArray(project.images) ? project.images[0] : project.image;
 
   return (
@@ -56,14 +66,27 @@ const ProjectCard = ({ project, index }) => {
             {project.title}
           </h3>
 
-          {/* Type Badge — always visible, sits below title */}
-          <span className={`self-start px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold border ${badge.color}`}>
-            {badge.label}
-          </span>
+          {/* Badges — horizontally scrollable row, no wrap */}
+          <div
+            className="flex gap-1 overflow-x-auto"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {badges.map((badge, i) => (
+              <span
+                key={i}
+                className={`flex-shrink-0 px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold border ${badge.color}`}
+              >
+                {badge.label}
+              </span>
+            ))}
+          </div>
 
-          {/* ── MOBILE / TABLET: Horizontally scrollable buttons ── */}
+          {/* ── MOBILE / TABLET: Horizontally scrollable action buttons ── */}
           <div className="mt-auto pt-1 sm:hidden">
-            <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+            <div
+              className="flex gap-1.5 overflow-x-auto pb-0.5"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
               <button
                 onClick={() => setModalOpen(true)}
                 className="flex items-center gap-1 px-3 py-1.5 bg-accent/10 text-accent rounded-lg border border-accent/30 text-[10px] font-semibold whitespace-nowrap flex-shrink-0"
@@ -97,7 +120,6 @@ const ProjectCard = ({ project, index }) => {
           </div>
 
           {/* ── DESKTOP: Slide-up animated buttons on hover ── */}
-          {/* Hidden on mobile/tablet, shown on sm+ */}
           <div className="hidden sm:block mt-auto h-9 relative overflow-hidden">
             <AnimatePresence>
               {hovered && (
@@ -109,7 +131,6 @@ const ProjectCard = ({ project, index }) => {
                   transition={{ duration: 0.2, ease: "easeOut" }}
                   className="absolute inset-0 flex gap-1.5"
                 >
-                  {/* Details */}
                   <button
                     onClick={() => setModalOpen(true)}
                     className="flex items-center gap-1 px-2 py-1.5 bg-accent/10 text-accent rounded-lg hover:bg-accent/25 transition-colors duration-200 border border-accent/30 flex-1 justify-center text-[10px] sm:text-xs font-semibold whitespace-nowrap"
@@ -117,8 +138,6 @@ const ProjectCard = ({ project, index }) => {
                     <Eye size={12} />
                     Details
                   </button>
-
-                  {/* GitHub */}
                   {project.github && (
                     <a
                       href={project.github}
@@ -131,8 +150,6 @@ const ProjectCard = ({ project, index }) => {
                       Code
                     </a>
                   )}
-
-                  {/* Live */}
                   {project.live && project.live !== "#" && (
                     <a
                       href={project.live}
