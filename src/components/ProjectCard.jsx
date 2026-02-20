@@ -61,38 +61,39 @@ const ProjectCard = ({ project, index }) => {
             {badge.label}
           </span>
 
-          {/* ── MOBILE / TABLET: Always-visible compact buttons ── */}
-          {/* Shown on xs–md, hidden on lg+ where hover works fine */}
-          <div className="flex gap-1.5 mt-auto pt-1 sm:hidden">
-            <button
-              onClick={() => setModalOpen(true)}
-              className="flex items-center gap-1 px-2 py-1.5 bg-accent/10 text-accent rounded-lg border border-accent/30 flex-1 justify-center text-[10px] font-semibold"
-            >
-              <Eye size={11} />
-              Details
-            </button>
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 px-2 py-1.5 bg-secondary/50 text-gray-300 rounded-lg border border-accent/30 flex-1 justify-center text-[10px] font-semibold"
+          {/* ── MOBILE / TABLET: Horizontally scrollable buttons ── */}
+          <div className="mt-auto pt-1 sm:hidden">
+            <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-0.5" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+              <button
+                onClick={() => setModalOpen(true)}
+                className="flex items-center gap-1 px-3 py-1.5 bg-accent/10 text-accent rounded-lg border border-accent/30 text-[10px] font-semibold whitespace-nowrap flex-shrink-0"
               >
-                <Github size={11} />
-                Code
-              </a>
-            )}
-            {project.live && project.live !== "#" && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 px-2 py-1.5 bg-gradient-to-r from-accent/80 to-blue-600/80 text-white rounded-lg flex-1 justify-center text-[10px] font-semibold"
-              >
-                <ExternalLink size={11} />
-                Live
-              </a>
-            )}
+                <Eye size={11} />
+                Details
+              </button>
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 px-3 py-1.5 bg-secondary/50 text-gray-300 rounded-lg border border-accent/30 text-[10px] font-semibold whitespace-nowrap flex-shrink-0"
+                >
+                  <Github size={11} />
+                  Code
+                </a>
+              )}
+              {project.live && project.live !== "#" && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-accent/80 to-blue-600/80 text-white rounded-lg text-[10px] font-semibold whitespace-nowrap flex-shrink-0"
+                >
+                  <ExternalLink size={11} />
+                  Live
+                </a>
+              )}
+            </div>
           </div>
 
           {/* ── DESKTOP: Slide-up animated buttons on hover ── */}
