@@ -232,7 +232,7 @@ const Skills = () => {
                 <category.icon className="text-accent" size={32} />
                 <h3 className="text-3xl font-bold text-text">{category.title}</h3>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
                 {category.skills.map((skill, index) => (
                   <SkillCard key={index} {...skill} index={index} />
                 ))}
