@@ -7,8 +7,7 @@ const webProjects = [
     title: "ByteFolio",
     description:
       "A sleek React & Vite portfolio web app styled with Tailwind CSS, hosted on Vercel. Features reusable components and accessible links to showcase experience, education, certifications, projects, and skills with modern animations and cross-platform support.",
-    image:
-      "projects/web/web7.png",
+    image: "projects/web/web7.png",
     skills: ["React.js", "Javascript", "Tailwind CSS", "Vercel"],
     github: "https://github.com/DarkWizardCK-24/ByteFolio",
     live: "https://byte-folio.vercel.app/",
@@ -113,7 +112,7 @@ const flutterProjects = [
   {
     title: "Cred Vault",
     description:
-      "A secure Flutter app for storing and managing credentials, powered by Firebase Authentication and Firestore for real-time data sync. Features a stunning glassmorphic UI, seamless copy-to-clipboard functionality, and links to platforms/URLs for easy access. Organize your passwords and sensitive data effortlessly across Android, iOS, and web.",
+      "A secure Flutter app for storing and managing credentials, powered by Firebase Authentication and Firestore for real-time data sync. Features a stunning glassmorphic UI, seamless copy-to-clipboard functionality, and links to platforms/URLs for easy access.",
     image: "projects/flutter/flutter6.png",
     skills: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/DarkWizardCK-24/CredVault",
@@ -161,23 +160,29 @@ const Projects = () => {
           </h2>
           <p className="text-gray-400 text-lg">Explore my work</p>
         </motion.div>
+
+        {/* Web Projects */}
         <div className="mb-20">
           <h3 className="text-3xl font-semibold text-accent mb-8 flex items-center gap-3">
             <Globe size={28} />
             Web Projects
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 2 cols mobile | 3 cols tablet | 4 cols desktop */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
             {webProjects.map((project, index) => (
               <ProjectCard key={index} project={project} index={index} />
             ))}
           </div>
         </div>
+
+        {/* Flutter Projects */}
         <div>
           <h3 className="text-3xl font-semibold text-accent mb-8 flex items-center gap-3">
             <Smartphone size={28} />
             Flutter Projects
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 2 cols mobile | 3 cols tablet | 4 cols desktop */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
             {flutterProjects.map((project, index) => (
               <ProjectCard key={index} project={project} index={index} />
             ))}
