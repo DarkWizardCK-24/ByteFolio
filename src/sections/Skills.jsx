@@ -9,6 +9,7 @@ import {
   FaGlobe,
   FaDatabase,
   FaHtml5,
+  FaWindows,
 } from "react-icons/fa";
 import { VscJson, VscVscodeInsiders } from "react-icons/vsc";
 import { LuCodeXml } from "react-icons/lu";
@@ -159,6 +160,11 @@ const skillCategories = [
         name: "Web",
         icon: FaGlobe,
         gradient: "from-green-500/20 to-emerald-500/20",
+      },
+      {
+        name: "Windows",
+        icon: FaWindows,
+        gradient: "from-purple-500/20 to-pink-500/20",
       },
     ],
   },
