@@ -2,22 +2,39 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
 
+// Same badge logic as ProjectCard — kept in sync
+const getBadge = (project) => {
+  const skills = project.skills?.map((s) => s.toLowerCase()) ?? [];
+
+  if (skills.some((s) => s.includes("next.js") || s === "nextjs"))
+    return { label: "Next.js", color: "bg-orange-500/20 text-orange-400 border-orange-500/40" };
+  if (skills.some((s) => s.includes("django")))
+    return { label: "Django", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40" };
+  if (skills.some((s) => s.includes("python") || s.includes("fastapi")))
+    return { label: "Python", color: "bg-pink-500/20 text-pink-400 border-pink-500/40" };
+  if (skills.some((s) => s.includes("flutter") || s.includes("dart")))
+    return { label: "Flutter", color: "bg-green-500/20 text-green-400 border-green-500/40" };
+  if (skills.some((s) => ["react.js", "react", "javascript", "html", "css", "tailwind css", "vercel", "node.js"].includes(s)))
+    return { label: "Web", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" };
+
+  return { label: "Project", color: "bg-gray-500/20 text-gray-400 border-gray-500/40" };
+};
+
 const ProjectModal = ({ project, onClose }) => {
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Support single image or array of images
   const images = Array.isArray(project.images)
     ? project.images
     : [project.image];
 
-  // Close on Escape key
+  const badge = getBadge(project);
+
   useEffect(() => {
     const handleKey = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [onClose]);
 
-  // Prevent background scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => (document.body.style.overflow = "");
@@ -73,10 +90,8 @@ const ProjectModal = ({ project, onClose }) => {
               />
             </AnimatePresence>
 
-            {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent pointer-events-none" />
 
-            {/* Carousel Controls — only shown if multiple images */}
             {images.length > 1 && (
               <>
                 <button
@@ -92,7 +107,6 @@ const ProjectModal = ({ project, onClose }) => {
                   <ChevronRight size={18} />
                 </button>
 
-                {/* Dot indicators */}
                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
                   {images.map((_, i) => (
                     <button
@@ -112,10 +126,16 @@ const ProjectModal = ({ project, onClose }) => {
 
           {/* Content */}
           <div className="p-6 space-y-5">
-            {/* Title */}
-            <h2 className="text-2xl sm:text-3xl font-bold text-text">
-              {project.title}
-            </h2>
+            {/* Title + Badge */}
+            <div className="flex flex-col gap-2">
+              <h2 className="text-2xl sm:text-3xl font-bold text-text">
+                {project.title}
+              </h2>
+              {/* Type Badge */}
+              <span className={`self-start px-3 py-1 rounded-full text-xs font-semibold border ${badge.color}`}>
+                {badge.label}
+              </span>
+            </div>
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
