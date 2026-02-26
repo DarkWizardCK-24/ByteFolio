@@ -141,6 +141,14 @@ const flutterProjects = [
     skills: ["Flutter", "Dart", "Python", "FastAPI"],
     github: "https://github.com/DarkWizardCK-24/Ghost-Signal",
   },
+  {
+    title: "Music App",
+    description:
+      "A beautiful music app built with Flutter that allows users to search for songs, play previews, and manage their favorite tracks.",
+    image: "projects/flutter/flutter10.png",
+    skills: ["Flutter", "Dart", "RESTful API"],
+    github: "https://github.com/DarkWizardCK-24/Music-App",
+  },
 ];
 
 const Projects = () => {
