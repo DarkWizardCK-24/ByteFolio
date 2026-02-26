@@ -40,16 +40,6 @@ const skillCategories = [
     icon: Code2,
     skills: [
       {
-        name: "HTML",
-        icon: FaHtml5,
-        gradient: "from-yellow-500/20 to-orange-500/20",
-      },
-      {
-        name: "CSS",
-        icon: FaCss3Alt,
-        gradient: "from-blue-500/20 to-indigo-500/20",
-      },
-      {
         name: "JavaScript",
         icon: FaJsSquare,
         gradient: "from-blue-500/20 to-yellow-500/20",
@@ -58,21 +48,6 @@ const skillCategories = [
         name: "Tailwind CSS",
         icon: SiTailwindcss,
         gradient: "from-red-500/20 to-orange-500/20",
-      },
-      {
-        name: "JSON",
-        icon: VscJson,
-        gradient: "from-cyan-500/20 to-blue-500/20",
-      },
-      {
-        name: "Kotlin",
-        icon: SiKotlin,
-        gradient: "from-orange-500/20 to-red-500/20",
-      },
-      {
-        name: "XML",
-        icon: LuCodeXml,
-        gradient: "from-yellow-500/20 to-orange-500/20",
       },
       {
         name: "Dart",
@@ -111,11 +86,6 @@ const skillCategories = [
         gradient: "from-blue-500/20 to-indigo-500/20",
       },
       {
-        name: "Node.js",
-        icon: FaNodeJs,
-        gradient: "from-red-500/20 to-orange-500/20",
-      },
-      {
         name: "Git",
         icon: FaGitAlt,
         gradient: "from-orange-500/20 to-red-500/20",
@@ -124,11 +94,6 @@ const skillCategories = [
         name: "SQL",
         icon: BiLogoPostgresql,
         gradient: "from-green-500/20 to-emerald-500/20",
-      },
-      {
-        name: "MongoDB",
-        icon: SiMongodb,
-        gradient: "from-purple-500/20 to-pink-500/20",
       },
       {
         name: "Django",
