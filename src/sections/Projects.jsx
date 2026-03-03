@@ -4,6 +4,15 @@ import ProjectCard from "../components/ProjectCard.jsx";
 
 const webProjects = [
   {
+    title: "Code Share",
+    description:
+      "A feature-rich code collaboration platform built with Next.js and Firebase. Seamlessly share snippets, perform side-by-side code comparisons, edit on the fly, and download or share your updates. Features secure authentication and robust cloud storage to streamline your developer workflow.",
+    image: "projects/web/web8.png",
+    skills: ["Next.js", "Javascript", "Tailwind CSS", "Firebase", "Vercel"],
+    github: "https://github.com/DarkWizardCK-24/Code-Share",
+    live: "https://code-share-lovat.vercel.app/",
+  },
+  {
     title: "ByteFolio",
     description:
       "A sleek React & Vite portfolio web app styled with Tailwind CSS, hosted on Vercel. Features reusable components and accessible links to showcase experience, education, certifications, projects, and skills with modern animations and cross-platform support.",
