@@ -158,6 +158,14 @@ const flutterProjects = [
     skills: ["Flutter", "Dart", "RESTful API"],
     github: "https://github.com/DarkWizardCK-24/Music-App",
   },
+  {
+    title: "Kanban Finance System",
+    description:
+      "A clean Flutter app for smart wealth management. Visualize and track your savings, investments & financial goals using intuitive Kanban boards. Built with Flutter & Firebase (Auth + Firestore). Manage money better. Grow wealth faster.",
+    image: "projects/flutter/flutter10.png",
+    skills: ["Flutter", "Dart", "Firebase"],
+    github: "https://github.com/DarkWizardCK-24/Kanban-Finance-System",
+  },
 ];
 
 const Projects = () => {
