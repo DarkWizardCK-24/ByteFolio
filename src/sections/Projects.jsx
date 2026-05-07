@@ -175,6 +175,22 @@ const flutterProjects = [
     skills: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/DarkWizardCK-24/Kanban-Finance-System",
   },
+  {
+    title: "Learning Tracker",
+    description:
+      "Flutter learning tracker & GitHub activity visualizer with Supabase backend. Track daily goals, streaks, notes, and files with a calendar + heatmap UI. Sync GitHub commits, view progress analytics, and manage your learning journey with a responsive neon-styled dashboard.",
+    image: "projects/flutter/flutter12.png",
+    skills: ["Flutter", "Dart", "SQL", "Supabase"],
+    github: "https://github.com/DarkWizardCK-24/Learning-Tracker",
+  },
+  {
+    title: "Github Visualizer",
+    description:
+      "Flutter app to visualize GitHub profiles, repos, contributions & activity with a modern glassmorphism UI. Built using Supabase backend, it features analytics, heatmaps, timelines, language insights, and responsive design for mobile, tablet, and desktop experiences.",
+    image: "projects/flutter/flutter13.png",
+    skills: ["Flutter", "Dart", "SQL", "Supabase"],
+    github: "https://github.com/DarkWizardCK-24/Github-Visualizer",
+  },
 ];
 
 const Projects = () => {
