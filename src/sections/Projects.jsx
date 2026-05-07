@@ -7,7 +7,7 @@ const webProjects = [
     title: "Dev Pulse",
     description:
       "DevPulse — a polished, dark-themed GitHub repository analyzer and API playground built on Next.js 16, React 19, Tailwind v4, and FastAPI. Inspect any public repository's stats, languages, and complete file tree, then prototype any HTTP request through a CORS-bypassing server-side proxy. GitHub auth via .env + fallback.",
-    image: "projects/web/web8.png",
+    image: "projects/web/web9.png",
     skills: ["Next.js", "Typescript", "Tailwind CSS", "Fast API", "Python", "Vercel"],
     github: "https://github.com/DarkWizardCK-24/DevPulse",
     live: "https://dev-pulse-black.vercel.app/",
