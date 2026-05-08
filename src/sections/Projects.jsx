@@ -4,6 +4,15 @@ import ProjectCard from "../components/ProjectCard.jsx";
 
 const webProjects = [
   {
+    title: "Kanban Finance Web",
+    description:
+      "A clean Next.js web app for smart wealth management. Visualize and track your savings, investments & financial goals using intuitive Kanban boards. Built with Next.js 14 & Firebase (Auth + Firestore). Manage money better. Grow wealth faster.",
+    image: "projects/web/web10.png",
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "Firebase", "Vercel"],
+    github: "https://github.com/DarkWizardCK-24/Kanban-Finance-Web",
+    live: "https://kanban-finance-web.vercel.app/",
+  },
+  {
     title: "Dev Pulse",
     description:
       "DevPulse — a polished, dark-themed GitHub repository analyzer and API playground built on Next.js 16, React 19, Tailwind v4, and FastAPI. Inspect any public repository's stats, languages, and complete file tree, then prototype any HTTP request through a CORS-bypassing server-side proxy. GitHub auth via .env + fallback.",
@@ -171,7 +180,7 @@ const flutterProjects = [
     title: "Kanban Finance System",
     description:
       "A clean Flutter app for smart wealth management. Visualize and track your savings, investments & financial goals using intuitive Kanban boards. Built with Flutter & Firebase (Auth + Firestore). Manage money better. Grow wealth faster.",
-    image: "projects/flutter/flutter10.png",
+    image: "projects/flutter/flutter11.png",
     skills: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/DarkWizardCK-24/Kanban-Finance-System",
   },
