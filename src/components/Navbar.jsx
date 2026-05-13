@@ -9,6 +9,7 @@ import {
   Zap,
   Code2,
   Award,
+  Crown,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -28,6 +29,7 @@ const Navbar = () => {
     { name: "Experience", href: "#experience", icon: Briefcase },
     { name: "Education", href: "#education", icon: BookOpen },
     { name: "Skills", href: "#skills", icon: Zap },
+    { name: "DevFolio", href: "#devfolio", icon: Crown, highlight: true },
     { name: "Projects", href: "#projects", icon: Code2 },
     { name: "Certifications", href: "#certifications", icon: Award },
   ];
@@ -64,6 +66,19 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-2">
             {navLinks.map((link) => {
               const Icon = link.icon;
+              if (link.highlight) {
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => scrollToSection(e, link.href)}
+                    className="group relative px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/40 text-amber-300 hover:text-amber-200 hover:border-amber-400/60 transition-all duration-300 flex items-center gap-1.5"
+                  >
+                    <Icon size={14} className="group-hover:rotate-12 transition-transform duration-300" />
+                    <span className="text-sm font-bold">{link.name}</span>
+                  </a>
+                );
+              }
               return (
                 <a
                   key={link.name}
@@ -101,6 +116,20 @@ const Navbar = () => {
           <div className="p-6 space-y-2">
             {navLinks.map((link) => {
               const Icon = link.icon;
+              if (link.highlight) {
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => scrollToSection(e, link.href)}
+                    className="flex items-center gap-4 px-4 py-3 rounded-xl text-amber-300 bg-amber-500/10 border border-amber-500/40 hover:bg-amber-500/20 transition-all duration-300 group"
+                  >
+                    <Icon size={20} className="group-hover:rotate-12 transition-transform duration-300" />
+                    <span className="font-bold">{link.name}</span>
+                    <span className="ml-auto text-[9px] font-bold uppercase tracking-wider bg-amber-500/30 text-amber-300 px-2 py-0.5 rounded-full">MVP</span>
+                  </a>
+                );
+              }
               return (
                 <a
                   key={link.name}
