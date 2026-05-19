@@ -696,8 +696,6 @@ const DevFolio = () => (
         </motion.div>
       </motion.div>
 
-<<<<<<< HEAD
-=======
       {/* ── Parent Hub Card ── */}
       <ParentHubCard />
 
@@ -742,5 +740,4 @@ const DevFolio = () => (
   </section>
 );
 
->>>>>>> 888c7c3 (Rebuild DevFolio ecosystem section with new apps and redesigned UI)
 export default DevFolio;
