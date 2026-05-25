@@ -1,6 +1,17 @@
-import { motion } from "framer-motion";
+"use client";
 
-const AboutCard = ({ title, description, icon: Icon, gradient, index }) => {
+import { motion } from "framer-motion";
+import type { LucideIcon } from "lucide-react";
+
+interface AboutCardProps {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  gradient: string;
+  index: number;
+}
+
+const AboutCard: React.FC<AboutCardProps> = ({ title, description, icon: Icon, gradient, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

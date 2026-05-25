@@ -1,6 +1,24 @@
+"use client";
+
 import { motion } from "framer-motion";
 
-const TimelineItem = ({ item, index, length }) => {
+interface TimelineItemData {
+  title: string;
+  period?: string;
+  issuer?: string;
+  date?: string;
+  description: string;
+  details?: string[];
+  credentialId?: string;
+}
+
+interface TimelineItemProps {
+  item: TimelineItemData;
+  index: number;
+  length: number;
+}
+
+const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, length }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

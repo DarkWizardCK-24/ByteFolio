@@ -1,8 +1,10 @@
+"use client";
+
 import { Smartphone, Globe, Database, Target } from "lucide-react";
 import { motion } from "framer-motion";
-import AboutCard from "../components/AboutCard.jsx";
+import AboutCard from "@/components/AboutCard";
 
-const About = () => {
+const About: React.FC = () => {
   const cards = [
     {
       title: "Flutter Developer",

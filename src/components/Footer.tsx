@@ -3,7 +3,7 @@ import { FaInstagram } from "react-icons/fa";
 import { SiLinktree } from "react-icons/si";
 import { TbBrandFiverr } from "react-icons/tb";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="glass border-t border-accent/30 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

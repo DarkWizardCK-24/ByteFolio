@@ -1,10 +1,12 @@
-import { Github, Linkedin, Mail, Sparkles, ChevronDown } from "lucide-react";
+"use client";
+
+import { Github, Linkedin, Sparkles, ChevronDown } from "lucide-react";
 import { TbBrandFiverr } from "react-icons/tb";
 import { motion } from "framer-motion";
-import AnimatedBackground from "../components/AnimatedBackground.jsx";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import { SiLinktree } from "react-icons/si";
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <section
       id="home"
@@ -23,11 +25,11 @@ const Hero = () => {
               <div className="inline-block px-4 py-2 glass rounded-full border border-accent/30">
                 <p className="text-accent font-semibold text-sm flex items-center gap-2">
                   <Sparkles size={16} className="animate-pulse" />
-                  Welcome to my portfolio<br/>My call sign is DarkWizãrd 
+                  Welcome to my portfolio<br/>My call sign is DarkWizãrd
                 </p>
               </div>
-              <h1 className="text-6xl md:text-6xl  font-bold text-text leading-tight">
-                Hi, I'm{" "}
+              <h1 className="text-6xl md:text-6xl font-bold text-text leading-tight">
+                Hi, I&apos;m{" "}
                 <span className="bg-gradient-to-r from-accent via-blue-500 to-purple-500 bg-clip-text text-transparent animate-gradient">
                   Chaitanya Katare
                 </span>
@@ -56,7 +58,7 @@ const Hero = () => {
                 />
               </a>
               <a
-                href="resume(Chaitanya-Katare).pdf"
+                href="/resume(Chaitanya-Katare).pdf"
                 download
                 className="px-8 py-4 glass border-2 border-accent/50 text-accent rounded-xl font-bold hover:bg-accent/10 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/30"
               >
@@ -104,7 +106,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-accent to-blue-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
               <div className="relative w-80 h-80 glass rounded-full border-2 border-accent/30 flex items-center justify-center shadow-2xl shadow-accent/20 hover:scale-105 transition-transform duration-500">
                 <img
-                  src="dev.png"
+                  src="/dev.png"
                   alt="Profile"
                   className="w-72 h-72 rounded-full border-4 border-accent/50 object-cover shadow-2xl"
                 />

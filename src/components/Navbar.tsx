@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import {
   Menu,
@@ -10,10 +12,18 @@ import {
   Code2,
   Award,
   Crown,
+  type LucideIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-const Navbar = () => {
+interface NavLink {
+  name: string;
+  href: string;
+  icon: LucideIcon;
+  highlight?: boolean;
+}
+
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -23,7 +33,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: "Home", href: "#home", icon: Sparkles },
     { name: "About", href: "#about", icon: Users },
     { name: "Experience", href: "#experience", icon: Briefcase },
@@ -34,7 +44,7 @@ const Navbar = () => {
     { name: "Certifications", href: "#certifications", icon: Award },
   ];
 
-  const scrollToSection = (e, href) => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {

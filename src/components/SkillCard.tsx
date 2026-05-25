@@ -1,6 +1,16 @@
-import { motion } from "framer-motion";
+"use client";
 
-const SkillCard = ({ name, icon: Icon, gradient, index }) => {
+import { motion } from "framer-motion";
+import type { IconType } from "react-icons";
+
+interface SkillCardProps {
+  name: string;
+  icon: IconType;
+  gradient: string;
+  index: number;
+}
+
+const SkillCard: React.FC<SkillCardProps> = ({ name, icon: Icon, gradient, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
