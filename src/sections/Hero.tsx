@@ -35,7 +35,7 @@ const item: Variants = {
 const Hero: React.FC = () => (
   <section
     id="home"
-    className="relative flex min-h-screen items-center overflow-hidden bg-primary pb-24 pt-32"
+    className="isolate relative flex min-h-screen items-center overflow-hidden bg-primary pb-24 pt-32"
   >
     <AnimatedBackground />
 
@@ -44,7 +44,7 @@ const Hero: React.FC = () => (
         <motion.div variants={container} initial="hidden" animate="show" className="order-2 lg:order-1">
           <motion.span
             variants={item}
-            className="inline-flex items-center gap-2.5 rounded-full border border-live/25 bg-live/[0.08] px-3.5 py-1.5 text-xs font-semibold text-live"
+            className="inline-flex items-center gap-2.5 rounded-full border border-live/30 bg-live/[0.1] px-3.5 py-1.5 text-xs font-semibold text-live shadow-[0_0_24px_-6px_rgba(52,211,153,0.5)]"
           >
             <span className="relative flex h-1.5 w-1.5" aria-hidden>
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-live opacity-75" />
@@ -57,9 +57,11 @@ const Hero: React.FC = () => (
             variants={item}
             className="mt-7 text-[3.25rem] font-bold leading-[0.95] tracking-[-0.035em] text-text sm:text-7xl lg:text-[5.25rem]"
           >
-            Chaitanya
-            <br />
-            Katare
+            <span className="animate-sheen bg-gradient-to-r from-white via-accent-soft to-iris bg-clip-text text-transparent">
+              Chaitanya
+              <br />
+              Katare
+            </span>
           </motion.h1>
 
           <motion.p variants={item} className="mt-5 flex items-center gap-3">
@@ -122,14 +124,14 @@ const Hero: React.FC = () => (
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="order-1 flex justify-center lg:order-2 lg:justify-end"
         >
-          <figure className="group relative w-full max-w-[23rem]">
+          <figure className="group isolate relative w-full max-w-[23rem]">
             {/* Colour bloom, outside the panel */}
             <div className="pointer-events-none absolute -inset-10 -z-10" aria-hidden>
-              <div className="absolute inset-0 rounded-[4rem] bg-[radial-gradient(ellipse_at_50%_60%,rgba(77,159,255,0.22),transparent_62%)] blur-2xl" />
-              <div className="absolute -right-2 top-6 h-44 w-44 rounded-full bg-iris/20 blur-3xl" />
+              <div className="absolute inset-0 rounded-[4rem] bg-[radial-gradient(ellipse_at_50%_60%,rgba(77,159,255,0.38),transparent_62%)] blur-2xl" />
+              <div className="absolute -right-2 top-6 h-44 w-44 rounded-full bg-iris/35 blur-3xl" />
             </div>
 
-            <div className="edge-gradient relative aspect-[5/6] overflow-hidden rounded-[1.75rem] bg-gradient-to-b from-raised via-secondary to-primary shadow-lift">
+            <div className="conic-ring relative aspect-[5/6] overflow-hidden rounded-[1.75rem] bg-gradient-to-b from-raised via-secondary to-primary shadow-lift">
               {/* Floor light — the portrait stands in it */}
               <div
                 className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_96%,rgba(77,159,255,0.34),transparent_56%)]"
@@ -137,7 +139,7 @@ const Hero: React.FC = () => (
               />
               {/* Halo behind the head */}
               <div
-                className="absolute left-1/2 top-[12%] h-48 w-48 -translate-x-1/2 rounded-full bg-accent/[0.14] blur-3xl"
+                className="absolute left-1/2 top-[12%] h-48 w-48 -translate-x-1/2 rounded-full bg-accent/25 blur-3xl"
                 aria-hidden
               />
               {/* The site's blueprint grid, faded toward the floor */}

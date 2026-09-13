@@ -5,6 +5,7 @@ import { BadgeCheck } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { certifications } from "@/lib/data";
 import { getCertAccent, issuerInitials } from "@/lib/utils";
+import { trackSpotlight } from "@/lib/spotlight";
 
 const Certifications: React.FC = () => {
   const issuers = new Set(certifications.map((c) => c.issuer));
@@ -35,7 +36,8 @@ const Certifications: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: Math.min(index, 5) * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true, margin: "-60px" }}
-                className="surface surface-hover group relative flex h-full flex-col overflow-hidden p-5 pl-6"
+                onMouseMove={trackSpotlight}
+                className="surface surface-hover spotlight group relative flex h-full flex-col overflow-hidden p-5 pl-6"
               >
                 {/* The card's one piece of colour: what this credential covers. */}
                 <span

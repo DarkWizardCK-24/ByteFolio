@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { getSkillColor } from "@/lib/utils";
+import { trackSpotlight } from "@/lib/spotlight";
 import type { SkillItem } from "@/lib/types";
 
 const SkillCard: React.FC<SkillItem & { index: number }> = ({ name, icon: Icon, learning, index }) => (
@@ -10,7 +11,8 @@ const SkillCard: React.FC<SkillItem & { index: number }> = ({ name, icon: Icon, 
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.35, delay: Math.min(index, 7) * 0.04, ease: [0.16, 1, 0.3, 1] }}
     viewport={{ once: true, margin: "-40px" }}
-    className="surface surface-hover group relative flex items-center gap-3 px-4 py-3.5"
+    onMouseMove={trackSpotlight}
+    className="surface surface-hover spotlight group relative flex items-center gap-3 overflow-hidden px-4 py-3.5"
   >
     {/* The icons keep their own brand colours — that is what makes the grid
         scannable. Everything around them stays neutral so they can. */}

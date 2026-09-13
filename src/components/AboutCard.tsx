@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
+import { trackSpotlight } from "@/lib/spotlight";
 
 interface AboutCardProps {
   title: string;
@@ -17,7 +18,8 @@ const AboutCard: React.FC<AboutCardProps> = ({ title, description, icon: Icon, b
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
     viewport={{ once: true, margin: "-60px" }}
-    className="surface surface-hover group flex h-full flex-col p-6"
+    onMouseMove={trackSpotlight}
+    className="surface surface-hover spotlight group relative flex h-full flex-col overflow-hidden p-6"
   >
     <div className="flex items-start justify-between gap-3">
       <span className="grid h-11 w-11 place-items-center rounded-card border border-line bg-primary/50 text-muted transition-colors duration-300 group-hover:text-accent">

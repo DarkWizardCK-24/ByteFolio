@@ -80,7 +80,7 @@ const Stats: React.FC = () => {
               viewport={{ once: true }}
               className="bg-secondary px-5 py-9 sm:py-11"
             >
-              <p className="tnum font-display text-4xl font-semibold leading-none text-text sm:text-5xl">
+              <p className="tnum bg-gradient-to-br from-white via-accent-soft to-accent bg-clip-text font-display text-4xl font-semibold leading-none text-transparent sm:text-5xl">
                 <Counter value={value} decimals={decimals} suffix={suffix} play={inView} />
               </p>
               <p className="mt-4 text-sm font-semibold text-text">{label}</p>

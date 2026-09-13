@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 import { getAccent, VARIANT_SPAN } from "@/lib/utils";
+import { trackSpotlight } from "@/lib/spotlight";
 import type { CardVariant, Project } from "@/lib/types";
 
 interface ProjectCardProps {
@@ -39,6 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
         transition={{ duration: 0.45, delay: Math.min(index, 6) * 0.05, ease: [0.16, 1, 0.3, 1] }}
         viewport={{ once: true, margin: "-60px" }}
         onClick={() => setModalOpen(true)}
+        onMouseMove={trackSpotlight}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
@@ -48,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
         role="button"
         tabIndex={0}
         aria-label={`View details for ${project.title}`}
-        className={`surface surface-hover group relative flex min-h-[16rem] cursor-pointer flex-col overflow-hidden sm:h-full ${
+        className={`surface surface-hover spotlight group relative flex min-h-[16rem] cursor-pointer flex-col overflow-hidden sm:h-full ${
           isBig ? "edge-gradient" : ""
         } ${VARIANT_SPAN[variant]} ${
           isWide ? "sm:flex-row" : ""

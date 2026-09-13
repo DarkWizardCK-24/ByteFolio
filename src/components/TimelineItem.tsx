@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import { formatDuration } from "@/lib/utils";
+import { trackSpotlight } from "@/lib/spotlight";
 import type { TimelineItemData } from "@/lib/types";
 
 interface TimelineItemProps {
@@ -50,7 +51,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, length, icon: 
 
       {/* Card */}
       <div className={`min-w-0 flex-1 ${isLast ? "pb-0" : "pb-7"}`}>
-        <div className="surface surface-hover p-5 sm:p-6">
+        <div
+          onMouseMove={trackSpotlight}
+          className="surface surface-hover spotlight relative overflow-hidden p-5 sm:p-6"
+        >
           <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
             <div className="min-w-0">
               <h3 className="text-lg font-semibold leading-snug text-text">{heading}</h3>
