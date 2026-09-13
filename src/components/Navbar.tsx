@@ -11,7 +11,6 @@ import {
   Zap,
   Code2,
   Award,
-  Crown,
   type LucideIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -39,7 +38,6 @@ const Navbar: React.FC = () => {
     { name: "Experience", href: "#experience", icon: Briefcase },
     { name: "Education", href: "#education", icon: BookOpen },
     { name: "Skills", href: "#skills", icon: Zap },
-    { name: "DevFolio", href: "#devfolio", icon: Crown, highlight: true },
     { name: "Projects", href: "#projects", icon: Code2 },
     { name: "Certifications", href: "#certifications", icon: Award },
   ];

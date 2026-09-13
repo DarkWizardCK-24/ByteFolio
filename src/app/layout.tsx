@@ -12,13 +12,13 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "DevFolio | Chaitanya Katare",
   description:
-    "Portfolio of Chaitanya Katare — Flutter Enthusiast, Full-Stack Developer, Web Developer & Database Expert. Explore the DevFolio ecosystem.",
+    "Portfolio of Chaitanya Katare — Flutter Enthusiast, Full-Stack Developer, Web Developer & Database Expert.",
   keywords: ["Flutter", "React", "Next.js", "Full Stack Developer", "Chaitanya Katare", "DevFolio"],
   authors: [{ name: "Chaitanya Katare", url: "https://github.com/DarkWizardCK-24" }],
   openGraph: {
     title: "DevFolio | Chaitanya Katare",
     description:
-      "Flutter Enthusiast · Full-Stack Developer · Web Developer · Database Expert. One parent platform, three connected apps — a complete developer toolchain.",
+      "Flutter Enthusiast · Full-Stack Developer · Web Developer · Database Expert.",
     url: "https://dev-folio-ten-rho.vercel.app/",
     siteName: "DevFolio",
     type: "website",

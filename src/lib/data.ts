@@ -8,12 +8,10 @@ import {
 } from "react-icons/si";
 import { FaDartLang } from "react-icons/fa6";
 import { BiLogoPostgresql } from "react-icons/bi";
-import {
-  Globe, Activity, Share2, Smartphone, Code2, Cpu, Layers, Wrench,
-} from "lucide-react";
+import { Code2, Cpu, Layers, Wrench } from "lucide-react";
 
 import type {
-  Project, TimelineItemData, Certification, SkillCategory, EcoApp,
+  Project, TimelineItemData, Certification, SkillCategory,
 } from "./types";
 
 // ── Web Projects ──────────────────────────────────────────────────────────────
@@ -27,24 +25,6 @@ export const webProjects: Project[] = [
     skills: ["Next.js", "Typescript", "Tailwind CSS", "Firebase", "Vercel"],
     github: "https://github.com/DarkWizardCK-24/Kanban-Finance-Web",
     live: "https://kanban-finance-web.vercel.app/",
-  },
-  {
-    title: "Dev Pulse",
-    description:
-      "DevPulse — a polished, dark-themed GitHub repository analyzer and API playground built on Next.js 16, React 19, Tailwind v4, and FastAPI. Inspect any public repository's stats, languages, and complete file tree, then prototype any HTTP request through a CORS-bypassing server-side proxy.",
-    image: "/projects/web/web9.png",
-    skills: ["Next.js", "Typescript", "Tailwind CSS", "Fast API", "Python", "Vercel"],
-    github: "https://github.com/DarkWizardCK-24/DevPulse",
-    live: "https://dev-pulse-black.vercel.app/",
-  },
-  {
-    title: "Code Share",
-    description:
-      "A feature-rich code collaboration platform built with Next.js and Firebase. Seamlessly share snippets, perform side-by-side code comparisons, edit on the fly, and download or share your updates. Features secure authentication and robust cloud storage.",
-    image: "/projects/web/web8.png",
-    skills: ["Next.js", "Javascript", "Tailwind CSS", "Firebase", "Vercel"],
-    github: "https://github.com/DarkWizardCK-24/Code-Share",
-    live: "https://code-share-lovat.vercel.app/",
   },
   {
     title: "ByteFolio",
@@ -201,22 +181,6 @@ export const flutterProjects: Project[] = [
     skills: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/DarkWizardCK-24/Kanban-Finance-System",
   },
-  {
-    title: "Learning Tracker",
-    description:
-      "Flutter learning tracker & GitHub activity visualizer with Supabase backend. Track daily goals, streaks, notes, and files with a calendar + heatmap UI. Sync GitHub commits and view progress analytics.",
-    image: "/projects/flutter/flutter12.png",
-    skills: ["Flutter", "Dart", "SQL", "Supabase"],
-    github: "https://github.com/DarkWizardCK-24/Learning-Tracker",
-  },
-  {
-    title: "Github Visualizer",
-    description:
-      "Flutter app to visualize GitHub profiles, repos, contributions & activity with a modern glassmorphism UI. Features analytics, heatmaps, timelines, language insights, and responsive design.",
-    image: "/projects/flutter/flutter13.png",
-    skills: ["Flutter", "Dart", "SQL", "Supabase"],
-    github: "https://github.com/DarkWizardCK-24/Github-Visualizer",
-  },
 ];
 
 // ── Experience ────────────────────────────────────────────────────────────────
@@ -364,65 +328,4 @@ export const skillCategories: SkillCategory[] = [
       { name: "Database", icon: FaDatabase, gradient: "from-purple-500/20 to-pink-500/20" },
     ],
   },
-];
-
-// ── DevFolio Ecosystem ────────────────────────────────────────────────────────
-
-export const PARENT: EcoApp = {
-  title: "DevFolio",
-  tagline: "Ecosystem Parent Hub",
-  description:
-    "The flagship developer portfolio platform and the central nucleus of the DevFolio ecosystem. Built with Next.js, Framer Motion, and modern React — DevFolio serves as the definitive identity layer connecting APK Hub, Dev Pulse, and Code Share under one developer brand.",
-  icon: Globe,
-  color: "violet",
-  skills: ["Next.js", "React 19", "Framer Motion", "Tailwind CSS", "TypeScript"],
-  github: "https://github.com/DarkWizardCK-24/DevFolio",
-  live: "https://dev-folio-ten-rho.vercel.app/",
-  image: "/projects/web/web6.png",
-};
-
-export const ECO_APPS: EcoApp[] = [
-  {
-    title: "APK Hub",
-    tagline: "Android App Distribution",
-    description:
-      "Centralized platform for discovering, downloading, and managing Android APK files with organized catalogs, version tracking, and secure distribution channels for every build.",
-    icon: Smartphone,
-    color: "emerald",
-    skills: ["React", "Node.js", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/Apk-Hub",
-    live: null,
-    image: "/projects/web/web1.png",
-  },
-  {
-    title: "Dev Pulse",
-    tagline: "GitHub Analyzer & API Playground",
-    description:
-      "Dark-themed GitHub repository analyzer on Next.js 16 & React 19. Inspect any public repo's stats, languages, and full file tree — then prototype HTTP requests via a server-side CORS-bypassing proxy.",
-    icon: Activity,
-    color: "blue",
-    skills: ["Next.js 16", "React 19", "Tailwind v4", "FastAPI", "Python"],
-    github: "https://github.com/DarkWizardCK-24/DevPulse",
-    live: "https://dev-pulse-black.vercel.app/",
-    image: "/projects/web/web9.png",
-  },
-  {
-    title: "Code Share",
-    tagline: "Code Collaboration Platform",
-    description:
-      "Share snippets, run side-by-side comparisons, enable real-time collaborative editing, and persist everything in the cloud — all secured by Firebase auth.",
-    icon: Share2,
-    color: "cyan",
-    skills: ["Next.js", "Firebase", "JavaScript"],
-    github: "https://github.com/DarkWizardCK-24/Code-Share",
-    live: "https://code-share-lovat.vercel.app/",
-    image: "/projects/web/web8.png",
-  },
-];
-
-export const ECO_STATS = [
-  { value: "4", label: "Ecosystem Apps" },
-  { value: "1", label: "Parent Hub" },
-  { value: "3", label: "Connected Apps" },
-  { value: "3", label: "Live Deployments" },
 ];

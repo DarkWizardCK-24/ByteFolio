@@ -45,16 +45,18 @@ export interface SkillCategory {
   skills: SkillItem[];
 }
 
-export type EcoColor = "violet" | "emerald" | "blue" | "cyan";
+export type CardVariant = "big" | "wide" | "small";
 
-export interface EcoApp {
-  title: string;
-  tagline: string;
-  description: string;
-  icon: LucideIcon;
-  color: EcoColor;
-  skills: string[];
-  github: string;
-  live: string | null;
-  image: string;
+export interface Accent {
+  key: string;
+  emoji: string;
+  text: string;
+  hoverText: string;
+  border: string;
+  tint: string;
+  ring: string;
+  glow: string;
+  gradient: string;
+  softGradient: string;
+  dot: string;
 }
