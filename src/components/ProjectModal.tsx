@@ -171,7 +171,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 rounded-card bg-accent px-4 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-accent-soft"
+                  className="btn btn-primary btn-sm flex-1"
                 >
                   <ExternalLink size={16} /> Open live site
                 </a>
@@ -181,7 +181,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 rounded-card border border-line bg-raised/50 px-4 py-2.5 text-sm font-semibold text-text transition-colors hover:border-accent/50"
+                  className="btn btn-ghost btn-sm flex-1"
                 >
                   <Github size={16} /> View source
                 </a>

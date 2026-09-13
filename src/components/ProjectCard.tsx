@@ -48,7 +48,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
         role="button"
         tabIndex={0}
         aria-label={`View details for ${project.title}`}
-        className={`surface surface-hover group relative flex min-h-[16rem] cursor-pointer flex-col overflow-hidden sm:h-full ${VARIANT_SPAN[variant]} ${
+        className={`surface surface-hover group relative flex min-h-[16rem] cursor-pointer flex-col overflow-hidden sm:h-full ${
+          isBig ? "edge-gradient" : ""
+        } ${VARIANT_SPAN[variant]} ${
           isWide ? "sm:flex-row" : ""
         }`}
       >

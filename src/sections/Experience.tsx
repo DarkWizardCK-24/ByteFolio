@@ -14,7 +14,7 @@ const Experience: React.FC = () => {
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Experience"
-          lede="From front-end internships to shipping medical apps on Android and iOS — building products in industry and in student tech."
+          lede="From front-end internships and student tech to shipping medical apps on Android and iOS — and now running projects end to end, mobile through backend."
           meta={[
             { value: experiences.length, label: "Roles" },
             { value: `${years}y`, label: "Total" },

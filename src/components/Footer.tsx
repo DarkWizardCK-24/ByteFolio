@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { FaInstagram } from "react-icons/fa";
 import { SiLinktree } from "react-icons/si";
 import { TbBrandFiverr } from "react-icons/tb";
+import CallSign from "./CallSign";
 
 const socials = [
   { href: "https://github.com/DarkWizardCK-24", label: "GitHub", Icon: Github },
@@ -35,7 +36,7 @@ const Footer: React.FC = () => (
         <div className="flex flex-col items-start gap-3">
           <a
             href="mailto:chaitanya.katare@aaibuzz.com"
-            className="flex items-center gap-2.5 rounded-card bg-accent px-6 py-3.5 font-semibold text-primary shadow-glow transition-colors duration-300 hover:bg-accent-soft"
+            className="btn btn-primary"
           >
             <Mail size={17} />
             chaitanya.katare@aaibuzz.com
@@ -47,10 +48,20 @@ const Footer: React.FC = () => (
         </div>
       </div>
 
-      <div className="flex flex-col-reverse gap-6 pt-8 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs text-faint">
-          © {new Date().getFullYear()} Chaitanya Katare. Built with Next.js and Tailwind CSS.
-        </p>
+      <div className="flex flex-col-reverse gap-8 pt-8 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          {/* Mark and call sign, locked up the same way as in the masthead. */}
+          <div className="flex items-center gap-3">
+            <span className="font-display text-xl font-bold tracking-tight text-text">
+              &lt;CK<span className="text-accent">/</span>&gt;
+            </span>
+            <span className="h-4 w-px bg-line" aria-hidden />
+            <CallSign className="text-base" />
+          </div>
+          <p className="mt-3 text-xs text-faint">
+            © {new Date().getFullYear()} Chaitanya Katare. Built with Next.js and Tailwind CSS.
+          </p>
+        </div>
 
         <div className="flex gap-1">
           {socials.map(({ href, label, Icon }) => (

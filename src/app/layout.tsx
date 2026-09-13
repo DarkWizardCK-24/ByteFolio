@@ -20,13 +20,22 @@ const body = Inter({
 export const metadata: Metadata = {
   title: "ByteFolio | Chaitanya Katare",
   description:
-    "Portfolio of Chaitanya Katare — Flutter Enthusiast, Full-Stack Developer, Web Developer & Database Expert.",
-  keywords: ["Flutter", "React", "Next.js", "Full Stack Developer", "Chaitanya Katare", "ByteFolio"],
-  authors: [{ name: "Chaitanya Katare", url: "https://github.com/DarkWizardCK-24" }],
+    "Portfolio of Chaitanya Katare, known in development as DarkWizãrd — full-stack developer working across Flutter, Next.js, FastAPI and the services behind them.",
+  keywords: [
+    "DarkWizãrd",
+    "DarkWizard",
+    "Chaitanya Katare",
+    "Flutter",
+    "Next.js",
+    "FastAPI",
+    "Full Stack Developer",
+    "ByteFolio",
+  ],
+  authors: [{ name: "Chaitanya Katare (DarkWizãrd)", url: "https://github.com/DarkWizardCK-24" }],
   openGraph: {
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "Flutter and full-stack developer building cross-platform apps and the services behind them.",
+      "DarkWizãrd — Flutter and full-stack developer building cross-platform apps and the services behind them.",
     url: "https://dev-folio-ten-rho.vercel.app/",
     siteName: "ByteFolio",
     type: "website",
@@ -35,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "Flutter and full-stack developer building cross-platform apps and the services behind them.",
+      "DarkWizãrd — Flutter and full-stack developer building cross-platform apps and the services behind them.",
   },
   robots: { index: true, follow: true },
 };

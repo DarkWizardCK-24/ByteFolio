@@ -27,7 +27,7 @@ const Skills: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true, margin: "-60px" }}
-          className="mb-16 overflow-hidden rounded-panel border border-line bg-raised"
+          className="edge-gradient relative mb-16 overflow-hidden rounded-panel border border-line bg-raised shadow-edge"
         >
           <div className="flex items-center gap-2.5 border-b border-line bg-primary/40 px-6 py-4">
             <span className="h-1.5 w-1.5 rounded-full bg-learn" aria-hidden />

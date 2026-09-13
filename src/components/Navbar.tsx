@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import CallSign from "./CallSign";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -68,9 +69,13 @@ const Navbar: React.FC = () => {
           <a
             href="#home"
             aria-label="Back to top"
-            className="font-display text-xl font-bold tracking-tight text-text transition-colors hover:text-accent"
+            className="group flex items-center gap-2.5"
           >
-            &lt;CK<span className="text-accent">/</span>&gt;
+            <span className="font-display text-xl font-bold tracking-tight text-text transition-colors group-hover:text-accent">
+              &lt;CK<span className="text-accent">/</span>&gt;
+            </span>
+            <span className="hidden h-4 w-px bg-line lg:block" aria-hidden />
+            <CallSign className="hidden text-sm lg:block" />
           </a>
 
           {/* Desktop */}
@@ -99,7 +104,7 @@ const Navbar: React.FC = () => {
             })}
             <a
               href="mailto:chaitanya.katare@aaibuzz.com"
-              className="ml-3 hidden rounded-lg border border-line bg-raised/50 px-4 py-2 text-sm font-semibold text-text transition-colors hover:border-accent/50 lg:inline-flex"
+              className="btn btn-ghost btn-sm ml-3 hidden lg:inline-flex"
             >
               Get in touch
             </a>
@@ -163,7 +168,7 @@ const Navbar: React.FC = () => {
                 <a
                   href="mailto:chaitanya.katare@aaibuzz.com"
                   onClick={() => setIsOpen(false)}
-                  className="mt-2 rounded-card bg-accent px-4 py-3 text-center text-sm font-semibold text-primary"
+                  className="btn btn-primary btn-sm mt-2 w-full"
                 >
                   Get in touch
                 </a>

@@ -11,7 +11,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="mt-8 inline-flex rounded-card bg-accent px-6 py-3 font-semibold text-primary transition-colors duration-300 hover:bg-accent-soft"
+          className="btn btn-primary mt-8"
         >
           Back to portfolio
         </Link>

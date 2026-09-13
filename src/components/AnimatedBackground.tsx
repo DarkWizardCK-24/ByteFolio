@@ -6,7 +6,7 @@
 const AnimatedBackground: React.FC = () => (
   <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden>
     <div className="absolute -top-40 left-1/2 h-[46rem] w-[62rem] -translate-x-1/2 rounded-full bg-accent/[0.09] blur-[140px] animate-drift" />
-    <div className="absolute -left-32 bottom-0 h-[26rem] w-[26rem] rounded-full bg-violet-500/[0.07] blur-[130px]" />
+    <div className="absolute -left-32 bottom-0 h-[26rem] w-[26rem] rounded-full bg-iris/[0.09] blur-[130px]" />
     <div
       className="absolute inset-0"
       style={{

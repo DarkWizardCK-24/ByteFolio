@@ -187,6 +187,13 @@ export const flutterProjects: Project[] = [
 
 export const experiences: TimelineItemData[] = [
   {
+    title: "Software Developer - AaiBuzz (AaiNova), Navi Mumbai",
+    period: "Jan 2026 - Present",
+    description:
+      "Started on the mobile side, building cross-platform apps in Flutter, and grew into full-stack work across the product. Now I run several projects end to end — the mobile apps, the web apps, the backend services behind them, and the admin panels the team works in day to day.",
+    details: ["Next.js", "Flutter", "Python FastAPI", "Firebase", "MySQL"],
+  },
+  {
     title: "Flutter Developer - Prosoft Informatics Pvt Ltd, Navi Mumbai",
     period: "May 2025 - Nov 2025",
     description:

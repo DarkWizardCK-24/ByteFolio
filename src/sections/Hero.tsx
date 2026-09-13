@@ -5,6 +5,7 @@ import { Download, Github, Linkedin } from "lucide-react";
 import { TbBrandFiverr } from "react-icons/tb";
 import { SiLinktree } from "react-icons/si";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import CallSign from "@/components/CallSign";
 
 const socials = [
   { href: "https://github.com/DarkWizardCK-24", label: "GitHub", Icon: Github },
@@ -61,9 +62,10 @@ const Hero: React.FC = () => (
             Katare
           </motion.h1>
 
-          <motion.p variants={item} className="mt-5 flex items-center gap-3 text-sm text-faint">
-            <span className="h-px w-8 bg-line" aria-hidden />
-            goes by DarkWizãrd
+          <motion.p variants={item} className="mt-5 flex items-center gap-3">
+            <span className="h-px w-9 bg-gradient-to-r from-accent/70 to-accent/10" aria-hidden />
+            <span className="text-sm text-faint">known in dev as</span>
+            <CallSign className="text-lg" />
           </motion.p>
 
           <motion.p variants={item} className="mt-6 max-w-md text-lg leading-relaxed text-muted">
@@ -73,7 +75,7 @@ const Hero: React.FC = () => (
 
           <motion.dl
             variants={item}
-            className="mt-9 grid max-w-xl grid-cols-1 gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-3"
+            className="mt-9 grid max-w-xl grid-cols-1 gap-px overflow-hidden rounded-card border border-line bg-line shadow-edge sm:grid-cols-3"
           >
             {specs.map(({ label, value }) => (
               <div key={label} className="bg-raised px-4 py-3.5">
@@ -84,17 +86,10 @@ const Hero: React.FC = () => (
           </motion.dl>
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
-            <a
-              href="#projects"
-              className="rounded-card bg-accent px-6 py-3.5 font-semibold text-primary shadow-glow transition-colors duration-300 hover:bg-accent-soft"
-            >
+            <a href="#projects" className="btn btn-primary">
               See my work
             </a>
-            <a
-              href="/resume(Chaitanya-Katare).pdf"
-              download
-              className="flex items-center gap-2 rounded-card border border-line bg-raised/50 px-6 py-3.5 font-semibold text-text transition-colors duration-300 hover:border-accent/50"
-            >
+            <a href="/resume(Chaitanya-Katare).pdf" download className="btn btn-ghost">
               <Download size={17} />
               Résumé
             </a>
@@ -107,7 +102,7 @@ const Hero: React.FC = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="grid h-11 w-11 place-items-center rounded-card text-faint transition-colors duration-200 hover:bg-raised/60 hover:text-text"
+                  className="grid h-11 w-11 place-items-center rounded-card text-faint transition-colors duration-200 hover:bg-raised hover:text-text"
                 >
                   <Icon size={19} />
                 </a>
@@ -116,27 +111,74 @@ const Hero: React.FC = () => (
           </motion.div>
         </motion.div>
 
-        {/* Portrait — framed square rather than a circle in a gradient ring, so
-            it reads as a photograph on the page instead of an avatar chip. */}
+        {/* Portrait. The source is a cut-out on a transparent background, so it
+            gets a lit stage to stand on rather than a photo box to sit in:
+            floor light under the shoulders, a halo behind the head, and a fade
+            at the bottom that dissolves the cut-out edge into the panel floor.
+            Rendered at its natural 280px — it is never upscaled. */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="order-1 flex justify-center lg:order-2 lg:justify-end"
         >
-          <figure className="relative w-full max-w-[22rem]">
-            <div className="overflow-hidden rounded-panel border border-line bg-secondary p-2 shadow-lift">
+          <figure className="group relative w-full max-w-[23rem]">
+            {/* Colour bloom, outside the panel */}
+            <div className="pointer-events-none absolute -inset-10 -z-10" aria-hidden>
+              <div className="absolute inset-0 rounded-[4rem] bg-[radial-gradient(ellipse_at_50%_60%,rgba(77,159,255,0.22),transparent_62%)] blur-2xl" />
+              <div className="absolute -right-2 top-6 h-44 w-44 rounded-full bg-iris/20 blur-3xl" />
+            </div>
+
+            <div className="edge-gradient relative aspect-[5/6] overflow-hidden rounded-[1.75rem] bg-gradient-to-b from-raised via-secondary to-primary shadow-lift">
+              {/* Floor light — the portrait stands in it */}
+              <div
+                className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_96%,rgba(77,159,255,0.34),transparent_56%)]"
+                aria-hidden
+              />
+              {/* Halo behind the head */}
+              <div
+                className="absolute left-1/2 top-[12%] h-48 w-48 -translate-x-1/2 rounded-full bg-accent/[0.14] blur-3xl"
+                aria-hidden
+              />
+              {/* The site's blueprint grid, faded toward the floor */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(152,166,190,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(152,166,190,0.07) 1px, transparent 1px)",
+                  backgroundSize: "36px 36px",
+                  maskImage: "linear-gradient(#000 10%, transparent 78%)",
+                  WebkitMaskImage: "linear-gradient(#000 10%, transparent 78%)",
+                }}
+                aria-hidden
+              />
+
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/dev.png"
                 alt="Chaitanya Katare"
-                className="aspect-square w-full rounded-[0.875rem] object-cover"
+                width={280}
+                height={314}
+                className="absolute bottom-0 left-1/2 w-[17.5rem] max-w-[94%] -translate-x-1/2 transition-transform duration-500 ease-out group-hover:-translate-y-1.5"
               />
+
+              {/* Dissolves the cut-out's bottom edge into the panel floor... */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-primary via-primary/70 to-transparent"
+                aria-hidden
+              />
+              {/* ...then the floor light is laid back over it, so the figure
+                  reads as standing in the light rather than fading out. */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-32 bg-[radial-gradient(ellipse_at_50%_100%,rgba(77,159,255,0.32),transparent_58%)] mix-blend-screen"
+                aria-hidden
+              />
+
+              <figcaption className="absolute inset-x-4 bottom-4 flex items-center gap-2.5 rounded-card border border-line bg-secondary/80 px-4 py-3 text-sm font-semibold text-text shadow-card backdrop-blur-md">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
+                Flutter &amp; full-stack developer
+              </figcaption>
             </div>
-            <figcaption className="absolute -bottom-4 left-5 right-5 flex items-center justify-center gap-2 rounded-card border border-line bg-raised px-4 py-2.5 text-xs font-semibold text-text shadow-card">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-              Flutter &amp; full-stack developer
-            </figcaption>
           </figure>
         </motion.div>
       </div>
