@@ -1,29 +1,48 @@
 "use client";
 
-import { BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
+import { GraduationCap } from "lucide-react";
 import TimelineItem from "@/components/TimelineItem";
 import { education } from "@/lib/data";
 
 const Education: React.FC = () => (
-  <section id="education" className="py-32 relative bg-secondary">
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="education" className="relative overflow-hidden bg-secondary py-28 sm:py-32">
+    <div
+      className="pointer-events-none absolute -right-32 top-32 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl"
+      aria-hidden
+    />
+
+    <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center mb-16"
+        className="mb-12 flex flex-wrap items-end justify-between gap-5"
       >
-        <h2 className="text-5xl font-bold text-text mb-4 flex items-center justify-center gap-4">
-          <BookOpen className="text-accent" size={40} />
-          Education
-        </h2>
-        <p className="text-gray-400 text-lg">My academic background</p>
+        <div className="max-w-xl">
+          <h2 className="text-4xl font-extrabold leading-tight text-text sm:text-5xl">
+            Education 🎓
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-gray-400 sm:text-lg">
+            Where the fundamentals came from — an Electronics &amp; Computer Science degree, and the
+            years of maths and science that led into it.
+          </p>
+        </div>
+        <span className="rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-gray-300">
+          {education.length} milestones
+        </span>
       </motion.div>
-      <div className="space-y-4">
+
+      <div>
         {education.map((edu, index) => (
-          <TimelineItem key={index} item={edu} index={index} length={education.length} />
+          <TimelineItem
+            key={`${edu.title}-${edu.period}`}
+            item={edu}
+            index={index}
+            length={education.length}
+            icon={GraduationCap}
+          />
         ))}
       </div>
     </div>

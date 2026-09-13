@@ -28,7 +28,8 @@ const Certifications: React.FC = () => {
               Certifications 🏅
             </h2>
             <p className="mt-4 text-base leading-relaxed text-gray-400 sm:text-lg">
-              Courses I finished and the skills each one signed off on.
+              {certifications.length} courses completed and signed off — colour-coded by what each
+              one certifies, from Flutter and JavaScript through to databases.
             </p>
           </div>
           <div className="flex gap-2.5">

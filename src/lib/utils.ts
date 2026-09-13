@@ -314,3 +314,34 @@ const SKILL_COLORS: Record<string, string> = {
 export function getSkillColor(name: string): string {
   return SKILL_COLORS[name] ?? "text-accent";
 }
+
+/** Months spanned by a single "Mon YYYY - Mon YYYY" period. */
+export function periodMonths(period?: string): number | null {
+  const [rawStart, rawEnd] = (period ?? "").split(/\s*[-–]\s*/);
+  if (!rawStart || !rawEnd) return null;
+  const now = new Date().getFullYear() * 12 + new Date().getMonth();
+  const start = parseMonth(rawStart, now);
+  const end = parseMonth(rawEnd, now);
+  if (start === null || end === null || end <= start) return null;
+  return end - start;
+}
+
+/** 20 -> "1 yr 8 mos", 6 -> "6 mos". Null when the period cannot be read. */
+export function formatDuration(period?: string): string | null {
+  const months = periodMonths(period);
+  if (months === null) return null;
+  const years = Math.floor(months / 12);
+  const rest = months % 12;
+  const parts: string[] = [];
+  if (years) parts.push(`${years} yr${years > 1 ? "s" : ""}`);
+  if (rest) parts.push(`${rest} mo${rest > 1 ? "s" : ""}`);
+  return parts.join(" ") || "1 mo";
+}
+
+/** Rotating accent set so consecutive timeline entries stay distinguishable. */
+export const TIMELINE_ACCENTS = [
+  { gradient: "from-sky-400 to-cyan-300", text: "text-sky-300", border: "border-sky-400/50", tint: "bg-sky-400/10", ring: "hover:border-sky-400/60" },
+  { gradient: "from-violet-400 to-fuchsia-400", text: "text-violet-300", border: "border-violet-400/50", tint: "bg-violet-400/10", ring: "hover:border-violet-400/60" },
+  { gradient: "from-amber-400 to-orange-400", text: "text-amber-300", border: "border-amber-400/50", tint: "bg-amber-400/10", ring: "hover:border-amber-400/60" },
+  { gradient: "from-emerald-400 to-teal-300", text: "text-emerald-300", border: "border-emerald-400/50", tint: "bg-emerald-400/10", ring: "hover:border-emerald-400/60" },
+];
