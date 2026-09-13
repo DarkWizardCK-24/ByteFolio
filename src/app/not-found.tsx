@@ -2,18 +2,18 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-primary flex items-center justify-center px-4">
-      <div className="text-center space-y-6">
-        <h1 className="text-8xl font-extrabold bg-gradient-to-r from-accent via-blue-500 to-purple-500 bg-clip-text text-transparent">
-          404
-        </h1>
-        <p className="text-2xl font-bold text-text">Page not found</p>
-        <p className="text-gray-400">The page you&apos;re looking for doesn&apos;t exist.</p>
+    <div className="flex min-h-screen items-center justify-center bg-primary px-4">
+      <div className="max-w-md">
+        <p className="tnum font-display text-7xl font-bold tracking-tight text-text">404</p>
+        <h1 className="mt-5 text-2xl font-semibold text-text">This page doesn&apos;t exist</h1>
+        <p className="mt-3 leading-relaxed text-muted">
+          The link may be out of date, or the page has moved. Head back to the portfolio.
+        </p>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-blue-600 text-white rounded-xl font-bold hover:shadow-xl hover:shadow-accent/40 hover:scale-105 transition-all duration-300"
+          className="mt-8 inline-flex rounded-card bg-accent px-6 py-3 font-semibold text-primary transition-colors duration-300 hover:bg-accent-soft"
         >
-          Back to Portfolio
+          Back to portfolio
         </Link>
       </div>
     </div>

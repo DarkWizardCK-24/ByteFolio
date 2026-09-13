@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, X, ChevronLeft, ChevronRight, Layers, Radio, ImageIcon } from "lucide-react";
-import { getAccent, getBadges } from "@/lib/utils";
+import { Github, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { getAccent } from "@/lib/utils";
 import type { Project } from "@/lib/types";
 
 interface ProjectModalProps {
@@ -16,7 +16,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   const closeRef = useRef<HTMLButtonElement>(null);
 
   const images = (Array.isArray(project.images) ? project.images : [project.image ?? ""]).filter(Boolean);
-  const badges = getBadges(project);
   const accent = getAccent(project);
   const hasLive = Boolean(project.live && project.live !== "#");
 
@@ -41,10 +40,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
     };
   }, []);
 
-  const stats = [
-    { icon: Layers, label: `${project.skills.length} technologies` },
-    { icon: ImageIcon, label: `${images.length} ${images.length === 1 ? "screenshot" : "screenshots"}` },
-    { icon: Radio, label: hasLive ? "Live in production" : "Source only" },
+  const facts = [
+    { label: "Stack", value: accent.label },
+    { label: "Screens", value: String(images.length) },
+    { label: "Status", value: hasLive ? "Live" : "Source only" },
   ];
 
   return (
@@ -59,54 +58,47 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
         role="dialog"
         aria-modal="true"
         aria-label={`${project.title} details`}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-primary/80 p-4 backdrop-blur-md"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-primary/85 p-4 backdrop-blur-md"
       >
         <motion.div
           key="modal"
-          initial={{ opacity: 0, scale: 0.94, y: 28 }}
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.94, y: 28 }}
-          transition={{ type: "spring", stiffness: 260, damping: 26 }}
+          exit={{ opacity: 0, scale: 0.96, y: 20 }}
+          transition={{ type: "spring", stiffness: 280, damping: 28 }}
           onClick={(e) => e.stopPropagation()}
-          className={`relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl border ${accent.border} bg-secondary/70 shadow-2xl shadow-black/60 backdrop-blur-2xl lg:flex-row`}
+          className="relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-panel border border-line bg-secondary shadow-lift lg:flex-row"
         >
-          {/* Accent wash */}
-          <div
-            className={`pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gradient-to-br ${accent.gradient} opacity-20 blur-3xl`}
-            aria-hidden
-          />
-
           <button
             ref={closeRef}
             onClick={onClose}
             aria-label="Close details"
-            className="absolute right-4 top-4 z-30 rounded-full border border-white/20 bg-black/50 p-2 text-gray-300 backdrop-blur-md transition-colors hover:border-white/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            className="absolute right-4 top-4 z-30 rounded-md border border-line bg-primary/70 p-2 text-muted backdrop-blur-md transition-colors hover:text-text"
           >
-            <X size={18} />
+            <X size={17} />
           </button>
 
           {/* Gallery */}
-          <div className="relative shrink-0 bg-primary/60 lg:w-[52%]">
+          <div className="relative shrink-0 bg-primary lg:w-[52%]">
             <div className="relative h-56 overflow-hidden sm:h-72 lg:h-full lg:min-h-[26rem]">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={current}
                   src={images[current]}
                   alt={`${project.title} screenshot ${current + 1} of ${images.length}`}
-                  initial={{ opacity: 0, scale: 1.04 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  transition={{ duration: 0.28, ease: "easeOut" }}
                   className="absolute inset-0 h-full w-full object-cover object-top"
                 />
               </AnimatePresence>
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/90 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-secondary/70" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-secondary/60" />
 
               <span
-                className={`absolute left-4 top-4 flex items-center gap-2 rounded-full border ${accent.border} ${accent.tint} px-3 py-1 text-xs font-semibold ${accent.text} backdrop-blur-md`}
+                className={`absolute left-4 top-4 rounded-md border ${accent.border} ${accent.tint} px-2.5 py-1 text-[11px] font-semibold ${accent.text} backdrop-blur-sm`}
               >
-                <span aria-hidden>{accent.emoji}</span>
-                {badges[0]?.label}
+                {accent.label}
               </span>
 
               {images.length > 1 && (
@@ -114,16 +106,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                   <button
                     onClick={prev}
                     aria-label="Previous screenshot"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/55 p-2 text-gray-200 backdrop-blur-md transition-colors hover:text-white"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 rounded-md border border-line bg-primary/70 p-2 text-text backdrop-blur-md transition-colors hover:border-accent/50"
                   >
-                    <ChevronLeft size={18} />
+                    <ChevronLeft size={17} />
                   </button>
                   <button
                     onClick={next}
                     aria-label="Next screenshot"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/55 p-2 text-gray-200 backdrop-blur-md transition-colors hover:text-white"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md border border-line bg-primary/70 p-2 text-text backdrop-blur-md transition-colors hover:border-accent/50"
                   >
-                    <ChevronRight size={18} />
+                    <ChevronRight size={17} />
                   </button>
                   <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1.5">
                     {images.map((_, i) => (
@@ -132,7 +124,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                         onClick={() => setCurrent(i)}
                         aria-label={`Go to screenshot ${i + 1}`}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
-                          i === current ? `w-6 ${accent.dot}` : "w-1.5 bg-white/40 hover:bg-white/70"
+                          i === current ? "w-6 bg-accent" : "w-1.5 bg-line hover:bg-muted"
                         }`}
                       />
                     ))}
@@ -143,56 +135,55 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           </div>
 
           {/* Details */}
-          <div className="modal-scroll flex-1 overflow-y-auto p-6 sm:p-7">
-            <h2 className="pr-12 text-2xl font-extrabold leading-tight text-text sm:text-3xl">{project.title}</h2>
+          <div className="modal-scroll flex-1 overflow-y-auto p-6 sm:p-8">
+            <h2 className="pr-12 text-2xl font-semibold leading-tight text-text sm:text-3xl">
+              {project.title}
+            </h2>
 
-            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
-              {stats.map(({ icon: Icon, label }) => (
-                <span key={label} className="flex items-center gap-1.5 text-xs text-gray-400">
-                  <Icon size={13} className={accent.text} />
-                  {label}
-                </span>
+            <dl className="mt-5 flex gap-8 border-y border-line py-4">
+              {facts.map(({ label, value }) => (
+                <div key={label}>
+                  <dt className="text-[11px] text-faint">{label}</dt>
+                  <dd className="mt-1 text-sm font-semibold text-text">{value}</dd>
+                </div>
               ))}
-            </div>
+            </dl>
 
-            <p className="mt-5 text-sm leading-relaxed text-gray-300 sm:text-[15px]">{project.description}</p>
+            <p className="mt-5 text-sm leading-relaxed text-muted sm:text-[15px]">{project.description}</p>
 
-            <div className="mt-6">
-              <h3 className="mb-3 text-sm font-semibold text-text">Built with</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.skills.map((skill, i) => (
-                  <motion.span
+            <div className="mt-7">
+              <h3 className="text-sm font-semibold text-text">Built with</h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {project.skills.map((skill) => (
+                  <span
                     key={skill}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.12 + i * 0.04, duration: 0.25 }}
-                    className={`rounded-full border ${accent.border} ${accent.tint} px-3 py-1 text-xs font-semibold ${accent.text}`}
+                    className="rounded-md border border-line bg-raised/60 px-2.5 py-1 text-xs font-medium text-muted"
                   >
                     {skill}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
             </div>
 
-            <div className="mt-7 flex flex-col gap-2.5 sm:flex-row">
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-gray-200 transition-colors hover:border-white/40 hover:text-white"
-                >
-                  <Github size={17} /> View source
-                </a>
-              )}
+            <div className="mt-8 flex flex-col gap-2.5 sm:flex-row">
               {hasLive && (
                 <a
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r ${accent.gradient} px-4 py-2.5 text-sm font-bold text-primary transition-transform hover:scale-[1.02]`}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-card bg-accent px-4 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-accent-soft"
                 >
-                  <ExternalLink size={17} /> Open live site
+                  <ExternalLink size={16} /> Open live site
+                </a>
+              )}
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-card border border-line bg-raised/50 px-4 py-2.5 text-sm font-semibold text-text transition-colors hover:border-accent/50"
+                >
+                  <Github size={16} /> View source
                 </a>
               )}
             </div>

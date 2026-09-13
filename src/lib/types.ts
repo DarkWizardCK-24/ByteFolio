@@ -11,11 +11,6 @@ export interface Project {
   live?: string;
 }
 
-export interface Badge {
-  label: string;
-  color: string;
-}
-
 export interface TimelineItemData {
   title: string;
   period?: string;
@@ -36,7 +31,6 @@ export interface Certification {
 export interface SkillItem {
   name: string;
   icon: IconType;
-  gradient: string;
   /** Set on skills being actively picked up, so the UI can say so honestly. */
   learning?: boolean;
 }
@@ -46,8 +40,6 @@ export interface FocusArea {
   status: "Learning" | "Refreshing";
   detail: string;
   icon: LucideIcon;
-  accent: string;
-  text: string;
 }
 
 export interface SkillCategory {
@@ -60,14 +52,12 @@ export type CardVariant = "big" | "wide" | "small";
 
 export interface Accent {
   key: string;
-  emoji: string;
+  /** The exact stack this colour stands for, e.g. "Next.js" — shown on cards. */
+  label: string;
   text: string;
   hoverText: string;
   border: string;
   tint: string;
-  ring: string;
-  glow: string;
   gradient: string;
-  softGradient: string;
   dot: string;
 }

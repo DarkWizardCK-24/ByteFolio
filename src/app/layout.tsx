@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Archivo, Inter } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+// Archivo carries the headings — an industrial grotesque with real weight at
+// large sizes, where geometric faces go soft. Inter does the reading work.
+const display = Archivo({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const body = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -18,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "Flutter Enthusiast · Full-Stack Developer · Web Developer · Database Expert.",
+      "Flutter and full-stack developer building cross-platform apps and the services behind them.",
     url: "https://dev-folio-ten-rho.vercel.app/",
     siteName: "ByteFolio",
     type: "website",
@@ -27,14 +35,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "Flutter Enthusiast · Full-Stack Developer · Web Developer · Database Expert.",
+      "Flutter and full-stack developer building cross-platform apps and the services behind them.",
   },
   robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );

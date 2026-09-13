@@ -3,76 +3,115 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-primary text-text font-poppins;
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
+
+  body {
+    @apply bg-primary text-text font-sans;
+    font-feature-settings: "cv05" 1, "ss01" 1;
+  }
+
+  /* Headings carry the display face; body text never does. */
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.025em;
+  }
+
+  /* Figures are read by comparison, so they never reflow column to column. */
+  .tnum { font-variant-numeric: tabular-nums; }
+
+  /* Fixed navbar is 4.5rem — keep anchored sections clear of it. */
+  section[id], div[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background: rgba(77, 159, 255, 0.3);
+    color: #fff;
+  }
+
+  /* One focus treatment for the whole site. */
+  :focus-visible {
+    outline: 2px solid theme("colors.accent");
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: theme("colors.primary"); }
+  ::-webkit-scrollbar-thumb {
+    background: theme("colors.raised");
+    border: 2px solid theme("colors.primary");
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: theme("colors.line"); }
 }
 
 @layer utilities {
   .glass {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(14, 20, 30, 0.72);
+    backdrop-filter: blur(16px);
+    border: 1px solid theme("colors.line");
+  }
+
+  /* Faint blueprint grid — gives large surfaces depth without decoration. */
+  .grid-texture::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(147, 161, 184, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(147, 161, 184, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 75% 55% at 50% 0%, #000 25%, transparent 72%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 55% at 50% 0%, #000 25%, transparent 72%);
+  }
+
+  /* Hairline between stacked sections, brightest in the middle. */
+  .rule-top {
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(90deg, transparent, theme("colors.line"), transparent) 1;
+  }
+
+  /* The one shared card treatment. Hover brightens the edge and lifts by a
+     single pixel — no shadow swap, no colour wash, no sheen. */
+  .surface {
+    @apply rounded-card border border-line bg-raised transition-[border-color,transform] duration-300 ease-out;
+  }
+  .surface-hover:hover {
+    @apply -translate-y-px border-line;
+    border-color: rgba(147, 161, 184, 0.32);
   }
 }
-
-@keyframes blob {
-  0%, 100% { transform: translate(0px, 0px) scale(1); }
-  33%       { transform: translate(30px, -50px) scale(1.1); }
-  66%       { transform: translate(-20px, 20px) scale(0.9); }
-}
-.animate-blob { animation: blob 7s infinite; }
-.animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-4000 { animation-delay: 4s; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in       { animation: fadeIn 1s ease-out forwards; }
-.animate-fade-in-delay { animation: fadeIn 1s ease-out 0.3s forwards; opacity: 0; }
-
-@keyframes gradient {
-  0%, 100% { background-position: 0% 50%; }
-  50%       { background-position: 100% 50%; }
-}
-.animate-gradient { background-size: 200% 200%; animation: gradient 3s ease infinite; }
-
-/* Light sweeps across a project card on hover — a single moment, not a loop. */
-.card-sheen::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  pointer-events: none;
-  background: linear-gradient(
-    105deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.11) 48%,
-    transparent 62%
-  );
-  transform: translateX(-120%);
-  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.card-sheen:hover::after { transform: translateX(120%); }
 
 .modal-scroll::-webkit-scrollbar { width: 5px; }
 .modal-scroll::-webkit-scrollbar-track { background: transparent; }
 .modal-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(147, 161, 184, 0.25);
+  border: none;
   border-radius: 99px;
 }
-.modal-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.35); }
-.modal-scroll { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.18) transparent; }
+.modal-scroll::-webkit-scrollbar-thumb:hover { background: rgba(147, 161, 184, 0.45); }
+.modal-scroll { scrollbar-width: thin; scrollbar-color: rgba(147, 161, 184, 0.25) transparent; }
+
+/* The hero's one piece of ambient motion: a slow drift, nothing else on the
+   page animates unprompted. */
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(2%, -3%, 0) scale(1.06); }
+}
+.animate-drift { animation: drift 26s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
-  .card-sheen::after { display: none; }
 }

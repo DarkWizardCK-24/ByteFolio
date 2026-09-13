@@ -1,68 +1,52 @@
 "use client";
 
-import { Smartphone, Globe, Database, Target, Server } from "lucide-react";
-import { motion } from "framer-motion";
+import { Smartphone, Globe, Database, Server } from "lucide-react";
 import AboutCard from "@/components/AboutCard";
+import SectionHeader from "@/components/SectionHeader";
 
-const About: React.FC = () => {
-  const cards = [
-    {
-      title: "Flutter Developer",
-      description:
-        "Crafting seamless cross-platform mobile applications using Flutter and Dart for exceptional user experiences.",
-      icon: Smartphone,
-      gradient: "from-cyan-500/20 to-blue-500/20",
-    },
-    {
-      title: "Web Developer",
-      description:
-        "Building responsive, modern web applications with React, Tailwind CSS, and other cutting-edge technologies.",
-      icon: Globe,
-      gradient: "from-blue-500/20 to-purple-500/20",
-    },
-    {
-      title: "Database Expert",
-      description:
-        "Designing and optimizing scalable database solutions with SQL and NoSQL for robust data management.",
-      icon: Database,
-      gradient: "from-purple-500/20 to-pink-500/20",
-    },
-    {
-      title: "DevOps",
-      description:
-        "Currently going deep on Linux, CI/CD pipelines and containers — learning how code gets from a commit to production reliably.",
-      icon: Server,
-      gradient: "from-amber-500/20 to-orange-500/20",
-      badge: "Learning",
-    },
-  ];
+const cards = [
+  {
+    title: "Flutter development",
+    description:
+      "Cross-platform mobile apps in Flutter and Dart — one codebase, shipped to both the Play Store and the App Store.",
+    icon: Smartphone,
+  },
+  {
+    title: "Web development",
+    description:
+      "Responsive product work in Next.js, React and Tailwind CSS, built to stay fast and accessible as it grows.",
+    icon: Globe,
+  },
+  {
+    title: "Databases",
+    description:
+      "Schema design and query work across SQL and NoSQL, with an eye on what happens once the data gets big.",
+    icon: Database,
+  },
+  {
+    title: "DevOps",
+    description:
+      "Linux, CI/CD pipelines and containers — learning how code gets from a commit to production reliably.",
+    icon: Server,
+    badge: "Learning",
+  },
+];
 
-  return (
-    <section id="about" className="py-32 relative bg-primary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl font-bold text-text mb-4 flex items-center justify-center gap-4">
-            <Target className="text-accent" size={40} />
-            About Me
-          </h2>
-          <p className="text-gray-400 text-lg">
-            Discover my expertise and passion for development
-          </p>
-        </motion.div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {cards.map((card, index) => (
-            <AboutCard key={index} {...card} index={index} />
-          ))}
-        </div>
+const About: React.FC = () => (
+  <section id="about" className="rule-top grid-texture relative overflow-hidden bg-primary py-24 sm:py-32">
+    <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        title="What I do"
+        lede="Four things I spend my time on — three I build with today, and one I'm deliberately working my way into."
+      />
+
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {cards.map((card, index) => (
+          <AboutCard key={card.title} {...card} index={index} />
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;

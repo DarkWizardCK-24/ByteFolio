@@ -1,183 +1,32 @@
-import type { Accent, Badge, CardVariant, Certification, Project } from "./types";
-
-export function getBadges(project: Project): Badge[] {
-  const skills = project.skills?.map((s) => s.toLowerCase()) ?? [];
-  const badges: Badge[] = [];
-
-  if (skills.some((s) => s.includes("next.js") || s === "nextjs"))
-    badges.push({ label: "Next.js", color: "bg-orange-500/20 text-orange-400 border-orange-500/40" });
-  if (skills.some((s) => s.includes("django")))
-    badges.push({ label: "Django", color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40" });
-  if (skills.some((s) => s.includes("python") || s.includes("fastapi")))
-    badges.push({ label: "Python", color: "bg-pink-500/20 text-pink-400 border-pink-500/40" });
-  if (skills.some((s) => s.includes("flutter") || s.includes("dart")))
-    badges.push({ label: "Flutter", color: "bg-green-500/20 text-green-400 border-green-500/40" });
-  if (skills.some((s) => s.includes("firebase")))
-    badges.push({ label: "Firebase", color: "bg-red-500/20 text-red-400 border-red-500/40" });
-  if (skills.some((s) => s.includes("supabase")))
-    badges.push({ label: "Supabase", color: "bg-teal-400/20 text-teal-300 border-teal-400/40" });
-  if (
-    badges.length === 0 &&
-    skills.some((s) =>
-      ["react.js", "react", "javascript", "html", "css", "tailwind css", "vercel", "node.js"].includes(s)
-    )
-  )
-    badges.push({ label: "Web", color: "bg-amber-500/20 text-amber-400 border-amber-500/40" });
-
-  return badges.length > 0
-    ? badges
-    : [{ label: "Project", color: "bg-gray-500/20 text-gray-400 border-gray-500/40" }];
-}
+import type { Accent, CardVariant, Certification, Project } from "./types";
 
 /**
- * Every project carries the colour of the stack it is built on, so the grid
- * reads as a spectrum of technologies rather than a wall of identical cards.
- * Classes are written out in full — Tailwind cannot see interpolated names.
+ * Five hues, one per platform family — mobile, web, backend, data, and the
+ * services layer. The label carries the exact stack, so the palette never has
+ * to grow a new colour just to name a new framework.
+ *
+ * Each accent gets one job on a card: the tag, or the spine. Never both plus a
+ * wash plus a glow — that is how a grid of eight projects turns into a rainbow.
+ * Classes are written out in full; Tailwind cannot see interpolated names.
  */
+const CYAN = { text: "text-cyan-300", hoverText: "group-hover:text-cyan-200", border: "border-cyan-400/40", tint: "bg-cyan-400/10", gradient: "from-cyan-400 to-sky-400", dot: "bg-cyan-400" };
+const AZURE = { text: "text-blue-300", hoverText: "group-hover:text-blue-200", border: "border-blue-400/40", tint: "bg-blue-400/10", gradient: "from-blue-400 to-sky-400", dot: "bg-blue-400" };
+const VIOLET = { text: "text-violet-300", hoverText: "group-hover:text-violet-200", border: "border-violet-400/40", tint: "bg-violet-400/10", gradient: "from-violet-400 to-indigo-400", dot: "bg-violet-400" };
+const JADE = { text: "text-emerald-300", hoverText: "group-hover:text-emerald-200", border: "border-emerald-400/40", tint: "bg-emerald-400/10", gradient: "from-emerald-400 to-teal-400", dot: "bg-emerald-400" };
+const AMBER = { text: "text-amber-300", hoverText: "group-hover:text-amber-200", border: "border-amber-400/40", tint: "bg-amber-400/10", gradient: "from-amber-400 to-orange-400", dot: "bg-amber-400" };
+
 const ACCENTS: Record<string, Accent> = {
-  flutter: {
-    key: "flutter",
-    emoji: "🦋",
-    text: "text-sky-300",
-    hoverText: "group-hover:text-sky-300",
-    border: "border-sky-400/50",
-    tint: "bg-sky-400/10",
-    ring: "hover:border-sky-400/70",
-    glow: "hover:shadow-sky-500/25",
-    gradient: "from-sky-400 to-cyan-300",
-    softGradient: "from-sky-500/25 via-cyan-500/10 to-transparent",
-    dot: "bg-sky-400",
-  },
-  next: {
-    key: "next",
-    emoji: "🚀",
-    text: "text-amber-300",
-    hoverText: "group-hover:text-amber-300",
-    border: "border-amber-400/50",
-    tint: "bg-amber-400/10",
-    ring: "hover:border-amber-400/70",
-    glow: "hover:shadow-amber-500/25",
-    gradient: "from-amber-400 to-orange-400",
-    softGradient: "from-amber-500/25 via-orange-500/10 to-transparent",
-    dot: "bg-amber-400",
-  },
-  python: {
-    key: "python",
-    emoji: "🐍",
-    text: "text-violet-300",
-    hoverText: "group-hover:text-violet-300",
-    border: "border-violet-400/50",
-    tint: "bg-violet-400/10",
-    ring: "hover:border-violet-400/70",
-    glow: "hover:shadow-violet-500/25",
-    gradient: "from-violet-400 to-fuchsia-400",
-    softGradient: "from-violet-500/25 via-fuchsia-500/10 to-transparent",
-    dot: "bg-violet-400",
-  },
-  supabase: {
-    key: "supabase",
-    emoji: "⚡",
-    text: "text-emerald-300",
-    hoverText: "group-hover:text-emerald-300",
-    border: "border-emerald-400/50",
-    tint: "bg-emerald-400/10",
-    ring: "hover:border-emerald-400/70",
-    glow: "hover:shadow-emerald-500/25",
-    gradient: "from-emerald-400 to-teal-300",
-    softGradient: "from-emerald-500/25 via-teal-500/10 to-transparent",
-    dot: "bg-emerald-400",
-  },
-  firebase: {
-    key: "firebase",
-    emoji: "🔥",
-    text: "text-rose-300",
-    hoverText: "group-hover:text-rose-300",
-    border: "border-rose-400/50",
-    tint: "bg-rose-400/10",
-    ring: "hover:border-rose-400/70",
-    glow: "hover:shadow-rose-500/25",
-    gradient: "from-rose-400 to-orange-400",
-    softGradient: "from-rose-500/25 via-orange-500/10 to-transparent",
-    dot: "bg-rose-400",
-  },
-  react: {
-    key: "react",
-    emoji: "⚛️",
-    text: "text-cyan-300",
-    hoverText: "group-hover:text-cyan-300",
-    border: "border-cyan-400/50",
-    tint: "bg-cyan-400/10",
-    ring: "hover:border-cyan-400/70",
-    glow: "hover:shadow-cyan-500/25",
-    gradient: "from-cyan-400 to-blue-400",
-    softGradient: "from-cyan-500/25 via-blue-500/10 to-transparent",
-    dot: "bg-cyan-400",
-  },
-  web: {
-    key: "web",
-    emoji: "🌐",
-    text: "text-indigo-300",
-    hoverText: "group-hover:text-indigo-300",
-    border: "border-indigo-400/50",
-    tint: "bg-indigo-400/10",
-    ring: "hover:border-indigo-400/70",
-    glow: "hover:shadow-indigo-500/25",
-    gradient: "from-indigo-400 to-blue-400",
-    softGradient: "from-indigo-500/25 via-blue-500/10 to-transparent",
-    dot: "bg-indigo-400",
-  },
-  html: {
-    key: "html",
-    emoji: "🧱",
-    text: "text-orange-300",
-    hoverText: "group-hover:text-orange-300",
-    border: "border-orange-400/50",
-    tint: "bg-orange-400/10",
-    ring: "hover:border-orange-400/70",
-    glow: "hover:shadow-orange-500/25",
-    gradient: "from-orange-400 to-amber-400",
-    softGradient: "from-orange-500/25 via-amber-500/10 to-transparent",
-    dot: "bg-orange-400",
-  },
-  css: {
-    key: "css",
-    emoji: "🎨",
-    text: "text-blue-300",
-    hoverText: "group-hover:text-blue-300",
-    border: "border-blue-400/50",
-    tint: "bg-blue-400/10",
-    ring: "hover:border-blue-400/70",
-    glow: "hover:shadow-blue-500/25",
-    gradient: "from-blue-400 to-sky-400",
-    softGradient: "from-blue-500/25 via-sky-500/10 to-transparent",
-    dot: "bg-blue-400",
-  },
-  javascript: {
-    key: "javascript",
-    emoji: "⚡",
-    text: "text-yellow-300",
-    hoverText: "group-hover:text-yellow-300",
-    border: "border-yellow-400/50",
-    tint: "bg-yellow-400/10",
-    ring: "hover:border-yellow-400/70",
-    glow: "hover:shadow-yellow-500/25",
-    gradient: "from-yellow-400 to-amber-400",
-    softGradient: "from-yellow-500/25 via-amber-500/10 to-transparent",
-    dot: "bg-yellow-400",
-  },
-  sql: {
-    key: "sql",
-    emoji: "🗄️",
-    text: "text-teal-300",
-    hoverText: "group-hover:text-teal-300",
-    border: "border-teal-400/50",
-    tint: "bg-teal-400/10",
-    ring: "hover:border-teal-400/70",
-    glow: "hover:shadow-teal-500/25",
-    gradient: "from-teal-400 to-emerald-400",
-    softGradient: "from-teal-500/25 via-emerald-500/10 to-transparent",
-    dot: "bg-teal-400",
-  },
+  flutter: { key: "flutter", label: "Flutter", ...CYAN },
+  next: { key: "next", label: "Next.js", ...AZURE },
+  react: { key: "react", label: "React", ...AZURE },
+  web: { key: "web", label: "Web", ...AZURE },
+  html: { key: "html", label: "HTML", ...AZURE },
+  css: { key: "css", label: "CSS", ...AZURE },
+  javascript: { key: "javascript", label: "JavaScript", ...AZURE },
+  python: { key: "python", label: "Python", ...VIOLET },
+  supabase: { key: "supabase", label: "Supabase", ...JADE },
+  sql: { key: "sql", label: "SQL", ...JADE },
+  firebase: { key: "firebase", label: "Firebase", ...AMBER },
 };
 
 export function getAccent(project: Project): Accent {
@@ -337,11 +186,3 @@ export function formatDuration(period?: string): string | null {
   if (rest) parts.push(`${rest} mo${rest > 1 ? "s" : ""}`);
   return parts.join(" ") || "1 mo";
 }
-
-/** Rotating accent set so consecutive timeline entries stay distinguishable. */
-export const TIMELINE_ACCENTS = [
-  { gradient: "from-sky-400 to-cyan-300", text: "text-sky-300", border: "border-sky-400/50", tint: "bg-sky-400/10", ring: "hover:border-sky-400/60" },
-  { gradient: "from-violet-400 to-fuchsia-400", text: "text-violet-300", border: "border-violet-400/50", tint: "bg-violet-400/10", ring: "hover:border-violet-400/60" },
-  { gradient: "from-amber-400 to-orange-400", text: "text-amber-300", border: "border-amber-400/50", tint: "bg-amber-400/10", ring: "hover:border-amber-400/60" },
-  { gradient: "from-emerald-400 to-teal-300", text: "text-emerald-300", border: "border-emerald-400/50", tint: "bg-emerald-400/10", ring: "hover:border-emerald-400/60" },
-];

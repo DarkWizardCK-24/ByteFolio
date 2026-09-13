@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe, Smartphone } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
+import SectionHeader from "@/components/SectionHeader";
 import { webProjects, flutterProjects } from "@/lib/data";
 import { getBentoLayout } from "@/lib/utils";
 import type { Project } from "@/lib/types";
@@ -11,43 +11,20 @@ import type { Project } from "@/lib/types";
 interface ShowcaseProps {
   id: string;
   title: string;
-  emoji: string;
   blurb: string;
-  icon: LucideIcon;
-  accent: string;
   projects: Project[];
 }
 
-const Showcase: React.FC<ShowcaseProps> = ({ id, title, emoji, blurb, icon: Icon, accent, projects }) => {
+const Showcase: React.FC<ShowcaseProps> = ({ id, title, blurb, projects }) => {
   const { variants, gap } = getBentoLayout(projects.length);
 
   return (
     <div id={id}>
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="mb-7 flex flex-wrap items-end justify-between gap-4"
-      >
-        <div className="flex items-center gap-3.5">
-          <span
-            className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br ${accent} text-primary shadow-lg`}
-          >
-            <Icon size={24} />
-          </span>
-          <div>
-            <h3 className="flex items-center gap-2 text-2xl font-bold text-text sm:text-3xl">
-              {title}
-              <span aria-hidden>{emoji}</span>
-            </h3>
-            <p className="text-sm text-gray-400">{blurb}</p>
-          </div>
-        </div>
-        <span className="rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-gray-300">
-          {projects.length} projects
-        </span>
-      </motion.div>
+      <div className="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-line pb-4">
+        <h3 className="text-xl font-semibold text-text">{title}</h3>
+        <p className="text-sm text-muted">{blurb}</p>
+        <span className="tnum ml-auto text-sm text-faint">{projects.length}</span>
+      </div>
 
       <div className="grid auto-rows-auto grid-cols-1 gap-4 sm:auto-rows-[16rem] sm:grid-cols-2 lg:grid-cols-4">
         {projects.map((project, index) => (
@@ -59,20 +36,22 @@ const Showcase: React.FC<ShowcaseProps> = ({ id, title, emoji, blurb, icon: Icon
             href="https://github.com/DarkWizardCK-24?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true, margin: "-60px" }}
-            className={`group flex min-h-[10rem] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-white/20 bg-white/[0.03] p-4 text-center transition-colors hover:border-white/45 hover:bg-white/[0.06] sm:h-full ${
+            className={`group flex min-h-[10rem] flex-col items-center justify-center gap-2 rounded-card border border-dashed border-line p-4 text-center transition-colors duration-300 hover:border-accent/50 hover:bg-raised/40 sm:h-full ${
               gap >= 2 ? "sm:col-span-2" : ""
             }`}
           >
             <ArrowUpRight
-              size={26}
-              className="text-gray-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-text"
+              size={22}
+              className="text-faint transition-colors duration-300 group-hover:text-accent"
             />
-            <span className="text-sm font-semibold text-gray-300 group-hover:text-text">More on GitHub</span>
-            <span className="text-xs text-gray-500">Every repo, in one place</span>
+            <span className="text-sm font-semibold text-muted transition-colors group-hover:text-text">
+              More on GitHub
+            </span>
+            <span className="text-xs text-faint">Every repo, in one place</span>
           </motion.a>
         )}
       </div>
@@ -81,51 +60,28 @@ const Showcase: React.FC<ShowcaseProps> = ({ id, title, emoji, blurb, icon: Icon
 };
 
 const Projects: React.FC = () => (
-  <section id="projects" className="relative overflow-hidden bg-secondary py-28 sm:py-32">
-    {/* Ambient colour */}
-    <div
-      className="pointer-events-none absolute -left-40 top-24 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl"
-      aria-hidden
-    />
-    <div
-      className="pointer-events-none absolute -right-40 bottom-24 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl"
-      aria-hidden
-    />
-
+  <section id="projects" className="rule-top grid-texture relative overflow-hidden bg-primary py-24 sm:py-32">
     <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mb-16 max-w-2xl"
-      >
-        <h2 className="text-4xl font-extrabold leading-tight text-text sm:text-5xl">
-          Things I&apos;ve shipped
-        </h2>
-        <p className="mt-4 text-base leading-relaxed text-gray-400 sm:text-lg">
-          {webProjects.length + flutterProjects.length} projects across the web and mobile — each one colour-coded
-          by the stack it runs on. Open any card for screenshots, the full story, and links.
-        </p>
-      </motion.div>
+      <SectionHeader
+        title="Things I've shipped"
+        lede="Projects across the web and mobile, each tagged with the stack it runs on. Open any card for screenshots, the full story, and links."
+        meta={[
+          { value: webProjects.length, label: "Web" },
+          { value: flutterProjects.length, label: "Flutter" },
+        ]}
+      />
 
-      <div className="space-y-20">
+      <div className="space-y-16">
         <Showcase
           id="web-projects"
           title="Web"
-          emoji="🌐"
           blurb="Next.js, React and full-stack builds"
-          icon={Globe}
-          accent="from-indigo-400 to-sky-400"
           projects={webProjects}
         />
         <Showcase
           id="flutter-projects"
           title="Flutter"
-          emoji="🦋"
           blurb="Cross-platform apps for Android and iOS"
-          icon={Smartphone}
-          accent="from-sky-400 to-cyan-300"
           projects={flutterProjects}
         />
       </div>

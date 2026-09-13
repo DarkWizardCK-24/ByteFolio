@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin, MapPin } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { Download, Github, Linkedin } from "lucide-react";
 import { TbBrandFiverr } from "react-icons/tb";
 import { SiLinktree } from "react-icons/si";
 import AnimatedBackground from "@/components/AnimatedBackground";
@@ -13,128 +13,131 @@ const socials = [
   { href: "https://linktr.ee/DarkWizard_CK", label: "Linktree", Icon: SiLinktree },
 ];
 
-const roles = ["Flutter", "Full-stack", "Web", "Databases"];
+// Three facts a recruiter looks for first, set as a spec rail rather than a
+// scatter of pills — what he does, where he is, what he is adding next.
+const specs = [
+  { label: "Builds", value: "Flutter & full-stack" },
+  { label: "Based in", value: "Navi Mumbai, India" },
+  { label: "Learning", value: "Linux & DevOps" },
+];
+
+// The page's one load sequence. Everything after the hero waits for scroll.
+const container: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+};
+const item: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+};
 
 const Hero: React.FC = () => (
   <section
     id="home"
-    className="relative flex min-h-screen items-center overflow-hidden bg-primary pb-20 pt-28"
+    className="relative flex min-h-screen items-center overflow-hidden bg-primary pb-24 pt-32"
   >
     <AnimatedBackground />
 
     <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 items-center gap-14 md:grid-cols-[1.15fr_1fr]">
-        {/* Copy */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="order-2 md:order-1"
-        >
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3.5 py-1.5 text-xs font-semibold text-emerald-300">
-            <span className="relative flex h-2 w-2" aria-hidden>
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+      <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1.2fr_1fr]">
+        <motion.div variants={container} initial="hidden" animate="show" className="order-2 lg:order-1">
+          <motion.span
+            variants={item}
+            className="inline-flex items-center gap-2.5 rounded-full border border-live/25 bg-live/[0.08] px-3.5 py-1.5 text-xs font-semibold text-live"
+          >
+            <span className="relative flex h-1.5 w-1.5" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-live opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-live" />
             </span>
-            Open to work
-          </span>
+            Available for work
+          </motion.span>
 
-          <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-text sm:text-6xl lg:text-7xl">
+          <motion.h1
+            variants={item}
+            className="mt-7 text-[3.25rem] font-bold leading-[0.95] tracking-[-0.035em] text-text sm:text-7xl lg:text-[5.25rem]"
+          >
             Chaitanya
             <br />
-            <span className="bg-gradient-to-r from-sky-400 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              Katare
-            </span>
-          </h1>
+            Katare
+          </motion.h1>
 
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-gray-300 sm:text-xl">
-            I build cross-platform apps and the web services behind them — currently going deep on
+          <motion.p variants={item} className="mt-5 flex items-center gap-3 text-sm text-faint">
+            <span className="h-px w-8 bg-line" aria-hidden />
+            goes by DarkWizãrd
+          </motion.p>
+
+          <motion.p variants={item} className="mt-6 max-w-md text-lg leading-relaxed text-muted">
+            I build cross-platform apps and the web services behind them — and I&apos;m going deep on
             Linux and DevOps to own the whole path to production.
-          </p>
+          </motion.p>
 
-          <div className="mt-6 flex flex-wrap gap-2">
-            {roles.map((role) => (
-              <span
-                key={role}
-                className="rounded-full border border-white/12 bg-white/5 px-3 py-1 text-xs font-semibold text-gray-300"
-              >
-                {role}
-              </span>
+          <motion.dl
+            variants={item}
+            className="mt-9 grid max-w-xl grid-cols-1 gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-3"
+          >
+            {specs.map(({ label, value }) => (
+              <div key={label} className="bg-raised px-4 py-3.5">
+                <dt className="text-[11px] text-faint">{label}</dt>
+                <dd className="mt-1 text-sm font-semibold text-text">{value}</dd>
+              </div>
             ))}
-          </div>
+          </motion.dl>
 
-          <p className="mt-6 flex items-center gap-2 text-sm text-gray-500">
-            <MapPin size={14} />
-            Navi Mumbai, India
-            <span className="text-gray-700">·</span>
-            <span className="text-gray-500">call sign DarkWizãrd</span>
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
+          <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
             <a
               href="#projects"
-              className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-sky-400 to-indigo-400 px-6 py-3.5 font-bold text-primary transition-transform duration-300 hover:scale-[1.03]"
+              className="rounded-card bg-accent px-6 py-3.5 font-semibold text-primary shadow-glow transition-colors duration-300 hover:bg-accent-soft"
             >
               See my work
-              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href="/resume(Chaitanya-Katare).pdf"
               download
-              className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 font-bold text-text transition-colors duration-300 hover:border-white/45 hover:bg-white/10"
+              className="flex items-center gap-2 rounded-card border border-line bg-raised/50 px-6 py-3.5 font-semibold text-text transition-colors duration-300 hover:border-accent/50"
             >
-              <Download size={18} />
+              <Download size={17} />
               Résumé
             </a>
-          </div>
 
-          <div className="mt-8 flex gap-2.5">
-            {socials.map(({ href, label, Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="grid h-11 w-11 place-items-center rounded-xl border border-white/12 bg-white/5 text-gray-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:text-text"
-              >
-                <Icon size={20} />
-              </a>
-            ))}
-          </div>
+            <div className="ml-1 flex gap-1">
+              {socials.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="grid h-11 w-11 place-items-center rounded-card text-faint transition-colors duration-200 hover:bg-raised/60 hover:text-text"
+                >
+                  <Icon size={19} />
+                </a>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
 
-        {/* Portrait */}
+        {/* Portrait — framed square rather than a circle in a gradient ring, so
+            it reads as a photograph on the page instead of an avatar chip. */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
+          initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="order-1 flex justify-center md:order-2"
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="order-1 flex justify-center lg:order-2 lg:justify-end"
         >
-          <div className="relative">
-            <div
-              className="absolute -inset-6 rounded-full bg-gradient-to-br from-sky-500/30 via-indigo-500/20 to-violet-500/30 blur-3xl"
-              aria-hidden
-            />
-            <div className="relative rounded-full bg-gradient-to-br from-sky-400 via-indigo-400 to-violet-400 p-[3px]">
-              <div className="rounded-full bg-primary p-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/dev.png"
-                  alt="Chaitanya Katare"
-                  className="h-60 w-60 rounded-full object-cover sm:h-72 sm:w-72 lg:h-80 lg:w-80"
-                />
-              </div>
+          <figure className="relative w-full max-w-[22rem]">
+            <div className="overflow-hidden rounded-panel border border-line bg-secondary p-2 shadow-lift">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/dev.png"
+                alt="Chaitanya Katare"
+                className="aspect-square w-full rounded-[0.875rem] object-cover"
+              />
             </div>
-
-            <span className="absolute -bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-white/15 bg-secondary/90 px-4 py-2 text-xs font-semibold text-gray-200 shadow-xl backdrop-blur-md">
-              <span className="relative flex h-1.5 w-1.5" aria-hidden>
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-amber-400" />
-              </span>
-              Learning Linux &amp; DevOps
-            </span>
-          </div>
+            <figcaption className="absolute -bottom-4 left-5 right-5 flex items-center justify-center gap-2 rounded-card border border-line bg-raised px-4 py-2.5 text-xs font-semibold text-text shadow-card">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
+              Flutter &amp; full-stack developer
+            </figcaption>
+          </figure>
         </motion.div>
       </div>
     </div>
