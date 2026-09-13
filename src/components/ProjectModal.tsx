@@ -89,7 +89,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           <div className="relative shrink-0 bg-primary/60 lg:w-[52%]">
             <div className="relative h-56 overflow-hidden sm:h-72 lg:h-full lg:min-h-[26rem]">
               <AnimatePresence mode="wait">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <motion.img
                   key={current}
                   src={images[current]}

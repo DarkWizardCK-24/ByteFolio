@@ -1,6 +1,6 @@
 "use client";
 
-import { Smartphone, Globe, Database, Target } from "lucide-react";
+import { Smartphone, Globe, Database, Target, Server } from "lucide-react";
 import { motion } from "framer-motion";
 import AboutCard from "@/components/AboutCard";
 
@@ -27,6 +27,14 @@ const About: React.FC = () => {
       icon: Database,
       gradient: "from-purple-500/20 to-pink-500/20",
     },
+    {
+      title: "DevOps",
+      description:
+        "Currently going deep on Linux, CI/CD pipelines and containers — learning how code gets from a commit to production reliably.",
+      icon: Server,
+      gradient: "from-amber-500/20 to-orange-500/20",
+      badge: "Learning",
+    },
   ];
 
   return (
@@ -47,7 +55,7 @@ const About: React.FC = () => {
             Discover my expertise and passion for development
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((card, index) => (
             <AboutCard key={index} {...card} index={index} />
           ))}

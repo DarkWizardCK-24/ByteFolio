@@ -10,22 +10,22 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "DevFolio | Chaitanya Katare",
+  title: "ByteFolio | Chaitanya Katare",
   description:
     "Portfolio of Chaitanya Katare — Flutter Enthusiast, Full-Stack Developer, Web Developer & Database Expert.",
-  keywords: ["Flutter", "React", "Next.js", "Full Stack Developer", "Chaitanya Katare", "DevFolio"],
+  keywords: ["Flutter", "React", "Next.js", "Full Stack Developer", "Chaitanya Katare", "ByteFolio"],
   authors: [{ name: "Chaitanya Katare", url: "https://github.com/DarkWizardCK-24" }],
   openGraph: {
-    title: "DevFolio | Chaitanya Katare",
+    title: "ByteFolio | Chaitanya Katare",
     description:
       "Flutter Enthusiast · Full-Stack Developer · Web Developer · Database Expert.",
     url: "https://dev-folio-ten-rho.vercel.app/",
-    siteName: "DevFolio",
+    siteName: "ByteFolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DevFolio | Chaitanya Katare",
+    title: "ByteFolio | Chaitanya Katare",
     description:
       "Flutter Enthusiast · Full-Stack Developer · Web Developer · Database Expert.",
   },

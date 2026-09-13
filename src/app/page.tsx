@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/sections/Hero";
+import Stats from "@/sections/Stats";
 import About from "@/sections/About";
 import Experience from "@/sections/Experience";
 import Education from "@/sections/Education";
@@ -13,6 +14,7 @@ export default function Home() {
     <div className="min-h-screen bg-primary">
       <Navbar />
       <Hero />
+      <Stats />
       <About />
       <Experience />
       <Education />

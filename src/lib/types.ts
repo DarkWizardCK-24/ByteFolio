@@ -37,6 +37,17 @@ export interface SkillItem {
   name: string;
   icon: IconType;
   gradient: string;
+  /** Set on skills being actively picked up, so the UI can say so honestly. */
+  learning?: boolean;
+}
+
+export interface FocusArea {
+  name: string;
+  status: "Learning" | "Refreshing";
+  detail: string;
+  icon: LucideIcon;
+  accent: string;
+  text: string;
 }
 
 export interface SkillCategory {

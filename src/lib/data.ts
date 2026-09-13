@@ -1,17 +1,17 @@
 import {
-  FaReact, FaJsSquare, FaAndroid, FaGitAlt, FaApple, FaGlobe, FaDatabase, FaWindows,
+  FaReact, FaJsSquare, FaAndroid, FaGitAlt, FaApple, FaGlobe, FaDatabase, FaWindows, FaLinux,
 } from "react-icons/fa";
 import { VscVscodeInsiders } from "react-icons/vsc";
 import {
   SiTailwindcss, SiFlutter, SiFirebase, SiPostman, SiSupabase,
-  SiAndroidstudio, SiXcode, SiDjango, SiFastapi, SiPython,
+  SiAndroidstudio, SiXcode, SiDjango, SiFastapi, SiPython, SiTypescript,
 } from "react-icons/si";
 import { FaDartLang } from "react-icons/fa6";
 import { BiLogoPostgresql } from "react-icons/bi";
-import { Code2, Cpu, Layers, Wrench } from "lucide-react";
+import { Code2, Cpu, Layers, Wrench, Terminal, Server, RefreshCw } from "lucide-react";
 
 import type {
-  Project, TimelineItemData, Certification, SkillCategory,
+  Project, TimelineItemData, Certification, SkillCategory, FocusArea,
 } from "./types";
 
 // ── Web Projects ──────────────────────────────────────────────────────────────
@@ -288,6 +288,7 @@ export const skillCategories: SkillCategory[] = [
     icon: Code2,
     skills: [
       { name: "JavaScript", icon: FaJsSquare, gradient: "from-blue-500/20 to-yellow-500/20" },
+      { name: "TypeScript", icon: SiTypescript, gradient: "from-blue-500/20 to-sky-500/20" },
       { name: "Tailwind CSS", icon: SiTailwindcss, gradient: "from-red-500/20 to-orange-500/20" },
       { name: "Dart", icon: FaDartLang, gradient: "from-orange-500/20 to-red-500/20" },
       { name: "Python", icon: SiPython, gradient: "from-purple-500/20 to-pink-500/20" },
@@ -315,6 +316,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "iOS", icon: FaApple, gradient: "from-orange-500/20 to-red-500/20" },
       { name: "Web", icon: FaGlobe, gradient: "from-green-500/20 to-emerald-500/20" },
       { name: "Windows", icon: FaWindows, gradient: "from-purple-500/20 to-pink-500/20" },
+      { name: "Linux", icon: FaLinux, gradient: "from-yellow-500/20 to-amber-500/20", learning: true },
     ],
   },
   {
@@ -327,5 +329,34 @@ export const skillCategories: SkillCategory[] = [
       { name: "Android Studio", icon: SiAndroidstudio, gradient: "from-blue-500/20 to-cyan-500/20" },
       { name: "Database", icon: FaDatabase, gradient: "from-purple-500/20 to-pink-500/20" },
     ],
+  },
+];
+
+// ── Currently sharpening ──────────────────────────────────────────────────────
+
+export const focusAreas: FocusArea[] = [
+  {
+    name: "Linux",
+    status: "Learning",
+    detail: "Filesystem, permissions, shell scripting and process management from the ground up.",
+    icon: Terminal,
+    accent: "from-yellow-400 to-amber-400",
+    text: "text-yellow-300",
+  },
+  {
+    name: "DevOps",
+    status: "Learning",
+    detail: "CI/CD pipelines, containers and deployment workflows — the path from commit to production.",
+    icon: Server,
+    accent: "from-sky-400 to-blue-400",
+    text: "text-sky-300",
+  },
+  {
+    name: "Python",
+    status: "Refreshing",
+    detail: "Working back through the core language and standard library to sharpen the fundamentals.",
+    icon: RefreshCw,
+    accent: "from-emerald-400 to-teal-400",
+    text: "text-emerald-300",
   },
 ];

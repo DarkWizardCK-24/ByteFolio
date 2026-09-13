@@ -1,4 +1,4 @@
-import type { Accent, Badge, CardVariant, Project } from "./types";
+import type { Accent, Badge, CardVariant, Certification, Project } from "./types";
 
 export function getBadges(project: Project): Badge[] {
   const skills = project.skills?.map((s) => s.toLowerCase()) ?? [];
@@ -126,6 +126,58 @@ const ACCENTS: Record<string, Accent> = {
     softGradient: "from-indigo-500/25 via-blue-500/10 to-transparent",
     dot: "bg-indigo-400",
   },
+  html: {
+    key: "html",
+    emoji: "🧱",
+    text: "text-orange-300",
+    hoverText: "group-hover:text-orange-300",
+    border: "border-orange-400/50",
+    tint: "bg-orange-400/10",
+    ring: "hover:border-orange-400/70",
+    glow: "hover:shadow-orange-500/25",
+    gradient: "from-orange-400 to-amber-400",
+    softGradient: "from-orange-500/25 via-amber-500/10 to-transparent",
+    dot: "bg-orange-400",
+  },
+  css: {
+    key: "css",
+    emoji: "🎨",
+    text: "text-blue-300",
+    hoverText: "group-hover:text-blue-300",
+    border: "border-blue-400/50",
+    tint: "bg-blue-400/10",
+    ring: "hover:border-blue-400/70",
+    glow: "hover:shadow-blue-500/25",
+    gradient: "from-blue-400 to-sky-400",
+    softGradient: "from-blue-500/25 via-sky-500/10 to-transparent",
+    dot: "bg-blue-400",
+  },
+  javascript: {
+    key: "javascript",
+    emoji: "⚡",
+    text: "text-yellow-300",
+    hoverText: "group-hover:text-yellow-300",
+    border: "border-yellow-400/50",
+    tint: "bg-yellow-400/10",
+    ring: "hover:border-yellow-400/70",
+    glow: "hover:shadow-yellow-500/25",
+    gradient: "from-yellow-400 to-amber-400",
+    softGradient: "from-yellow-500/25 via-amber-500/10 to-transparent",
+    dot: "bg-yellow-400",
+  },
+  sql: {
+    key: "sql",
+    emoji: "🗄️",
+    text: "text-teal-300",
+    hoverText: "group-hover:text-teal-300",
+    border: "border-teal-400/50",
+    tint: "bg-teal-400/10",
+    ring: "hover:border-teal-400/70",
+    glow: "hover:shadow-teal-500/25",
+    gradient: "from-teal-400 to-emerald-400",
+    softGradient: "from-teal-500/25 via-emerald-500/10 to-transparent",
+    dot: "bg-teal-400",
+  },
 };
 
 export function getAccent(project: Project): Accent {
@@ -163,3 +215,102 @@ export const VARIANT_SPAN: Record<CardVariant, string> = {
   wide: "sm:col-span-2",
   small: "",
 };
+
+/**
+ * Certifications are coloured by what they certify, so each credential in the
+ * grid is identifiable at a glance rather than six copies of the same tile.
+ */
+export function getCertAccent(cert: Certification): Accent {
+  const skills = cert.skills.map((s) => s.toLowerCase());
+  const has = (...needles: string[]) => skills.some((s) => needles.some((n) => s.includes(n)));
+
+  if (has("flutter", "dart")) return ACCENTS.flutter;
+  if (has("html")) return ACCENTS.html;
+  if (has("css")) return ACCENTS.css;
+  if (has("javascript")) return ACCENTS.javascript;
+  if (has("sql", "database")) return ACCENTS.sql;
+  return ACCENTS.web;
+}
+
+/** "Great Learning" -> "GL", "Udemy" -> "UD" */
+export function issuerInitials(issuer: string): string {
+  const words = issuer.trim().split(/\s+/);
+  return words.length > 1
+    ? (words[0][0] + words[1][0]).toUpperCase()
+    : issuer.slice(0, 2).toUpperCase();
+}
+
+/* ── Experience ───────────────────────────────────────────────────────────── */
+
+const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+/** "Sept 2022" / "May 2025" / "Present" -> absolute month index. */
+function parseMonth(token: string, fallback: number): number | null {
+  const t = token.trim().toLowerCase();
+  if (t === "present" || t === "current") return fallback;
+  const m = /^([a-z]+)\s+(\d{4})$/.exec(t);
+  if (!m) return null;
+  const month = MONTHS.indexOf(m[1].slice(0, 3));
+  return month < 0 ? null : Number(m[2]) * 12 + month;
+}
+
+/**
+ * Total months across every listed role, merging overlapping periods so
+ * concurrent roles are never counted twice.
+ */
+export function totalExperienceMonths(periods: (string | undefined)[]): number {
+  const now = new Date().getFullYear() * 12 + new Date().getMonth();
+
+  const ranges = periods
+    .map((period) => {
+      const [rawStart, rawEnd] = (period ?? "").split(/\s*[-–]\s*/);
+      if (!rawStart || !rawEnd) return null;
+      const start = parseMonth(rawStart, now);
+      const end = parseMonth(rawEnd, now);
+      return start !== null && end !== null && end > start ? ([start, end] as const) : null;
+    })
+    .filter((r): r is readonly [number, number] => r !== null)
+    .sort((a, b) => a[0] - b[0]);
+
+  let total = 0;
+  let cursor = -Infinity;
+  for (const [start, end] of ranges) {
+    const from = Math.max(start, cursor);
+    if (end > from) total += end - from;
+    cursor = Math.max(cursor, end);
+  }
+  return total;
+}
+
+/* ── Skills ───────────────────────────────────────────────────────────────── */
+
+/** Brand-ish colour per skill, so the grid is scannable rather than monochrome. */
+const SKILL_COLORS: Record<string, string> = {
+  JavaScript: "text-yellow-400",
+  TypeScript: "text-blue-400",
+  "Tailwind CSS": "text-cyan-400",
+  Dart: "text-sky-400",
+  Python: "text-yellow-300",
+  React: "text-cyan-400",
+  Flutter: "text-sky-400",
+  Firebase: "text-amber-400",
+  Supabase: "text-emerald-400",
+  Git: "text-orange-500",
+  SQL: "text-blue-400",
+  Django: "text-emerald-500",
+  FastAPI: "text-teal-400",
+  Android: "text-green-400",
+  iOS: "text-gray-200",
+  Web: "text-indigo-400",
+  Windows: "text-sky-400",
+  Linux: "text-yellow-400",
+  VsCode: "text-blue-400",
+  Xcode: "text-sky-400",
+  Postman: "text-orange-400",
+  "Android Studio": "text-green-400",
+  Database: "text-violet-400",
+};
+
+export function getSkillColor(name: string): string {
+  return SKILL_COLORS[name] ?? "text-accent";
+}
