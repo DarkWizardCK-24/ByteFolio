@@ -95,11 +95,25 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               </AnimatePresence>
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-secondary/60" />
 
-              <span
-                className={`absolute left-4 top-4 rounded-md border ${accent.border} ${accent.tint} px-2.5 py-1 text-[11px] font-semibold ${accent.text} backdrop-blur-sm`}
-              >
-                {accent.label}
-              </span>
+              <div className="pointer-events-none absolute inset-x-4 top-4 flex flex-wrap items-center gap-2">
+                <span
+                  className={`chip chip-lg font-semibold backdrop-blur-md ${accent.border} ${accent.tint} ${accent.text}`}
+                >
+                  <span className={`chip-dot ${accent.dot}`} aria-hidden />
+                  {accent.label}
+                </span>
+                {hasLive ? (
+                  <span className="chip chip-lg chip-live">
+                    <span className="chip-dot chip-pulse bg-live" aria-hidden />
+                    Live
+                  </span>
+                ) : (
+                  <span className="chip chip-lg chip-overlay">
+                    <Github size={12} className="shrink-0" aria-hidden />
+                    Source only
+                  </span>
+                )}
+              </div>
 
               {images.length > 1 && (
                 <>
@@ -152,13 +166,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <p className="mt-5 text-sm leading-relaxed text-muted sm:text-[15px]">{project.description}</p>
 
             <div className="mt-7">
-              <h3 className="text-sm font-semibold text-text">Built with</h3>
+              <div className="flex items-baseline gap-2">
+                <h3 className="text-sm font-semibold text-text">Built with</h3>
+                <span className="tnum text-[11px] text-faint">{project.skills.length}</span>
+              </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 {project.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-md border border-line bg-raised/60 px-2.5 py-1 text-xs font-medium text-muted"
-                  >
+                  <span key={skill} className="chip chip-lg chip-tech">
                     {skill}
                   </span>
                 ))}

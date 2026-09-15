@@ -59,6 +59,23 @@ export function getBentoLayout(count: number): { variants: CardVariant[]; gap: n
   return { variants, gap: (4 - (cells % 4)) % 4 };
 }
 
+/**
+ * The chips a card can actually fit. The stack chip over the thumbnail already
+ * names the framework, so the row beneath it drops that one and spends its two
+ * or three slots on the rest of the stack; `extra` is what a "+N" chip reports.
+ */
+export function techChips(
+  project: Project,
+  label: string,
+  limit: number
+): { shown: string[]; extra: number } {
+  const key = (s: string) => s.toLowerCase().replace(/[.\s]|js$/g, "");
+  const named = key(label);
+  const rest = project.skills.filter((s) => key(s) !== named);
+  const list = rest.length ? rest : project.skills;
+  return { shown: list.slice(0, limit), extra: Math.max(0, list.length - limit) };
+}
+
 export const VARIANT_SPAN: Record<CardVariant, string> = {
   big: "sm:col-span-2 sm:row-span-2",
   wide: "sm:col-span-2",

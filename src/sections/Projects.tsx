@@ -26,7 +26,7 @@ const Showcase: React.FC<ShowcaseProps> = ({ id, title, blurb, projects }) => {
         <span className="tnum ml-auto text-sm text-faint">{projects.length}</span>
       </div>
 
-      <div className="grid auto-rows-auto grid-cols-1 gap-4 sm:auto-rows-[16rem] sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid auto-rows-auto grid-cols-1 gap-4 sm:auto-rows-[17rem] sm:grid-cols-2 lg:grid-cols-4">
         {projects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} variant={variants[index]} />
         ))}
@@ -40,7 +40,7 @@ const Showcase: React.FC<ShowcaseProps> = ({ id, title, blurb, projects }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true, margin: "-60px" }}
-            className={`group flex min-h-[10rem] flex-col items-center justify-center gap-2 rounded-card border border-dashed border-line p-4 text-center transition-colors duration-300 hover:border-accent/50 hover:bg-raised/40 sm:h-full ${
+            className={`group flex min-h-[12rem] flex-col items-center justify-center gap-2 rounded-card border border-dashed border-line p-4 text-center transition-colors duration-300 hover:border-accent/50 hover:bg-raised/40 sm:h-full ${
               gap >= 2 ? "sm:col-span-2" : ""
             }`}
           >
