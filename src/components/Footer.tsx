@@ -35,11 +35,11 @@ const Footer: React.FC = () => (
 
         <div className="flex flex-col items-start gap-3">
           <a
-            href="mailto:chaitanya.katare@aaibuzz.com"
+            href="mailto:chaitanyask103@gmail.com"
             className="btn btn-primary"
           >
             <Mail size={17} />
-            chaitanya.katare@aaibuzz.com
+            chaitanyask103@gmail.com
           </a>
           <p className="flex items-center gap-2 pl-1 text-xs text-faint">
             <span className="h-1.5 w-1.5 rounded-full bg-live" aria-hidden />
