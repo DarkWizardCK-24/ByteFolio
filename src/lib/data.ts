@@ -1,9 +1,9 @@
 import {
-  FaReact, FaJsSquare, FaAndroid, FaGitAlt, FaApple, FaGlobe, FaDatabase, FaWindows, FaLinux,
+  FaAndroid, FaGitAlt, FaApple, FaGlobe, FaDatabase, FaWindows, FaLinux,
 } from "react-icons/fa";
 import { VscVscodeInsiders } from "react-icons/vsc";
 import {
-  SiTailwindcss, SiFlutter, SiFirebase, SiPostman, SiSupabase,
+  SiTailwindcss, SiFlutter, SiFirebase, SiSupabase, SiNextdotjs,
   SiAndroidstudio, SiXcode, SiDjango, SiFastapi, SiPython, SiTypescript,
 } from "react-icons/si";
 import { FaDartLang } from "react-icons/fa6";
@@ -18,6 +18,32 @@ import type {
 
 export const webProjects: Project[] = [
   {
+    title: "DevHub",
+    description:
+      "A personal developer workspace that brings projects, tasks, notes, code snippets, files, links and builds into one mobile-first app. Features Kanban and calendar task views, a Markdown notes editor, an AES-256 encrypted vault, global search (Ctrl/⌘ + K), an activity timeline and an admin panel with audit log.",
+    images: ["/projects/web/devhub/dashboard-dark.png", "/projects/web/devhub/dashboard-light.png", "/projects/web/devhub/projects-grid.png", "/projects/web/devhub/project-board.png", "/projects/web/devhub/notes-editor.png", "/projects/web/devhub/vault.png", "/projects/web/devhub/admin-audit.png"],
+    skills: ["Next.js", "Typescript", "FastAPI", "Supabase", "Vercel"],
+    github: "https://github.com/DarkWizardCK-24/DevHub",
+    live: "https://dev-hub-one-opal.vercel.app",
+  },
+  {
+    title: "Prism Link",
+    description:
+      "A colorful link-in-bio platform — one link, every side of you. Build a page with grouped links, drag-and-drop ordering, gradient themes, YouTube/Spotify embeds, scheduled links, QR sharing and a live phone preview, with built-in analytics for views, clicks and referrers.",
+    images: ["/projects/web/prism-link/desktop-landing.png", "/projects/web/prism-link/desktop-dashboard.png", "/projects/web/prism-link/desktop-appearance-style.png", "/projects/web/prism-link/desktop-analytics.png", "/projects/web/prism-link/desktop-profile.png", "/projects/web/prism-link/mobile-profile.png"],
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "Firebase", "Framer Motion", "Vercel"],
+    github: "https://github.com/DarkWizardCK-24/Prism-Link",
+    live: "https://prism-link.vercel.app",
+  },
+  {
+    title: "Lensly",
+    description:
+      "Upload bank statements (PDF incl. password-protected, CSV, Excel) and see where your money goes. Reconciles balances, categorises transactions, flags duplicates, suggests savings, compares reports and exports to CSV, Excel and PDF. Companion to Ledgerly.",
+    images: ["/projects/web/lensly/dashboard-desktop.png", "/projects/web/lensly/upload-desktop.png", "/projects/web/lensly/review-desktop.png", "/projects/web/lensly/reconciliation-warnings-desktop.png", "/projects/web/lensly/report-overview-desktop.png", "/projects/web/lensly/recommendations-desktop.png", "/projects/web/lensly/compare-desktop.png", "/projects/web/lensly/budgets-desktop.png"],
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "FastAPI", "Supabase", "PostgreSQL"],
+    github: "https://github.com/DarkWizardCK-24/Lensly",
+  },
+  {
     title: "Kanban Finance Web",
     description:
       "A clean Next.js web app for smart wealth management. Visualize and track your savings, investments & financial goals using intuitive Kanban boards. Built with Next.js 14 & Firebase (Auth + Firestore). Manage money better. Grow wealth faster.",
@@ -27,24 +53,6 @@ export const webProjects: Project[] = [
     live: "https://kanban-finance-web.vercel.app/",
   },
   {
-    title: "ByteFolio",
-    description:
-      "A sleek React & Vite portfolio web app styled with Tailwind CSS, hosted on Vercel. Features reusable components and accessible links to showcase experience, education, certifications, projects, and skills with modern animations.",
-    image: "/projects/web/web7.png",
-    skills: ["React.js", "Javascript", "Tailwind CSS", "Vercel"],
-    github: "https://github.com/DarkWizardCK-24/ByteFolio",
-    live: "https://byte-folio.vercel.app/",
-  },
-  {
-    title: "Profolio Website",
-    description:
-      "A modern, responsive portfolio built with Next.js and JavaScript to showcase my projects, skills, and journey. Features smooth Framer Motion animations, a clean UI, and is optimized for speed, SEO, and accessibility.",
-    image: "/projects/web/web6.png",
-    skills: ["Next.js", "Javascript", "Tailwind CSS", "Vercel"],
-    github: "https://github.com/DarkWizardCK-24/ProFolio",
-    live: "https://portfolio-nextjs-pearl-eight.vercel.app/",
-  },
-  {
     title: "Secure Spark",
     description:
       "A React-based web app to check your password strength in real time. It estimates brute-force crack time, calculates entropy, and offers visual feedback. Built for developers & users who care about security.",
@@ -52,23 +60,6 @@ export const webProjects: Project[] = [
     skills: ["React.js", "Javascript", "Tailwind CSS", "Vercel"],
     github: "https://github.com/DarkWizardCK-24/SecureSpark",
     live: "https://pass-wiz-webapp.vercel.app/",
-  },
-  {
-    title: "Pass Vault",
-    description:
-      "A web app used to store the credentials and passwords. Built using CRUD functionality with React framework, hosted on Vercel.",
-    image: "/projects/web/web4.png",
-    skills: ["React.js", "Javascript", "Tailwind CSS", "Vercel"],
-    github: "https://github.com/DarkWizardCK-24/PassVault",
-    live: "https://pass-vault-eight.vercel.app/",
-  },
-  {
-    title: "Bittree (Clone-Linktree)",
-    description:
-      "A Linktree clone with features for creating a link tree, adding links, and storing data using MongoDB.",
-    image: "/projects/web/web3.png",
-    skills: ["Next.js", "Javascript", "Tailwind CSS", "MongoDB"],
-    github: "https://github.com/DarkWizardCK-24/Bittree_Clone-Linktree",
   },
   {
     title: "Link Luxe",
@@ -94,68 +85,20 @@ export const webProjects: Project[] = [
 
 export const flutterProjects: Project[] = [
   {
-    title: "Blog Sphere",
+    title: "Lumora",
     description:
-      "A modern Blog App built with Flutter & Dart featuring Supabase authentication and SQL database integration. Supports full CRUD operations with Clean Architecture principles for scalability and maintainability.",
-    image: "/projects/flutter/flutter1.png",
-    skills: ["Flutter", "Dart", "SQL", "Supabase"],
-    github: "https://github.com/DarkWizardCK-24/BlogSphere",
+      "An offline-first Flutter app for logging study sessions, setting goals and tracking streaks. Includes a dashboard with streak heatmap, goal milestones, a planner, Markdown notes, offline finish-date forecasts, JSON/CSV/PDF export and optional Firebase sync with conflict resolution.",
+    images: ["/projects/flutter/lumora/desktop-dashboard.png", "/projects/flutter/lumora/desktop-goals.png", "/projects/flutter/lumora/desktop-analysis.png", "/projects/flutter/lumora/desktop-analytics.png", "/projects/flutter/lumora/desktop-calendar.png", "/projects/flutter/lumora/desktop-sessions.png", "/projects/flutter/lumora/desktop-notes.png", "/projects/flutter/lumora/mobile-dashboard.png", "/projects/flutter/lumora/mobile-goals.png"],
+    skills: ["Flutter", "Dart", "SQLite", "Firebase"],
+    github: "https://github.com/DarkWizardCK-24/Lumora",
   },
   {
-    title: "Bill Blitz",
+    title: "Ledgerly",
     description:
-      "A modern responsive billing system built using Flutter Web and Firebase. Allows users to generate, manage, and store customer bills. Bills can be exported and printed as PDFs.",
-    image: "/projects/flutter/flutter2.png",
-    skills: ["Flutter", "Dart", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/BillBlitz",
-  },
-  {
-    title: "Green Spy",
-    description:
-      "A witty Flutter finance app with Firebase & Firestore integration. Offers real-time currency conversion, credit score tracking, and an AI-powered expense tracker with sarcastic insights and colorful charts.",
-    image: "/projects/flutter/flutter3.png",
-    skills: ["Flutter", "Dart", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/Green_Spy",
-  },
-  {
-    title: "PassWiz App",
-    description:
-      "A Flutter app that analyzes password strength in real time. Estimates brute-force crack time and calculates entropy to measure randomness.",
-    image: "/projects/flutter/flutter4.png",
-    skills: ["Flutter", "Dart"],
-    github: "https://github.com/DarkWizardCK-24/PassWiz-App",
-  },
-  {
-    title: "Data Dazzle",
-    description:
-      "A mobile app built with Flutter and SQLite for creating, importing, and exporting data as CSVs, XLSXs, and ODSs. Supports tabular and card-oriented data representation.",
-    image: "/projects/flutter/flutter5.png",
-    skills: ["Flutter", "SQLite", "CSVs", "XLSX", "ODS"],
-    github: "https://github.com/DarkWizardCK-24/DataDazzle",
-  },
-  {
-    title: "Cred Vault",
-    description:
-      "A secure Flutter app for storing and managing credentials, powered by Firebase Authentication and Firestore. Features a stunning glassmorphic UI and seamless copy-to-clipboard functionality.",
-    image: "/projects/flutter/flutter6.png",
-    skills: ["Flutter", "Dart", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/CredVault",
-  },
-  {
-    title: "DecXNote",
-    description:
-      "A sleek Flutter to-do app with a card-swiper interface. Features Firebase Authentication, real-time database sync, glassmorphic UI, and checklist items for easy task organization.",
-    image: "/projects/flutter/flutter7.png",
-    skills: ["Flutter", "Dart", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/DecXNote",
-  },
-  {
-    title: "H₂Orbit",
-    description:
-      "An AI-powered Flutter app for smart hydration tracking. Predicts needs using behavior, weather, and lifestyle; syncs via Firebase with full offline support. Features weather-adjusted recommendations and fluid animations.",
-    image: "/projects/flutter/flutter8.png",
-    skills: ["Flutter", "Dart", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/H2Orbit",
+      "A multi-ledger cash book in Flutter for tracking income and expenses across CashBooks, with charts, categories, tags and insights. Responsive across phone, tablet and desktop, with Riverpod state management and FastAPI + Supabase sync.",
+    images: ["/projects/flutter/ledgerly/dashboard-desktop.png", "/projects/flutter/ledgerly/insights-desktop.png", "/projects/flutter/ledgerly/books-desktop.png", "/projects/flutter/ledgerly/transactions-desktop.png", "/projects/flutter/ledgerly/categories-desktop.png", "/projects/flutter/ledgerly/dashboard-mobile.png", "/projects/flutter/ledgerly/transactions-mobile.png"],
+    skills: ["Flutter", "Dart", "Riverpod", "FastAPI", "Supabase"],
+    github: "https://github.com/DarkWizardCK-24/Ledgerly",
   },
   {
     title: "Ghost Signal",
@@ -166,12 +109,12 @@ export const flutterProjects: Project[] = [
     github: "https://github.com/DarkWizardCK-24/Ghost-Signal",
   },
   {
-    title: "Music App",
+    title: "H₂Orbit",
     description:
-      "A beautiful music app built with Flutter that allows users to search for songs, play previews, and manage their favorite tracks.",
-    image: "/projects/flutter/flutter10.png",
-    skills: ["Flutter", "Dart", "RESTful API"],
-    github: "https://github.com/DarkWizardCK-24/Music-App",
+      "An AI-powered Flutter app for smart hydration tracking. Predicts needs using behavior, weather, and lifestyle; syncs via Firebase with full offline support. Features weather-adjusted recommendations and fluid animations.",
+    image: "/projects/flutter/flutter8.png",
+    skills: ["Flutter", "Dart", "Firebase"],
+    github: "https://github.com/DarkWizardCK-24/H2Orbit",
   },
   {
     title: "Kanban Finance System",
@@ -180,6 +123,14 @@ export const flutterProjects: Project[] = [
     image: "/projects/flutter/flutter11.png",
     skills: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/DarkWizardCK-24/Kanban-Finance-System",
+  },
+  {
+    title: "Bill Blitz",
+    description:
+      "A modern responsive billing system built using Flutter Web and Firebase. Allows users to generate, manage, and store customer bills. Bills can be exported and printed as PDFs.",
+    image: "/projects/flutter/flutter2.png",
+    skills: ["Flutter", "Dart", "Firebase"],
+    github: "https://github.com/DarkWizardCK-24/BillBlitz",
   },
 ];
 
@@ -262,24 +213,6 @@ export const certifications: Certification[] = [
     skills: ["Flutter", "Firebase", "APIs"],
   },
   {
-    title: "Frontend Development - HTML",
-    issuer: "Great Learning",
-    date: "Nov 2024",
-    skills: ["HTML", "Frontend Development"],
-  },
-  {
-    title: "Frontend Development - CSS",
-    issuer: "Great Learning",
-    date: "Nov 2024",
-    skills: ["CSS", "Frontend Development"],
-  },
-  {
-    title: "Introduction to JavaScript",
-    issuer: "Great Learning",
-    date: "Nov 2024",
-    skills: ["JavaScript"],
-  },
-  {
     title: "MySQL Basics",
     issuer: "Great Learning",
     date: "Oct 2024 - Nov 2024",
@@ -294,7 +227,6 @@ export const skillCategories: SkillCategory[] = [
     title: "Languages",
     icon: Code2,
     skills: [
-      { name: "JavaScript", icon: FaJsSquare },
       { name: "TypeScript", icon: SiTypescript },
       { name: "Tailwind CSS", icon: SiTailwindcss },
       { name: "Dart", icon: FaDartLang },
@@ -305,7 +237,7 @@ export const skillCategories: SkillCategory[] = [
     title: "Technologies",
     icon: Cpu,
     skills: [
-      { name: "React", icon: FaReact },
+      { name: "Next.js", icon: SiNextdotjs },
       { name: "Flutter", icon: SiFlutter },
       { name: "Firebase", icon: SiFirebase },
       { name: "Supabase", icon: SiSupabase },
@@ -332,7 +264,6 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "VsCode", icon: VscVscodeInsiders },
       { name: "Xcode", icon: SiXcode },
-      { name: "Postman", icon: SiPostman },
       { name: "Android Studio", icon: SiAndroidstudio },
       { name: "Database", icon: FaDatabase },
     ],
