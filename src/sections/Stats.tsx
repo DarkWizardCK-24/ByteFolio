@@ -44,10 +44,6 @@ const Counter: React.FC<{ value: number; decimals: number; suffix: string; play:
   );
 };
 
-/**
- * The figures are the argument, so nothing else on this band competes with
- * them — hairline dividers, one type colour, and no icon tiles.
- */
 const Stats: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });

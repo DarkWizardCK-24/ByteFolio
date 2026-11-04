@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("#home");
 
-  // Reading position, drawn as a hairline along the bottom of the bar.
+  // Scroll progress line along the bottom of the bar
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 160, damping: 30, restDelta: 0.001 });
 
@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Highlight whichever section currently owns the upper part of the viewport.
+  // Highlight the section in the upper part of the viewport
   useEffect(() => {
     const sections = navLinks
       .map((l) => document.querySelector(l.href))
@@ -78,7 +78,6 @@ const Navbar: React.FC = () => {
             <CallSign className="hidden text-sm lg:block" />
           </a>
 
-          {/* Desktop */}
           <div className="hidden items-center gap-0.5 md:flex">
             {navLinks.map((link) => {
               const isActive = active === link.href;
@@ -129,7 +128,6 @@ const Navbar: React.FC = () => {
         />
       )}
 
-      {/* Mobile */}
       <AnimatePresence>
         {isOpen && (
           <>

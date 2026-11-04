@@ -39,7 +39,6 @@ const Certifications: React.FC = () => {
                 onMouseMove={trackSpotlight}
                 className="surface surface-hover spotlight group relative flex h-full flex-col overflow-hidden p-5 pl-6"
               >
-                {/* The card's one piece of colour: what this credential covers. */}
                 <span
                   className={`absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b ${accent.gradient}`}
                   aria-hidden

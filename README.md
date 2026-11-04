@@ -1,35 +1,21 @@
-# ByteFolio ⚡🎨
+# ByteFolio
 
-ByteFolio is a modern, responsive portfolio web app built with React and Vite ⚡, styled with Tailwind CSS 🎨 for a sleek and professional look. Hosted on Vercel 🚀, it showcases your professional journey through reusable components, featuring sections for experience, education, certifications, projects, and skills. With accessible links 🔗 and smooth animations, ByteFolio is designed to impress across all devices 🌐.
+Personal portfolio site built with Next.js, TypeScript and Tailwind CSS, hosted on Vercel. It lists my experience, education, certifications, projects and skills.
 
-# ✨ Features
+## Stack
 
-1. Reusable Components 🧩: Modular React components for easy maintenance and scalability.
-2. Tailwind CSS Styling 🎨: Beautiful, responsive design with Tailwind’s utility-first approach.
-3. Vercel Hosting 🚀: Fast, reliable deployment with automatic scaling.
-4. Accessible Links 🔗: Screen-reader-friendly navigation and external links (GitHub, LinkedIn, etc.).
-5. Smooth Animations 🎉: Engaging transitions and hover effects for a premium experience.
-6. Cross-Platform 🌐: Optimized for desktop, tablet, and mobile browsers.
+- Next.js (App Router) and React
+- TypeScript
+- Tailwind CSS
+- Framer Motion for animations
+- Lucide and React Icons
+- ESLint
 
-# 📋 Comprehensive Sections 
+## Running locally
 
-1. 🛠️ Experience: Highlight your professional journey with detailed work history.
-2. 🎓 Education: Showcase your academic background.
-3. 🏆 Certifications: Display your professional achievements.
-4. 💻 Projects: Feature your best projects with links to demos and repositories.
-5. 🧠 Skills: List your technical skills with visual flair.
+```bash
+npm install
+npm run dev
+```
 
-
-# 🛠️ Tech Stack
-
-1. React ⚛️: JavaScript library for building the UI.
-2. Vite ⚡: Fast, modern build tool for development and production.
-3. Tailwind CSS 🎨: Utility-first CSS framework for styling.
-4. Vercel 🚀: Hosting platform for seamless deployment.
-5. React Icons 🎨: For professional icons in the UI.
-6. ESLint & Prettier 🧹: For code linting and formatting.
-
-
-
-ByteFolio ⚡ – Showcase your skills and projects with style! 🚀
-
+Other scripts: `npm run build`, `npm start`, `npm run lint`.

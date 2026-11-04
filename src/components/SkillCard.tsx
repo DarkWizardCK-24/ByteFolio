@@ -14,8 +14,6 @@ const SkillCard: React.FC<SkillItem & { index: number }> = ({ name, icon: Icon, 
     onMouseMove={trackSpotlight}
     className="surface surface-hover spotlight group relative flex items-center gap-3 overflow-hidden px-4 py-3.5"
   >
-    {/* The icons keep their own brand colours — that is what makes the grid
-        scannable. Everything around them stays neutral so they can. */}
     <Icon className={`h-6 w-6 shrink-0 ${getSkillColor(name)}`} aria-hidden />
     <p className="min-w-0 flex-1 truncate text-sm font-medium text-muted transition-colors duration-300 group-hover:text-text">
       {name}
@@ -23,7 +21,7 @@ const SkillCard: React.FC<SkillItem & { index: number }> = ({ name, icon: Icon, 
     {learning && (
       <span
         role="img"
-        aria-label={`${name} — currently learning`}
+        aria-label={`${name} (currently learning)`}
         title="Currently learning"
         className="h-1.5 w-1.5 shrink-0 rounded-full bg-learn"
       />

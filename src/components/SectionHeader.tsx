@@ -13,11 +13,6 @@ interface SectionHeaderProps {
   meta?: Meta[];
 }
 
-/**
- * One header for every section. The counts sit on a baseline with the heading
- * as plain figures rather than floating pills — they are data about the
- * section, so they are set like data.
- */
 const SectionHeader: React.FC<SectionHeaderProps> = ({ title, lede, meta }) => (
   <motion.header
     initial={{ opacity: 0, y: 24 }}

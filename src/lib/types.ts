@@ -31,7 +31,7 @@ export interface Certification {
 export interface SkillItem {
   name: string;
   icon: IconType;
-  /** Set on skills being actively picked up, so the UI can say so honestly. */
+  /** Set on skills being picked up right now. */
   learning?: boolean;
 }
 
@@ -52,7 +52,7 @@ export type CardVariant = "big" | "wide" | "small";
 
 export interface Accent {
   key: string;
-  /** The exact stack this colour stands for, e.g. "Next.js" — shown on cards. */
+  /** The exact stack this colour stands for, e.g. "Next.js", shown on cards. */
   label: string;
   text: string;
   hoverText: string;

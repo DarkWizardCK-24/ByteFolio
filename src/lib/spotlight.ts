@@ -2,11 +2,7 @@
 
 import type { MouseEvent } from "react";
 
-/**
- * Feeds the pointer position to a card as CSS custom properties, which the
- * `.spotlight` utility paints a pool of light at. Kept as a plain handler
- * rather than state so it never re-renders on mouse move.
- */
+// Sets --mx/--my for the .spotlight glow. Plain DOM writes, so no re-render on mouse move.
 export function trackSpotlight(e: MouseEvent<HTMLElement>): void {
   const el = e.currentTarget;
   const rect = el.getBoundingClientRect();

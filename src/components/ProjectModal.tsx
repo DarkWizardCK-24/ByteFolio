@@ -78,7 +78,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <X size={17} />
           </button>
 
-          {/* Gallery */}
           <div className="relative shrink-0 bg-primary lg:w-[52%]">
             <div className="relative h-56 overflow-hidden sm:h-72 lg:h-full lg:min-h-[26rem]">
               <AnimatePresence mode="wait">
@@ -148,7 +147,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             </div>
           </div>
 
-          {/* Details */}
           <div className="modal-scroll flex-1 overflow-y-auto p-6 sm:p-8">
             <h2 className="pr-12 text-2xl font-semibold leading-tight text-text sm:text-3xl">
               {project.title}

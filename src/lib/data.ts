@@ -14,7 +14,6 @@ import type {
   Project, TimelineItemData, Certification, SkillCategory, FocusArea,
 } from "./types";
 
-// ── Web Projects ──────────────────────────────────────────────────────────────
 
 export const webProjects: Project[] = [
   {
@@ -29,7 +28,7 @@ export const webProjects: Project[] = [
   {
     title: "Prism Link",
     description:
-      "A colorful link-in-bio platform — one link, every side of you. Build a page with grouped links, drag-and-drop ordering, gradient themes, YouTube/Spotify embeds, scheduled links, QR sharing and a live phone preview, with built-in analytics for views, clicks and referrers.",
+      "A colorful link-in-bio platform: one link, every side of you. Build a page with grouped links, drag-and-drop ordering, gradient themes, YouTube/Spotify embeds, scheduled links, QR sharing and a live phone preview, with built-in analytics for views, clicks and referrers.",
     images: ["/projects/web/prism-link/desktop-landing.png", "/projects/web/prism-link/desktop-dashboard.png", "/projects/web/prism-link/desktop-appearance-style.png", "/projects/web/prism-link/desktop-analytics.png", "/projects/web/prism-link/desktop-profile.png", "/projects/web/prism-link/mobile-profile.png"],
     skills: ["Next.js", "Typescript", "Tailwind CSS", "Firebase", "Framer Motion", "Vercel"],
     github: "https://github.com/DarkWizardCK-24/Prism-Link",
@@ -81,7 +80,6 @@ export const webProjects: Project[] = [
   },
 ];
 
-// ── Flutter Projects ──────────────────────────────────────────────────────────
 
 export const flutterProjects: Project[] = [
   {
@@ -134,19 +132,18 @@ export const flutterProjects: Project[] = [
   },
 ];
 
-// ── Experience ────────────────────────────────────────────────────────────────
 
 export const experiences: TimelineItemData[] = [
   {
-    title: "Software Developer - AaiBuzz (AaiNova), Navi Mumbai",
+    title: "Software Developer - Aainova, Navi Mumbai",
     period: "Jan 2026 - Present",
     description:
-      "Started on the mobile side, building cross-platform apps in Flutter, and grew into full-stack work across the product. Now I run several projects end to end — the mobile apps, the web apps, the backend services behind them, and the admin panels the team works in day to day.",
+      "Started on the mobile side, building cross-platform apps in Flutter, and grew into full-stack work across the product. Now I run several projects end to end: the mobile apps, the web apps, the backend services behind them, and the admin panels the team works in day to day.",
     details: ["Next.js", "Flutter", "Python FastAPI", "Firebase", "MySQL"],
   },
   {
     title: "Flutter Developer - Prosoft Informatics Pvt Ltd, Navi Mumbai",
-    period: "May 2025 - Nov 2025",
+    period: "May 2025 - Sept 2025",
     description:
       "Developed mobile applications of medical services with a focus on performance and user experience on Android and iOS.",
     details: ["Flutter and Dart", "Xcode", "VsCode"],
@@ -174,7 +171,6 @@ export const experiences: TimelineItemData[] = [
   },
 ];
 
-// ── Education ─────────────────────────────────────────────────────────────────
 
 export const education: TimelineItemData[] = [
   {
@@ -187,7 +183,7 @@ export const education: TimelineItemData[] = [
     title: "DAV Public School, Panvel - Science Stream",
     period: "June 2018 - Apr 2020",
     description: "HSC CBSE Board",
-    details: ["Percentage: 75.4%", "Math & Science", "Programming Basics"],
+    details: ["Percentage: 79.6%", "Math & Science", "Programming Basics"],
   },
   {
     title: "DAV Public School, Panvel - Science Stream",
@@ -197,7 +193,6 @@ export const education: TimelineItemData[] = [
   },
 ];
 
-// ── Certifications ────────────────────────────────────────────────────────────
 
 export const certifications: Certification[] = [
   {
@@ -220,7 +215,6 @@ export const certifications: Certification[] = [
   },
 ];
 
-// ── Skills ────────────────────────────────────────────────────────────────────
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -270,7 +264,6 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
-// ── Currently sharpening ──────────────────────────────────────────────────────
 
 export const focusAreas: FocusArea[] = [
   {
@@ -282,7 +275,7 @@ export const focusAreas: FocusArea[] = [
   {
     name: "DevOps",
     status: "Learning",
-    detail: "CI/CD pipelines, containers and deployment workflows — the path from commit to production.",
+    detail: "CI/CD pipelines, containers and deployment workflows, the path from commit to production.",
     icon: Server,
   },
   {

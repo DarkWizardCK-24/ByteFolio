@@ -18,7 +18,6 @@ const socials = [
 
 const Footer: React.FC = () => (
   <footer className="rule-top bg-primary">
-    {/* The page ends on the one thing it wants the reader to do. */}
     <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
       <div className="flex flex-col gap-8 border-b border-line pb-16 md:flex-row md:items-end md:justify-between">
         <div className="max-w-lg">
@@ -28,7 +27,7 @@ const Footer: React.FC = () => (
             you want built?
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted">
-            I&apos;m open to full-time roles and freelance work — mobile, web, or the services
+            I&apos;m open to full-time roles and freelance work: mobile, web, or the services
             underneath. Tell me what you&apos;re working on.
           </p>
         </div>
@@ -50,7 +49,6 @@ const Footer: React.FC = () => (
 
       <div className="flex flex-col-reverse gap-8 pt-8 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          {/* Mark and call sign, locked up the same way as in the masthead. */}
           <div className="flex items-center gap-3">
             <span className="font-display text-xl font-bold tracking-tight text-text">
               &lt;CK<span className="text-accent">/</span>&gt;

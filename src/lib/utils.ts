@@ -1,14 +1,6 @@
 import type { Accent, CardVariant, Certification, Project } from "./types";
 
-/**
- * Five hues, one per platform family — mobile, web, backend, data, and the
- * services layer. The label carries the exact stack, so the palette never has
- * to grow a new colour just to name a new framework.
- *
- * Each accent gets one job on a card: the tag, or the spine. Never both plus a
- * wash plus a glow — that is how a grid of eight projects turns into a rainbow.
- * Classes are written out in full; Tailwind cannot see interpolated names.
- */
+// One hue per platform family. Classes are written out in full because Tailwind can't see interpolated names.
 const CYAN = { text: "text-cyan-300", hoverText: "group-hover:text-cyan-200", border: "border-cyan-400/40", tint: "bg-cyan-400/10", gradient: "from-cyan-400 to-sky-400", dot: "bg-cyan-400" };
 const AZURE = { text: "text-blue-300", hoverText: "group-hover:text-blue-200", border: "border-blue-400/40", tint: "bg-blue-400/10", gradient: "from-blue-400 to-sky-400", dot: "bg-blue-400" };
 const VIOLET = { text: "text-violet-300", hoverText: "group-hover:text-violet-200", border: "border-violet-400/40", tint: "bg-violet-400/10", gradient: "from-violet-400 to-indigo-400", dot: "bg-violet-400" };
@@ -43,9 +35,8 @@ export function getAccent(project: Project): Accent {
 }
 
 /**
- * Bento layout. On a 4-column grid (2 on tablet) a repeating 8-card cycle
- * spends 12 cells and always lands flush; any remainder falls back to small
- * tiles and `gap` reports the cells left over so the grid can be closed off.
+ * Bento layout: on a 4-column grid a repeating 8-card cycle fills 12 cells flush.
+ * Leftover cards fall back to small tiles and `gap` is the number of empty cells.
  */
 const CYCLE: CardVariant[] = ["big", "small", "small", "small", "small", "wide", "small", "small"];
 const CELLS: Record<CardVariant, number> = { big: 4, wide: 2, small: 1 };
@@ -59,11 +50,7 @@ export function getBentoLayout(count: number): { variants: CardVariant[]; gap: n
   return { variants, gap: (4 - (cells % 4)) % 4 };
 }
 
-/**
- * The chips a card can actually fit. The stack chip over the thumbnail already
- * names the framework, so the row beneath it drops that one and spends its two
- * or three slots on the rest of the stack; `extra` is what a "+N" chip reports.
- */
+/** Chips that fit on a card. The framework chip is already on the thumbnail, so it's dropped here. `extra` feeds the "+N" chip. */
 export function techChips(
   project: Project,
   label: string,
@@ -82,10 +69,7 @@ export const VARIANT_SPAN: Record<CardVariant, string> = {
   small: "",
 };
 
-/**
- * Certifications are coloured by what they certify, so each credential in the
- * grid is identifiable at a glance rather than six copies of the same tile.
- */
+/** Certifications are coloured by topic. */
 export function getCertAccent(cert: Certification): Accent {
   const skills = cert.skills.map((s) => s.toLowerCase());
   const has = (...needles: string[]) => skills.some((s) => needles.some((n) => s.includes(n)));
@@ -106,8 +90,6 @@ export function issuerInitials(issuer: string): string {
     : issuer.slice(0, 2).toUpperCase();
 }
 
-/* ── Experience ───────────────────────────────────────────────────────────── */
-
 const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
 /** "Sept 2022" / "May 2025" / "Present" -> absolute month index. */
@@ -120,10 +102,7 @@ function parseMonth(token: string, fallback: number): number | null {
   return month < 0 ? null : Number(m[2]) * 12 + month;
 }
 
-/**
- * Total months across every listed role, merging overlapping periods so
- * concurrent roles are never counted twice.
- */
+/** Total months across all roles; overlapping periods are merged. */
 export function totalExperienceMonths(periods: (string | undefined)[]): number {
   const now = new Date().getFullYear() * 12 + new Date().getMonth();
 
@@ -148,9 +127,7 @@ export function totalExperienceMonths(periods: (string | undefined)[]): number {
   return total;
 }
 
-/* ── Skills ───────────────────────────────────────────────────────────────── */
-
-/** Brand-ish colour per skill, so the grid is scannable rather than monochrome. */
+/** Brand-ish colour per skill. */
 const SKILL_COLORS: Record<string, string> = {
   JavaScript: "text-yellow-400",
   TypeScript: "text-blue-400",

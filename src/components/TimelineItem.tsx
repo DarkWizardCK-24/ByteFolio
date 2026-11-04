@@ -13,17 +13,12 @@ interface TimelineItemProps {
   icon: LucideIcon;
 }
 
-/**
- * A timeline is a sequence, so the only thing colour marks here is which entry
- * is still running. Rotating a palette across the entries — as this did — reads
- * as decoration, because the colours mean nothing.
- */
 const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, length, icon: Icon }) => {
   const duration = formatDuration(item.period);
   const isLast = index === length - 1;
   const isCurrent = /present|current/i.test(item.period ?? "");
 
-  // Titles are stored as "Role - Organisation"; keep the whole string if not.
+  // Titles look like "Role - Organisation"
   const [heading, ...rest] = item.title.split(" - ");
   const subheading = rest.join(" - ");
 
@@ -35,7 +30,6 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, length, icon: 
       viewport={{ once: true, margin: "-70px" }}
       className="group relative flex gap-5 sm:gap-7"
     >
-      {/* Rail */}
       <div className="flex flex-col items-center">
         <span
           className={`relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-card border transition-colors duration-300 ${
@@ -49,7 +43,6 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, length, icon: 
         {!isLast && <span className="mt-2 w-px flex-1 bg-gradient-to-b from-line to-transparent" />}
       </div>
 
-      {/* Card */}
       <div className={`min-w-0 flex-1 ${isLast ? "pb-0" : "pb-7"}`}>
         <div
           onMouseMove={trackSpotlight}

@@ -13,15 +13,13 @@ const Skills: React.FC = () => {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Skills & tooling"
-          lede="The languages, frameworks and platforms I build with day to day — plus what I'm actively adding to the list."
+          lede="The languages, frameworks and platforms I build with day to day, plus what I'm actively adding to the list."
           meta={[
             { value: total, label: "Technologies" },
             { value: skillCategories.length, label: "Categories" },
           ]}
         />
 
-        {/* What's being learned right now leads, because it is the part of this
-            section that changes — and the part worth reading. */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +49,6 @@ const Skills: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Categories */}
         <div className="space-y-12">
           {skillCategories.map((category) => (
             <div key={category.title}>

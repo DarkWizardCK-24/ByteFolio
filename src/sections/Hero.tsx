@@ -14,15 +14,12 @@ const socials = [
   { href: "https://linktr.ee/DarkWizard_CK", label: "Linktree", Icon: SiLinktree },
 ];
 
-// Three facts a recruiter looks for first, set as a spec rail rather than a
-// scatter of pills — what he does, where he is, what he is adding next.
 const specs = [
   { label: "Builds", value: "Flutter & full-stack" },
   { label: "Based in", value: "Navi Mumbai, India" },
   { label: "Learning", value: "Linux & DevOps" },
 ];
 
-// The page's one load sequence. Everything after the hero waits for scroll.
 const container: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
@@ -71,7 +68,7 @@ const Hero: React.FC = () => (
           </motion.p>
 
           <motion.p variants={item} className="mt-6 max-w-md text-lg leading-relaxed text-muted">
-            I build cross-platform apps and the web services behind them — and I&apos;m going deep on
+            I build cross-platform apps and the web services behind them, and I&apos;m going deep on
             Linux and DevOps to own the whole path to production.
           </motion.p>
 
@@ -113,11 +110,7 @@ const Hero: React.FC = () => (
           </motion.div>
         </motion.div>
 
-        {/* Portrait. The source is a cut-out on a transparent background, so it
-            gets a lit stage to stand on rather than a photo box to sit in:
-            floor light under the shoulders, a halo behind the head, and a fade
-            at the bottom that dissolves the cut-out edge into the panel floor.
-            Rendered at its natural 280px — it is never upscaled. */}
+        {/* Portrait: transparent cut-out, rendered at its natural 280px */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -125,14 +118,14 @@ const Hero: React.FC = () => (
           className="order-1 flex justify-center lg:order-2 lg:justify-end"
         >
           <figure className="group isolate relative w-full max-w-[23rem]">
-            {/* Colour bloom, outside the panel */}
+            {/* Bloom behind the panel */}
             <div className="pointer-events-none absolute -inset-10 -z-10" aria-hidden>
               <div className="absolute inset-0 rounded-[4rem] bg-[radial-gradient(ellipse_at_50%_60%,rgba(77,159,255,0.38),transparent_62%)] blur-2xl" />
               <div className="absolute -right-2 top-6 h-44 w-44 rounded-full bg-iris/35 blur-3xl" />
             </div>
 
             <div className="conic-ring relative aspect-[5/6] overflow-hidden rounded-[1.75rem] bg-gradient-to-b from-raised via-secondary to-primary shadow-lift">
-              {/* Floor light — the portrait stands in it */}
+              {/* Floor light */}
               <div
                 className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_96%,rgba(77,159,255,0.34),transparent_56%)]"
                 aria-hidden
@@ -164,13 +157,12 @@ const Hero: React.FC = () => (
                 className="absolute bottom-0 left-1/2 w-[17.5rem] max-w-[94%] -translate-x-1/2 transition-transform duration-500 ease-out group-hover:-translate-y-1.5"
               />
 
-              {/* Dissolves the cut-out's bottom edge into the panel floor... */}
+              {/* Fade the cut-out's bottom edge into the floor */}
               <div
                 className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-primary via-primary/70 to-transparent"
                 aria-hidden
               />
-              {/* ...then the floor light is laid back over it, so the figure
-                  reads as standing in the light rather than fading out. */}
+              {/* Floor light over the fade */}
               <div
                 className="absolute inset-x-0 bottom-0 h-32 bg-[radial-gradient(ellipse_at_50%_100%,rgba(77,159,255,0.32),transparent_58%)] mix-blend-screen"
                 aria-hidden

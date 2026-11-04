@@ -13,16 +13,14 @@
     font-feature-settings: "cv05" 1, "ss01" 1;
   }
 
-  /* Headings carry the display face; body text never does. */
   h1, h2, h3, h4 {
     @apply font-display;
     letter-spacing: -0.025em;
   }
 
-  /* Figures are read by comparison, so they never reflow column to column. */
   .tnum { font-variant-numeric: tabular-nums; }
 
-  /* Fixed navbar is 4.5rem — keep anchored sections clear of it. */
+  /* Keep anchored sections clear of the fixed navbar */
   section[id], div[id] {
     scroll-margin-top: 5.5rem;
   }
@@ -32,7 +30,6 @@
     color: #fff;
   }
 
-  /* One focus treatment for the whole site. */
   :focus-visible {
     outline: 2px solid theme("colors.accent");
     outline-offset: 2px;
@@ -50,9 +47,6 @@
 }
 
 @layer components {
-  /* ── Buttons ──────────────────────────────────────────────────────────────
-     Two of them, everywhere. A filled action reads as a physical key: lit along
-     its top edge, shaded toward the bottom, and casting its own colour down. */
   .btn {
     @apply relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-card px-6 py-3.5 font-semibold;
     @apply transition-[background-color,background-image,border-color,box-shadow,transform] duration-200 ease-out;
@@ -101,17 +95,12 @@
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 10px 28px -16px rgba(2, 4, 9, 0.9);
   }
 
-  /* ── Chips ────────────────────────────────────────────────────────────────
-     One shape doing three jobs: naming the stack, reporting state, and listing
-     a technology. Padding, radius and type size never vary between them, so a
-     row of chips reads as one band rather than a ransom note. Only the ground
-     and the text colour change, and each of those means something. */
   .chip {
     @apply inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md border;
     @apply px-2 py-[3px] text-[11px] font-medium leading-[1.45];
     @apply transition-[color,background-color,border-color] duration-300 ease-out;
   }
-  /* Roomier, for the modal, where there is space and fewer neighbours. */
+  /* Larger variant for the modal */
   .chip-lg {
     @apply gap-2 px-2.5 py-1 text-xs;
   }
@@ -119,7 +108,7 @@
     @apply h-1.5 w-1.5 shrink-0 rounded-full;
   }
 
-  /* Neutral — the technologies a project is built from. Warms with its card. */
+  /* Technology tags */
   .chip-tech {
     @apply border-line bg-primary/50 text-muted;
   }
@@ -127,7 +116,7 @@
     @apply border-line bg-primary/80 text-text;
   }
 
-  /* Overflow marker: "+3 more". Quieter than the chips it stands in for. */
+  /* "+3 more" marker */
   .chip-more {
     @apply border-dashed border-line bg-transparent text-faint;
   }
@@ -135,12 +124,12 @@
     @apply text-muted;
   }
 
-  /* Sitting over a thumbnail, so it has to carry its own ground. */
+  /* Chip over a thumbnail */
   .chip-overlay {
     @apply border-line/70 bg-primary/70 font-semibold text-muted backdrop-blur-md;
   }
 
-  /* State, never decoration — this one only ever says "it is deployed". */
+  /* Deployed state */
   .chip-live {
     @apply border-live/30 bg-live/10 font-semibold text-live backdrop-blur-md;
   }
@@ -153,7 +142,7 @@
     border: 1px solid theme("colors.line");
   }
 
-  /* Faint blueprint grid — gives large surfaces depth without decoration. */
+  /* Faint blueprint grid */
   .grid-texture::before {
     content: "";
     position: absolute;
@@ -167,14 +156,13 @@
     -webkit-mask-image: radial-gradient(ellipse 75% 55% at 50% 0%, #000 25%, transparent 72%);
   }
 
-  /* Hairline between stacked sections, brightest in the middle. */
+  /* Hairline between sections, brightest in the middle */
   .rule-top {
     border-top: 1px solid transparent;
     border-image: linear-gradient(90deg, transparent, theme("colors.line"), transparent) 1;
   }
 
-  /* A 1px edge that catches light along the top-left and fades out, the way a
-     real bevel would. Reserved for the few surfaces that lead a section. */
+  /* 1px gradient edge for the surfaces that lead a section */
   .edge-gradient::before {
     content: "";
     position: absolute;
@@ -195,8 +183,7 @@
     z-index: 2;
   }
 
-  /* A light that tracks the pointer across a card. The card sets --mx/--my on
-     pointer move; this paints a soft pool of accent at that point. */
+  /* Pointer glow, driven by --mx/--my set in trackSpotlight */
   .spotlight::after {
     content: "";
     position: absolute;
@@ -215,8 +202,7 @@
   }
   .spotlight:hover::after { opacity: 1; }
 
-  /* A gradient that travels around the edge of a panel. Used once, on the
-     portrait stage, because it is the loudest thing the page does. */
+  /* Rotating gradient border, used on the portrait only */
   .conic-ring::before {
     content: "";
     position: absolute;
@@ -240,8 +226,7 @@
     z-index: 4;
   }
 
-  /* The one shared card treatment. Hover brightens the edge and lifts by two
-     pixels — no shadow swap, no colour wash, no sheen. */
+  /* Shared card style */
   .surface {
     @apply rounded-card border border-line bg-raised shadow-edge;
     @apply transition-[border-color,transform,box-shadow] duration-300 ease-out;
@@ -276,14 +261,14 @@
   to { --angle: 360deg; }
 }
 
-/* A slow sweep of light across the name, and the hero's ambient drift. */
+/* Name shimmer and hero background drift */
 @keyframes sheen {
   0%, 100% { background-position: 0% 50%; }
   50%      { background-position: 100% 50%; }
 }
 .animate-sheen { background-size: 220% auto; animation: sheen 9s ease-in-out infinite; }
 
-/* The live dot's heartbeat — slow enough to notice only once. */
+/* Pulse for the live dot */
 @keyframes chip-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: 0.4; transform: scale(0.72); }

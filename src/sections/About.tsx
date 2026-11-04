@@ -8,7 +8,7 @@ const cards = [
   {
     title: "Flutter development",
     description:
-      "Cross-platform mobile apps in Flutter and Dart — one codebase, shipped to both the Play Store and the App Store.",
+      "Cross-platform mobile apps in Flutter and Dart, one codebase shipped to both the Play Store and the App Store.",
     icon: Smartphone,
   },
   {
@@ -26,7 +26,7 @@ const cards = [
   {
     title: "DevOps",
     description:
-      "Linux, CI/CD pipelines and containers — learning how code gets from a commit to production reliably.",
+      "Linux, CI/CD pipelines and containers. Learning how code gets from a commit to production reliably.",
     icon: Server,
     badge: "Learning",
   },
@@ -37,7 +37,7 @@ const About: React.FC = () => (
     <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <SectionHeader
         title="What I do"
-        lede="Four things I spend my time on — three I build with today, and one I'm deliberately working my way into."
+        lede="Four things I spend my time on. Three I build with today, and one I'm working my way into."
       />
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

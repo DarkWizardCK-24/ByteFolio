@@ -10,7 +10,7 @@ const Education: React.FC = () => (
     <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <SectionHeader
         title="Education"
-        lede="Where the fundamentals came from — an Electronics & Computer Science degree, and the years of maths and science that led into it."
+        lede="Where the fundamentals came from: an Electronics & Computer Science degree, and the years of maths and science that led into it."
         meta={[{ value: education.length, label: "Milestones" }]}
       />
 

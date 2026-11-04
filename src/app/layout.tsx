@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Archivo, Inter } from "next/font/google";
 import "./globals.css";
 
-// Archivo carries the headings — an industrial grotesque with real weight at
-// large sizes, where geometric faces go soft. Inter does the reading work.
 const display = Archivo({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
@@ -20,7 +18,7 @@ const body = Inter({
 export const metadata: Metadata = {
   title: "ByteFolio | Chaitanya Katare",
   description:
-    "Portfolio of Chaitanya Katare, known in development as DarkWizãrd — full-stack developer working across Flutter, Next.js, FastAPI and the services behind them.",
+    "Portfolio of Chaitanya Katare, known in development as DarkWizãrd, a full-stack developer working across Flutter, Next.js, FastAPI and the services behind them.",
   keywords: [
     "DarkWizãrd",
     "DarkWizard",
@@ -35,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "DarkWizãrd — Flutter and full-stack developer building cross-platform apps and the services behind them.",
+      "DarkWizãrd: Flutter and full-stack developer building cross-platform apps and the services behind them.",
     url: "https://dev-folio-ten-rho.vercel.app/",
     siteName: "ByteFolio",
     type: "website",
@@ -44,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "DarkWizãrd — Flutter and full-stack developer building cross-platform apps and the services behind them.",
+      "DarkWizãrd: Flutter and full-stack developer building cross-platform apps and the services behind them.",
   },
   robots: { index: true, follow: true },
 };

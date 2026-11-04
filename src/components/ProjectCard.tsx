@@ -14,7 +14,6 @@ interface ProjectCardProps {
   variant: CardVariant;
 }
 
-/** How many technology chips each tile can show before the row starts wrapping. */
 const CHIP_LIMIT: Record<CardVariant, number> = { big: 5, wide: 3, small: 2 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) => {
@@ -68,7 +67,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
           isBig ? "edge-gradient" : ""
         } ${VARIANT_SPAN[variant]} ${isWide ? "sm:flex-row" : ""}`}
       >
-        {/* Thumbnail */}
         <div className={`relative shrink-0 overflow-hidden bg-primary ${thumbHeight}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -77,7 +75,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
             loading="lazy"
             className="h-full w-full object-cover object-top transition-transform duration-[800ms] ease-out group-hover:scale-[1.05]"
           />
-          {/* The shot fades into the card rather than stopping at a hard edge. */}
           <div
             className={`pointer-events-none absolute inset-0 bg-gradient-to-t ${
               isWide
@@ -85,13 +82,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
                 : "from-raised via-raised/35 to-transparent"
             }`}
           />
-          {/* A second wash, top down, so the chip rail always has ground to sit on. */}
+          {/* Top fade behind the chips */}
           <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-primary/65 to-transparent" />
 
-          {/* Chip rail: the left says what a project is, the right says where it is. */}
           <div className="pointer-events-none absolute inset-x-3 top-3 flex items-start justify-between gap-2">
             <div className="flex flex-wrap items-center gap-1.5">
-              {/* The stack, named. A colour alone cannot tell anyone it is Flutter. */}
               <span
                 className={`chip font-semibold backdrop-blur-md ${accent.border} ${accent.tint} ${accent.text}`}
               >
@@ -119,7 +114,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
             )}
           </div>
 
-          {/* Screens on offer, so the card says what opening it is worth. */}
           {images.length > 1 && !isSmall && (
             <span className="chip chip-overlay pointer-events-none absolute bottom-3 right-3">
               <Images size={10} className="shrink-0" aria-hidden />
@@ -128,7 +122,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
           )}
         </div>
 
-        {/* Body */}
         <div className={`flex min-h-0 flex-1 flex-col ${isSmall ? "p-3.5" : "p-5"}`}>
           <h3
             className={`font-semibold leading-snug text-text transition-colors duration-300 ${accent.hoverText} ${
@@ -138,7 +131,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
             {project.title}
           </h3>
 
-          {/* Every tile gets the pitch. A card with no sentence on it is a tile. */}
           <p
             className={`mt-1.5 min-h-0 text-muted ${
               isBig
@@ -151,7 +143,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
             {project.description}
           </p>
 
-          {/* Pinned to the foot, so every card's chips and footer line up. */}
+          {/* Pinned to the bottom so footers line up */}
           <div className="mt-auto pt-3">
             <div className="flex flex-wrap items-center gap-1.5">
               {shown.map((skill) => (
