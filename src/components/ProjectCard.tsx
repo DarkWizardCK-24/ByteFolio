@@ -109,7 +109,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
             ) : (
               <span className="chip chip-overlay">
                 <Github size={10} className="shrink-0" aria-hidden />
-                Source
+                {project.private ? "Private" : "Source"}
               </span>
             )}
           </div>

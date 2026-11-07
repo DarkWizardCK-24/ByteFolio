@@ -63,8 +63,8 @@ const Projects: React.FC = () => (
   <section id="projects" className="rule-top grid-texture relative overflow-hidden bg-primary py-24 sm:py-32">
     <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <SectionHeader
-        title="Things I've shipped"
-        lede="Projects across the web and mobile, each tagged with the stack it runs on. Open any card for screenshots, the full story, and links."
+        title="Selected work"
+        lede="Ten products I picked for depth: accounting, encryption, payments, offline sync and data pipelines. Open any card for screenshots, the engineering highlights and links."
         meta={[
           { value: webProjects.length, label: "Web" },
           { value: flutterProjects.length, label: "Flutter" },
@@ -75,13 +75,13 @@ const Projects: React.FC = () => (
         <Showcase
           id="web-projects"
           title="Web"
-          blurb="Next.js, React and full-stack builds"
+          blurb="Full-stack products on Next.js, FastAPI and Supabase"
           projects={webProjects}
         />
         <Showcase
           id="flutter-projects"
           title="Flutter"
-          blurb="Cross-platform apps for Android and iOS"
+          blurb="Cross-platform apps with offline-first and payment flows"
           projects={flutterProjects}
         />
       </div>

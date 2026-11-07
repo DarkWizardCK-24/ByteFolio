@@ -17,118 +17,228 @@ import type {
 
 export const webProjects: Project[] = [
   {
-    title: "DevHub",
+    title: "LedgerLine",
+    tagline: "Double-entry accounting for small businesses",
     description:
-      "A personal developer workspace that brings projects, tasks, notes, code snippets, files, links and builds into one mobile-first app. Features Kanban and calendar task views, a Markdown notes editor, an AES-256 encrypted vault, global search (Ctrl/⌘ + K), an activity timeline and an admin panel with audit log.",
-    images: ["/projects/web/devhub/dashboard-dark.png", "/projects/web/devhub/dashboard-light.png", "/projects/web/devhub/projects-grid.png", "/projects/web/devhub/project-board.png", "/projects/web/devhub/notes-editor.png", "/projects/web/devhub/vault.png", "/projects/web/devhub/admin-audit.png"],
+      "Record transactions as balanced journal entries and get the ledger, trial balance, profit & loss and balance sheet instantly, calculated from the books and never typed in by hand. Also covers invoices and bills, GST, bank reconciliation, budgets, recurring entries and approvals. Mobile-first and installable as a PWA.",
+    highlights: [
+      "Reports are derived from posted journal entries, so the books cannot drift from the numbers",
+      "Entries that do not balance are flagged before they can be posted",
+      "Part of a three-app finance platform (with Ledgerly and Lensly) sharing one sign-in",
+      "FastAPI service layer over PostgreSQL on Supabase",
+    ],
+    images: [
+      "/projects/web/ledgerline/dashboard-desktop.png",
+      "/projects/web/ledgerline/journal-desktop.png",
+      "/projects/web/ledgerline/profit-and-loss-desktop.png",
+      "/projects/web/ledgerline/reconciliation-desktop.png",
+      "/projects/web/ledgerline/invoices-desktop.png",
+      "/projects/web/ledgerline/budget-vs-actual-desktop.png",
+      "/projects/web/ledgerline/journal-entry-balanced-mobile.png",
+      "/projects/web/ledgerline/gst-mobile.png",
+    ],
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "FastAPI", "Supabase", "PostgreSQL", "PWA"],
+    github: "https://github.com/DarkWizardCK-24/LedgerLine",
+    live: "https://ledgerline-alpha-five.vercel.app",
+  },
+  {
+    title: "VaultSpark",
+    tagline: "A zero-knowledge password manager",
+    description:
+      "Store logins, notes and cards in a vault that is encrypted on your device before it is saved, so the server only ever sees ciphertext. Includes a live strength analyser, password generator, 2FA codes, password history, a security audit, recovery key, passkey/biometric unlock and shared vaults.",
+    highlights: [
+      "Client-side encryption: the master password never leaves the device",
+      "Recovery key, and master-password change without re-entering saved items",
+      "Authenticator-style 2FA codes with a countdown ring",
+      "Merges two earlier projects (SecureSpark and PassVault) into one product",
+    ],
+    images: [
+      "/projects/web/vaultspark/desktop-home.png",
+      "/projects/web/vaultspark/desktop-vault.png",
+      "/projects/web/vaultspark/desktop-audit.png",
+      "/projects/web/vaultspark/desktop-shared.png",
+      "/projects/web/vaultspark/mobile-vault.png",
+      "/projects/web/vaultspark/mobile-vault-2fa.png",
+      "/projects/web/vaultspark/mobile-recovery-key.png",
+    ],
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "Firebase", "Vercel"],
+    github: "https://github.com/DarkWizardCK-24/VaultSpark",
+    live: "https://vault-spark.vercel.app",
+  },
+  {
+    title: "Lensly",
+    tagline: "Bank statements in, spending insight out",
+    description:
+      "Upload bank statements (PDF including password-protected, CSV, Excel) and see where your money goes. Reconciles balances, categorises transactions, flags duplicates, suggests savings, compares reports and exports to CSV, Excel and PDF. Companion to Ledgerly.",
+    highlights: [
+      "Multi-format ingestion: protected PDFs, CSV and Excel",
+      "Balance reconciliation surfaces warnings when parsed totals do not add up",
+      "Duplicate detection and side-by-side report comparison",
+      "Imports straight into Ledgerly",
+    ],
+    images: [
+      "/projects/web/lensly/dashboard-desktop.png",
+      "/projects/web/lensly/upload-desktop.png",
+      "/projects/web/lensly/review-desktop.png",
+      "/projects/web/lensly/reconciliation-warnings-desktop.png",
+      "/projects/web/lensly/report-overview-desktop.png",
+      "/projects/web/lensly/recommendations-desktop.png",
+      "/projects/web/lensly/compare-desktop.png",
+      "/projects/web/lensly/budgets-desktop.png",
+    ],
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "FastAPI", "Supabase", "PostgreSQL"],
+    github: "https://github.com/DarkWizardCK-24/Lensly",
+    live: "https://lensly-seven.vercel.app",
+  },
+  {
+    title: "DevHub",
+    tagline: "A developer workspace in one app",
+    description:
+      "Brings projects, tasks, notes, code snippets, files, links and builds into one mobile-first app. Kanban, list and calendar task views, a Markdown notes editor, an AES-256 encrypted credential vault, global search (Ctrl/⌘ + K), an activity timeline and an admin panel with an audit log.",
+    highlights: [
+      "Admin panel with an audit log of changes",
+      "AES-256 encrypted credential vault",
+      "Global command-palette search across content types",
+      "Next.js front end on a FastAPI + Supabase backend",
+    ],
+    images: [
+      "/projects/web/devhub/dashboard-dark.png",
+      "/projects/web/devhub/dashboard-light.png",
+      "/projects/web/devhub/projects-grid.png",
+      "/projects/web/devhub/project-board.png",
+      "/projects/web/devhub/notes-editor.png",
+      "/projects/web/devhub/vault.png",
+      "/projects/web/devhub/admin-audit.png",
+    ],
     skills: ["Next.js", "Typescript", "FastAPI", "Supabase", "Vercel"],
     github: "https://github.com/DarkWizardCK-24/DevHub",
     live: "https://dev-hub-one-opal.vercel.app",
   },
   {
     title: "Prism Link",
+    tagline: "One link, every side of you",
     description:
-      "A colorful link-in-bio platform: one link, every side of you. Build a page with grouped links, drag-and-drop ordering, gradient themes, YouTube/Spotify embeds, scheduled links, QR sharing and a live phone preview, with built-in analytics for views, clicks and referrers.",
-    images: ["/projects/web/prism-link/desktop-landing.png", "/projects/web/prism-link/desktop-dashboard.png", "/projects/web/prism-link/desktop-appearance-style.png", "/projects/web/prism-link/desktop-analytics.png", "/projects/web/prism-link/desktop-profile.png", "/projects/web/prism-link/mobile-profile.png"],
+      "A link-in-bio platform. Build a page with grouped links, drag-and-drop ordering, gradient themes, YouTube/Spotify embeds, scheduled links and QR sharing, with a live phone preview and built-in analytics for views, clicks and referrers.",
+    highlights: [
+      "Real-time phone preview that mirrors edits as you make them",
+      "Built-in analytics: views, clicks and referrers",
+      "Scheduled links",
+      "Next.js 16, Tailwind 4 and Firebase",
+    ],
+    images: [
+      "/projects/web/prism-link/desktop-landing.png",
+      "/projects/web/prism-link/desktop-dashboard.png",
+      "/projects/web/prism-link/desktop-appearance-style.png",
+      "/projects/web/prism-link/desktop-analytics.png",
+      "/projects/web/prism-link/desktop-profile.png",
+      "/projects/web/prism-link/mobile-profile.png",
+    ],
     skills: ["Next.js", "Typescript", "Tailwind CSS", "Firebase", "Framer Motion", "Vercel"],
     github: "https://github.com/DarkWizardCK-24/Prism-Link",
     live: "https://prism-link.vercel.app",
-  },
-  {
-    title: "Lensly",
-    description:
-      "Upload bank statements (PDF incl. password-protected, CSV, Excel) and see where your money goes. Reconciles balances, categorises transactions, flags duplicates, suggests savings, compares reports and exports to CSV, Excel and PDF. Companion to Ledgerly.",
-    images: ["/projects/web/lensly/dashboard-desktop.png", "/projects/web/lensly/upload-desktop.png", "/projects/web/lensly/review-desktop.png", "/projects/web/lensly/reconciliation-warnings-desktop.png", "/projects/web/lensly/report-overview-desktop.png", "/projects/web/lensly/recommendations-desktop.png", "/projects/web/lensly/compare-desktop.png", "/projects/web/lensly/budgets-desktop.png"],
-    skills: ["Next.js", "Typescript", "Tailwind CSS", "FastAPI", "Supabase", "PostgreSQL"],
-    github: "https://github.com/DarkWizardCK-24/Lensly",
-  },
-  {
-    title: "Kanban Finance Web",
-    description:
-      "A clean Next.js web app for smart wealth management. Visualize and track your savings, investments & financial goals using intuitive Kanban boards. Built with Next.js 14 & Firebase (Auth + Firestore). Manage money better. Grow wealth faster.",
-    image: "/projects/web/web10.png",
-    skills: ["Next.js", "Typescript", "Tailwind CSS", "Firebase", "Vercel"],
-    github: "https://github.com/DarkWizardCK-24/Kanban-Finance-Web",
-    live: "https://kanban-finance-web.vercel.app/",
-  },
-  {
-    title: "Secure Spark",
-    description:
-      "A React-based web app to check your password strength in real time. It estimates brute-force crack time, calculates entropy, and offers visual feedback. Built for developers & users who care about security.",
-    image: "/projects/web/web5.png",
-    skills: ["React.js", "Javascript", "Tailwind CSS", "Vercel"],
-    github: "https://github.com/DarkWizardCK-24/SecureSpark",
-    live: "https://pass-wiz-webapp.vercel.app/",
-  },
-  {
-    title: "Link Luxe",
-    description:
-      "A modern, free URL shortener built with Next.js and MongoDB. Offers a clean responsive interface, optional click tracking, and custom short URL support. Leverages Next.js API routes for backend logic.",
-    image: "/projects/web/web2.png",
-    skills: ["Next.js", "Javascript", "Tailwind CSS", "REST API", "Vercel"],
-    github: "https://github.com/DarkWizardCK-24/LinkLuxe",
-    live: "https://bitlinks-zeta.vercel.app/",
-  },
-  {
-    title: "Task Tango",
-    description:
-      "A modern task management application with clean UI, built with Next.js and hosted on Vercel. Designed for productivity and simplicity.",
-    image: "/projects/web/web1.png",
-    skills: ["Next.js", "Javascript", "Tailwind CSS", "REST API", "Vercel"],
-    github: "https://github.com/DarkWizardCK-24/TaskTango",
-    live: "https://i-tasks-web.vercel.app/",
   },
 ];
 
 
 export const flutterProjects: Project[] = [
   {
-    title: "Lumora",
-    description:
-      "An offline-first Flutter app for logging study sessions, setting goals and tracking streaks. Includes a dashboard with streak heatmap, goal milestones, a planner, Markdown notes, offline finish-date forecasts, JSON/CSV/PDF export and optional Firebase sync with conflict resolution.",
-    images: ["/projects/flutter/lumora/desktop-dashboard.png", "/projects/flutter/lumora/desktop-goals.png", "/projects/flutter/lumora/desktop-analysis.png", "/projects/flutter/lumora/desktop-analytics.png", "/projects/flutter/lumora/desktop-calendar.png", "/projects/flutter/lumora/desktop-sessions.png", "/projects/flutter/lumora/desktop-notes.png", "/projects/flutter/lumora/mobile-dashboard.png", "/projects/flutter/lumora/mobile-goals.png"],
-    skills: ["Flutter", "Dart", "SQLite", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/Lumora",
-  },
-  {
     title: "Ledgerly",
+    tagline: "A multi-ledger cash book for every screen",
     description:
-      "A multi-ledger cash book in Flutter for tracking income and expenses across CashBooks, with charts, categories, tags and insights. Responsive across phone, tablet and desktop, with Riverpod state management and FastAPI + Supabase sync.",
-    images: ["/projects/flutter/ledgerly/dashboard-desktop.png", "/projects/flutter/ledgerly/insights-desktop.png", "/projects/flutter/ledgerly/books-desktop.png", "/projects/flutter/ledgerly/transactions-desktop.png", "/projects/flutter/ledgerly/categories-desktop.png", "/projects/flutter/ledgerly/dashboard-mobile.png", "/projects/flutter/ledgerly/transactions-mobile.png"],
+      "Track income and expenses across separate CashBooks with categories, tags, search, CSV export, charts and insights. Runs on Android, iOS, Windows and Web from one codebase, with Riverpod state management and live sync to a FastAPI + Supabase backend.",
+    highlights: [
+      "One Flutter codebase shipping to four platforms",
+      "Riverpod for predictable, testable state",
+      "Live sync with a FastAPI + Supabase backend",
+      "Shares one account with LedgerLine and Lensly",
+    ],
+    images: [
+      "/projects/flutter/ledgerly/dashboard-desktop.png",
+      "/projects/flutter/ledgerly/insights-desktop.png",
+      "/projects/flutter/ledgerly/books-desktop.png",
+      "/projects/flutter/ledgerly/transactions-desktop.png",
+      "/projects/flutter/ledgerly/categories-desktop.png",
+      "/projects/flutter/ledgerly/dashboard-mobile.png",
+      "/projects/flutter/ledgerly/transactions-mobile.png",
+    ],
     skills: ["Flutter", "Dart", "Riverpod", "FastAPI", "Supabase"],
     github: "https://github.com/DarkWizardCK-24/Ledgerly",
   },
   {
-    title: "Ghost Signal",
+    title: "Lumora",
+    tagline: "An offline-first learning tracker",
     description:
-      "A high-performance, dark-neon secret message toolkit. Features smart Morse auto-decoding, Caesar cipher brute-forcing, and advanced linguistic steganography. Built with Flutter & FastAPI.",
-    image: "/projects/flutter/flutter9.png",
-    skills: ["Flutter", "Dart", "Python", "FastAPI"],
-    github: "https://github.com/DarkWizardCK-24/Ghost-Signal",
+      "Log study sessions, set goals and build streaks. SQLite is the local source of truth, with optional Firebase sync when online. Includes a streak heatmap dashboard, goal milestones, a planner, Markdown notes, offline finish-date forecasts and JSON/CSV/PDF export.",
+    highlights: [
+      "Offline-first: SQLite is the source of truth, the network is optional",
+      "Firebase sync with conflict resolution",
+      "Modular codebase with automated tests",
+      "Responsive layouts from phone to desktop",
+    ],
+    images: [
+      "/projects/flutter/lumora/desktop-dashboard.png",
+      "/projects/flutter/lumora/desktop-goals.png",
+      "/projects/flutter/lumora/desktop-analysis.png",
+      "/projects/flutter/lumora/desktop-analytics.png",
+      "/projects/flutter/lumora/desktop-calendar.png",
+      "/projects/flutter/lumora/desktop-sessions.png",
+      "/projects/flutter/lumora/desktop-notes.png",
+      "/projects/flutter/lumora/mobile-dashboard.png",
+      "/projects/flutter/lumora/mobile-goals.png",
+    ],
+    skills: ["Flutter", "Dart", "SQLite", "Firebase"],
+    github: "https://github.com/DarkWizardCK-24/Lumora",
+  },
+  {
+    title: "Walleyy Swirlll",
+    tagline: "Ordering and payments for a dessert parlour",
+    description:
+      "A guest app where customers build a cone or cup scoop by scoop, add toppings, apply coupons and pay online with Razorpay or at the counter, then track the order live. A separate staff side moves orders from New to Done. Runs on mobile and Windows desktop.",
+    highlights: [
+      "Razorpay online payments alongside pay-at-counter",
+      "Order status (Placed, Preparing, Ready, Done) tracked live through Firebase",
+      "Separate guest and admin experiences in one app",
+      "Coupons, 5% GST calculation and downloadable receipts",
+    ],
+    images: [
+      "/projects/flutter/walleyy/mobile_guest_1_menu.png",
+      "/projects/flutter/walleyy/mobile_guest_2_item_builder.png",
+      "/projects/flutter/walleyy/mobile_guest_4_checkout.png",
+      "/projects/flutter/walleyy/mobile_guest_6_my_orders.png",
+      "/projects/flutter/walleyy/mobile_admin_2_dashboard.png",
+      "/projects/flutter/walleyy/mobile_admin_3_orders.png",
+      "/projects/flutter/walleyy/windows_guest_1_menu.png",
+      "/projects/flutter/walleyy/windows_admin_2_dashboard.png",
+    ],
+    skills: ["Flutter", "Dart", "Firebase", "Razorpay"],
+    private: true,
   },
   {
     title: "H₂Orbit",
+    tagline: "Hydration tracking that predicts your needs",
     description:
-      "An AI-powered Flutter app for smart hydration tracking. Predicts needs using behavior, weather, and lifestyle; syncs via Firebase with full offline support. Features weather-adjusted recommendations and fluid animations.",
+      "An AI-powered hydration tracker. Predicts needs from behaviour, weather and lifestyle, syncs through Firebase with full offline support, and adds weather-adjusted recommendations, context-aware notifications and caffeine tracking.",
+    highlights: [
+      "Weather-adjusted daily targets",
+      "Full offline support, syncing when back online",
+      "Context-aware notifications",
+    ],
     image: "/projects/flutter/flutter8.png",
     skills: ["Flutter", "Dart", "Firebase"],
     github: "https://github.com/DarkWizardCK-24/H2Orbit",
   },
   {
-    title: "Kanban Finance System",
+    title: "Ghost Signal",
+    tagline: "A secret-message toolkit",
     description:
-      "A clean Flutter app for smart wealth management. Visualize and track savings, investments & financial goals using intuitive Kanban boards. Built with Flutter & Firebase (Auth + Firestore).",
-    image: "/projects/flutter/flutter11.png",
-    skills: ["Flutter", "Dart", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/Kanban-Finance-System",
-  },
-  {
-    title: "Bill Blitz",
-    description:
-      "A modern responsive billing system built using Flutter Web and Firebase. Allows users to generate, manage, and store customer bills. Bills can be exported and printed as PDFs.",
-    image: "/projects/flutter/flutter2.png",
-    skills: ["Flutter", "Dart", "Firebase"],
-    github: "https://github.com/DarkWizardCK-24/BillBlitz",
+      "A dark-neon toolkit with smart Morse auto-decoding, Caesar cipher brute-forcing and linguistic steganography. Built with Flutter and a FastAPI service.",
+    highlights: [
+      "Flutter client backed by a Python FastAPI service",
+      "Caesar brute-forcing and Morse auto-decoding",
+    ],
+    image: "/projects/flutter/flutter9.png",
+    skills: ["Flutter", "Dart", "Python", "FastAPI"],
+    github: "https://github.com/DarkWizardCK-24/Ghost-Signal",
   },
 ];
 

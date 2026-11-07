@@ -43,7 +43,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   const facts = [
     { label: "Stack", value: accent.label },
     { label: "Screens", value: String(images.length) },
-    { label: "Status", value: hasLive ? "Live" : "Source only" },
+    { label: "Status", value: hasLive ? "Live" : project.private ? "Private repo" : "Source only" },
   ];
 
   return (
@@ -109,7 +109,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 ) : (
                   <span className="chip chip-lg chip-overlay">
                     <Github size={12} className="shrink-0" aria-hidden />
-                    Source only
+                    {project.private ? "Private repo" : "Source only"}
                   </span>
                 )}
               </div>
@@ -161,7 +161,25 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               ))}
             </dl>
 
+            {project.tagline && (
+              <p className={`mt-3 text-sm font-semibold ${accent.text}`}>{project.tagline}</p>
+            )}
+
             <p className="mt-5 text-sm leading-relaxed text-muted sm:text-[15px]">{project.description}</p>
+
+            {project.highlights && project.highlights.length > 0 && (
+              <div className="mt-7">
+                <h3 className="text-sm font-semibold text-text">Engineering highlights</h3>
+                <ul className="mt-3 space-y-2">
+                  {project.highlights.map((point) => (
+                    <li key={point} className="flex gap-2.5 text-sm leading-relaxed text-muted">
+                      <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${accent.dot}`} aria-hidden />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <div className="mt-7">
               <div className="flex items-baseline gap-2">

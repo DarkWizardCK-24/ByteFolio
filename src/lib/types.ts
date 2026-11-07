@@ -9,6 +9,12 @@ export interface Project {
   skills: string[];
   github?: string;
   live?: string;
+  /** One line on what the product is, shown above the description in the modal. */
+  tagline?: string;
+  /** Engineering decisions worth a reviewer's time: the "how", not the feature list. */
+  highlights?: string[];
+  /** Source exists but is not public; shows "Private repo" instead of "Source only". */
+  private?: boolean;
 }
 
 export interface TimelineItemData {
