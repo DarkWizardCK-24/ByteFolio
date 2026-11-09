@@ -11,16 +11,17 @@ const ProductionApps: React.FC = () => (
     <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <SectionHeader
         title="Live in production"
-        lede="Products I built and shipped at Aainova that real users run today, from Google Play apps to the web tools teams use daily."
+        lede="Products I built and shipped at Aainova that real users run today, from Google Play and App Store apps to the web tools teams use daily."
         meta={[
           { value: productionApps.length, label: "Live products" },
-          { value: productionApps.filter((a) => a.platform === "Google Play").length, label: "On Google Play" },
+          { value: productionApps.filter((a) => a.platform.includes("Google Play")).length, label: "On Google Play" },
+          { value: productionApps.filter((a) => a.platform.includes("App Store")).length, label: "On App Store" },
         ]}
       />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {productionApps.map((app, index) => {
-          const Icon = app.platform === "Google Play" ? Smartphone : Globe;
+          const Icon = app.platform.includes("Google Play") ? Smartphone : Globe;
           const body = (
             <>
               <div className="flex items-center justify-between gap-3">
@@ -34,12 +35,26 @@ const ProductionApps: React.FC = () => (
                 </span>
               </div>
 
-              <h3 className="mt-5 flex items-center gap-2 text-xl font-semibold text-text">
-                {app.name}
-                {app.url && <ArrowUpRight size={16} className="text-muted" aria-hidden />}
-              </h3>
+              <h3 className="mt-5 text-xl font-semibold text-text">{app.name}</h3>
               <p className="mt-1 text-sm font-medium text-muted">{app.tagline}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted">{app.description}</p>
+
+              {app.links && app.links.length > 0 && (
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {app.links.map((link) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-line bg-primary/50 px-3 py-1.5 text-xs font-semibold text-text transition-colors hover:border-blue-400/60 hover:text-blue-200"
+                    >
+                      {link.label}
+                      <ArrowUpRight size={13} aria-hidden />
+                    </a>
+                  ))}
+                </div>
+              )}
 
               <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
                 {app.tags.map((tag) => (
@@ -63,11 +78,7 @@ const ProductionApps: React.FC = () => (
             onMouseMove: trackSpotlight,
           };
 
-          return app.url ? (
-            <motion.a key={app.name} href={app.url} target="_blank" rel="noopener noreferrer" className={cls} {...motionProps}>
-              {body}
-            </motion.a>
-          ) : (
+          return (
             <motion.article key={app.name} className={cls} {...motionProps}>
               {body}
             </motion.article>

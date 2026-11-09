@@ -26,11 +26,12 @@ export const productionApps: ProductionApp[] = [
   },
   {
     name: "Aptam",
-    platform: "Google Play",
+    platform: "Google Play · App Store",
     tagline: "A live learning marketplace",
     description:
       "Connects students with verified tutors for 1-on-1 and group video classes, with scheduling and push reminders.",
-    tags: ["Flutter", "Android"],
+    tags: ["Flutter", "Android", "iOS"],
+    links: [{ label: "App Store", url: "https://apps.apple.com/in/app/aptam-live-classes-tutors/id6819706008" }],
   },
   {
     name: "Doc Scanner",

@@ -21,13 +21,17 @@ export const metadata: Metadata = {
   icons: { icon: "/dev.png", apple: "/dev.png" },
   title: "ByteFolio | Chaitanya Katare",
   description:
-    "Portfolio of Chaitanya Katare, known in development as DarkWizard, a full-stack developer working across Flutter, Next.js, FastAPI and the services behind them.",
+    "Portfolio of Chaitanya Katare, known in development as DarkWizard, a Flutter, iOS and full-stack developer who ships apps to Google Play and the App Store, working across Flutter, Next.js, FastAPI and the services behind them.",
   keywords: [
     "DarkWizard",
     "Chaitanya Katare",
     "Flutter",
     "Next.js",
     "FastAPI",
+    "iOS Developer",
+    "iOS App Developer",
+    "App Store",
+    "Google Play",
     "Full Stack Developer",
     "ByteFolio",
   ],
@@ -35,9 +39,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "DarkWizard: Flutter and full-stack developer building cross-platform apps and the services behind them.",
+      "DarkWizard: Flutter, iOS and full-stack developer shipping apps to Google Play and the App Store.",
     url: "https://byte-folio.vercel.app/",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Chaitanya Katare, Flutter and Full-Stack Developer" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Chaitanya Katare, Flutter, iOS and Full-Stack Developer" }],
     siteName: "ByteFolio",
     type: "website",
   },
@@ -46,7 +50,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "DarkWizard: Flutter and full-stack developer building cross-platform apps and the services behind them.",
+      "DarkWizard: Flutter, iOS and full-stack developer shipping apps to Google Play and the App Store.",
   },
   robots: { index: true, follow: true },
 };

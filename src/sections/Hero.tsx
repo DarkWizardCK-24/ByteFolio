@@ -15,7 +15,7 @@ const socials = [
 ];
 
 const specs = [
-  { label: "Builds", value: "Flutter & full-stack" },
+  { label: "Builds", value: "Flutter, iOS & full-stack" },
   { label: "Based in", value: "Navi Mumbai, India" },
   { label: "Learning", value: "Linux & DevOps" },
 ];
@@ -170,7 +170,7 @@ const Hero: React.FC = () => (
 
               <figcaption className="absolute inset-x-4 bottom-4 flex items-center gap-2.5 rounded-card border border-line bg-secondary/80 px-4 py-3 text-sm font-semibold text-text shadow-card backdrop-blur-md">
                 <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
-                Flutter &amp; full-stack developer
+                Flutter, iOS &amp; full-stack developer
               </figcaption>
             </div>
           </figure>

@@ -74,6 +74,6 @@ export interface ProductionApp {
   tagline: string;
   description: string;
   tags: string[];
-  /** Store or live link. Leave unset until the public URL is ready. */
-  url?: string;
+  /** Store or live links. Add each one once its public URL is ready. */
+  links?: { label: string; url: string }[];
 }
