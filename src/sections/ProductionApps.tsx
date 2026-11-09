@@ -19,7 +19,7 @@ const ProductionApps: React.FC = () => (
         ]}
       />
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-6">
         {productionApps.map((app, index) => {
           const Icon = app.platform.includes("Google Play") ? Smartphone : Globe;
           const body = (
@@ -35,19 +35,19 @@ const ProductionApps: React.FC = () => (
                 </span>
               </div>
 
-              <h3 className="mt-5 text-xl font-semibold text-text">{app.name}</h3>
-              <p className="mt-1 text-sm font-medium text-muted">{app.tagline}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{app.description}</p>
+              <h3 className="mt-4 text-lg font-semibold text-text">{app.name}</h3>
+              <p className="mt-0.5 text-[13px] font-medium text-muted">{app.tagline}</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-faint">{app.description}</p>
 
               {app.links && app.links.length > 0 && (
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {app.links.map((link) => (
                     <a
                       key={link.url}
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-md border border-line bg-primary/50 px-3 py-1.5 text-xs font-semibold text-text transition-colors hover:border-blue-400/60 hover:text-blue-200"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-line bg-primary/50 px-2.5 py-1 text-xs font-semibold text-text transition-colors hover:border-blue-400/60 hover:text-blue-200"
                     >
                       {link.label}
                       <ArrowUpRight size={13} aria-hidden />
@@ -56,7 +56,7 @@ const ProductionApps: React.FC = () => (
                 </div>
               )}
 
-              <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
+              <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
                 {app.tags.map((tag) => (
                   <span
                     key={tag}
@@ -69,7 +69,9 @@ const ProductionApps: React.FC = () => (
             </>
           );
 
-          const cls = "surface surface-hover spotlight group relative flex h-full flex-col overflow-hidden p-6";
+          const cls = `surface surface-hover spotlight group relative flex h-full flex-col overflow-hidden p-5 ${
+            index < 3 ? "lg:col-span-2" : "lg:col-span-3"
+          }`;
           const motionProps = {
             initial: { opacity: 0, y: 18 },
             whileInView: { opacity: 1, y: 0 },
