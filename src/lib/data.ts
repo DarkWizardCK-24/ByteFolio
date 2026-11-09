@@ -23,6 +23,7 @@ export const productionApps: ProductionApp[] = [
     description:
       "Serves tenants, owners, brokers and hostel or society managers: rental search, visit scheduling, digital agreements and rent payments.",
     tags: ["Flutter", "Android"],
+    links: [{ label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.hommigo.app" }],
   },
   {
     name: "Aptam",
@@ -31,14 +32,26 @@ export const productionApps: ProductionApp[] = [
     description:
       "Connects students with verified tutors for 1-on-1 and group video classes, with scheduling and push reminders.",
     tags: ["Flutter", "Android", "iOS"],
-    links: [{ label: "App Store", url: "https://apps.apple.com/in/app/aptam-live-classes-tutors/id6819706008" }],
+    links: [
+      { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.aptam.education" },
+      { label: "App Store", url: "https://apps.apple.com/in/app/aptam-live-classes-tutors/id6819706008" },
+    ],
   },
   {
-    name: "Doc Scanner",
+    name: "AI DocScanner",
     platform: "Google Play",
-    tagline: "Document scanning on your phone",
-    description: "A document scanning app published on Google Play.",
-    tags: ["Flutter", "Android"],
+    tagline: "Scan, extract text and export to PDF",
+    description: "Scans documents, extracts text with OCR and exports to PDF, working fully offline and keeping files private.",
+    tags: ["Flutter", "Android", "OCR"],
+    links: [{ label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.aidocscanner" }],
+  },
+  {
+    name: "AI Cleaner",
+    platform: "Google Play",
+    tagline: "Free up storage and speed",
+    description: "Cleans junk, cache and duplicate files to boost storage and speed, working fully offline.",
+    tags: ["Android"],
+    links: [{ label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.atulmore.ai_cleaner" }],
   },
   {
     name: "Quotation System",
@@ -47,6 +60,7 @@ export const productionApps: ProductionApp[] = [
     description:
       "Handles quotations, proforma invoices and client conversations, with PDF export and admin-managed user access.",
     tags: ["Web", "Admin panel"],
+    links: [{ label: "Open app", url: "https://aesteiron.aainova.com/en/login" }],
   },
 ];
 
