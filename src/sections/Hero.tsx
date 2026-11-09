@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Download, Github, Linkedin } from "lucide-react";
+import { Download, FileText, Github, Linkedin } from "lucide-react";
 import { TbBrandFiverr } from "react-icons/tb";
 import { SiLinktree } from "react-icons/si";
 import AnimatedBackground from "@/components/AnimatedBackground";
@@ -88,9 +88,23 @@ const Hero: React.FC = () => (
             <a href="#projects" className="btn btn-primary">
               See my work
             </a>
-            <a href="/resume(Chaitanya-Katare).pdf" download className="btn btn-ghost">
+            <a
+              href="/resume(Chaitanya-Katare).pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost"
+            >
+              <FileText size={17} />
+              View résumé
+            </a>
+            <a
+              href="/resume(Chaitanya-Katare).pdf"
+              download
+              aria-label="Download résumé (PDF)"
+              title="Download résumé (PDF)"
+              className="btn btn-ghost self-stretch !px-4"
+            >
               <Download size={17} />
-              Résumé
             </a>
 
             <div className="ml-1 flex gap-1">
