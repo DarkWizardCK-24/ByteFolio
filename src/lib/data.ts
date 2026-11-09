@@ -11,8 +11,43 @@ import { BiLogoPostgresql } from "react-icons/bi";
 import { Code2, Cpu, Layers, Wrench, Terminal, Server, RefreshCw } from "lucide-react";
 
 import type {
-  Project, TimelineItemData, Certification, SkillCategory, FocusArea,
+  Project, TimelineItemData, Certification, SkillCategory, FocusArea, ProductionApp,
 } from "./types";
+
+
+export const productionApps: ProductionApp[] = [
+  {
+    name: "Hommigo",
+    platform: "Google Play",
+    tagline: "India's all-in-one property platform",
+    description:
+      "Serves tenants, owners, brokers and hostel or society managers: rental search, visit scheduling, digital agreements and rent payments.",
+    tags: ["Flutter", "Android"],
+  },
+  {
+    name: "Aptam",
+    platform: "Google Play",
+    tagline: "A live learning marketplace",
+    description:
+      "Connects students with verified tutors for 1-on-1 and group video classes, with scheduling and push reminders.",
+    tags: ["Flutter", "Android"],
+  },
+  {
+    name: "Doc Scanner",
+    platform: "Google Play",
+    tagline: "Document scanning on your phone",
+    description: "A document scanning app published on Google Play.",
+    tags: ["Flutter", "Android"],
+  },
+  {
+    name: "Quotation System",
+    platform: "Web app",
+    tagline: "Quotes, invoices and client chats in one place",
+    description:
+      "Handles quotations, proforma invoices and client conversations, with PDF export and admin-managed user access.",
+    tags: ["Web", "Admin panel"],
+  },
+];
 
 
 export const webProjects: Project[] = [

@@ -6,7 +6,7 @@ import TimelineItem from "@/components/TimelineItem";
 import { education } from "@/lib/data";
 
 const Education: React.FC = () => (
-  <section id="education" className="rule-top grid-texture relative overflow-hidden bg-primary py-24 sm:py-32">
+  <section id="education" className="rule-top grid-texture relative overflow-hidden bg-secondary py-24 sm:py-32">
     <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <SectionHeader
         title="Education"

@@ -67,3 +67,13 @@ export interface Accent {
   gradient: string;
   dot: string;
 }
+
+export interface ProductionApp {
+  name: string;
+  platform: string;
+  tagline: string;
+  description: string;
+  tags: string[];
+  /** Store or live link. Leave unset until the public URL is ready. */
+  url?: string;
+}

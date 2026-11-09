@@ -16,11 +16,13 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://byte-folio.vercel.app"),
+  alternates: { canonical: "/" },
+  icons: { icon: "/dev.png", apple: "/dev.png" },
   title: "ByteFolio | Chaitanya Katare",
   description:
-    "Portfolio of Chaitanya Katare, known in development as DarkWizãrd, a full-stack developer working across Flutter, Next.js, FastAPI and the services behind them.",
+    "Portfolio of Chaitanya Katare, known in development as DarkWizard, a full-stack developer working across Flutter, Next.js, FastAPI and the services behind them.",
   keywords: [
-    "DarkWizãrd",
     "DarkWizard",
     "Chaitanya Katare",
     "Flutter",
@@ -29,20 +31,22 @@ export const metadata: Metadata = {
     "Full Stack Developer",
     "ByteFolio",
   ],
-  authors: [{ name: "Chaitanya Katare (DarkWizãrd)", url: "https://github.com/DarkWizardCK-24" }],
+  authors: [{ name: "Chaitanya Katare (DarkWizard)", url: "https://github.com/DarkWizardCK-24" }],
   openGraph: {
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "DarkWizãrd: Flutter and full-stack developer building cross-platform apps and the services behind them.",
-    url: "https://dev-folio-ten-rho.vercel.app/",
+      "DarkWizard: Flutter and full-stack developer building cross-platform apps and the services behind them.",
+    url: "https://byte-folio.vercel.app/",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Chaitanya Katare, Flutter and Full-Stack Developer" }],
     siteName: "ByteFolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og-image.png"],
     title: "ByteFolio | Chaitanya Katare",
     description:
-      "DarkWizãrd: Flutter and full-stack developer building cross-platform apps and the services behind them.",
+      "DarkWizard: Flutter and full-stack developer building cross-platform apps and the services behind them.",
   },
   robots: { index: true, follow: true },
 };

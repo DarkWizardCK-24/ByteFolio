@@ -9,6 +9,7 @@ const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
+  { name: "Production", href: "#production" },
   { name: "Education", href: "#education" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
@@ -102,7 +103,7 @@ const Navbar: React.FC = () => {
               );
             })}
             <a
-              href="mailto:chaitanya.katare@aaibuzz.com"
+              href="mailto:chaitanyask103@gmail.com"
               className="btn btn-ghost btn-sm ml-3 hidden lg:inline-flex"
             >
               Get in touch
@@ -164,7 +165,7 @@ const Navbar: React.FC = () => {
                   );
                 })}
                 <a
-                  href="mailto:chaitanya.katare@aaibuzz.com"
+                  href="mailto:chaitanyask103@gmail.com"
                   onClick={() => setIsOpen(false)}
                   className="btn btn-primary btn-sm mt-2 w-full"
                 >

@@ -3,6 +3,7 @@ import Hero from "@/sections/Hero";
 import Stats from "@/sections/Stats";
 import About from "@/sections/About";
 import Experience from "@/sections/Experience";
+import ProductionApps from "@/sections/ProductionApps";
 import Education from "@/sections/Education";
 import Skills from "@/sections/Skills";
 import Projects from "@/sections/Projects";
@@ -17,6 +18,7 @@ export default function Home() {
       <Stats />
       <About />
       <Experience />
+      <ProductionApps />
       <Education />
       <Skills />
       <Projects />
