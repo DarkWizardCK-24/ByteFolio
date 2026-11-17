@@ -26,7 +26,7 @@ const Showcase: React.FC<ShowcaseProps> = ({ id, title, blurb, projects }) => {
         <span className="tnum ml-auto text-sm text-faint">{projects.length}</span>
       </div>
 
-      <div className="grid auto-rows-auto grid-cols-1 gap-4 sm:auto-rows-[17rem] sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid auto-rows-auto grid-cols-1 gap-4 sm:auto-rows-[22rem] sm:grid-cols-2 lg:grid-cols-4">
         {projects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} variant={variants[index]} />
         ))}

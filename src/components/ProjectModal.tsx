@@ -67,7 +67,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           exit={{ opacity: 0, scale: 0.96, y: 20 }}
           transition={{ type: "spring", stiffness: 280, damping: 28 }}
           onClick={(e) => e.stopPropagation()}
-          className="relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-panel border border-line bg-secondary shadow-lift lg:flex-row"
+          className="relative flex max-h-[92vh] w-full max-w-6xl flex-col overflow-hidden rounded-panel border border-line bg-secondary shadow-lift lg:h-[86vh] lg:flex-row"
         >
           <button
             ref={closeRef}
@@ -78,8 +78,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <X size={17} />
           </button>
 
-          <div className="relative shrink-0 bg-primary lg:w-[52%]">
-            <div className="relative h-72 overflow-hidden sm:h-96 lg:h-full lg:min-h-[28rem]">
+          <div className="relative flex shrink-0 flex-col bg-primary lg:h-full lg:w-[58%]">
+            <div className="relative h-[46vh] overflow-hidden sm:h-[52vh] lg:h-auto lg:min-h-0 lg:flex-1">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current}
@@ -97,12 +97,23 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                     aria-hidden
                     className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
                   />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={images[current]}
-                    alt={`${project.title} screenshot ${current + 1} of ${images.length}`}
-                    className="absolute inset-0 h-full w-full object-contain px-2 pb-10 pt-14"
-                  />
+                  {/* Padded box keeps the whole screenshot visible, clear of chips, arrows and dots */}
+                  <a
+                    href={images[current]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Open full-size screenshot"
+                    className={`absolute inset-0 flex items-center justify-center pt-14 ${
+                      images.length > 1 ? "px-14 pb-10" : "px-4 pb-4"
+                    }`}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={images[current]}
+                      alt={`${project.title} screenshot ${current + 1} of ${images.length}`}
+                      className="max-h-full max-w-full cursor-zoom-in rounded-lg object-contain shadow-2xl shadow-black/50 ring-1 ring-white/10"
+                    />
+                  </a>
                 </motion.div>
               </AnimatePresence>
 
@@ -157,6 +168,25 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 </>
               )}
             </div>
+
+            {images.length > 1 && (
+              <div className="modal-scroll flex shrink-0 gap-2 overflow-x-auto border-t border-line bg-secondary/60 p-3">
+                {images.map((src, i) => (
+                  <button
+                    key={src}
+                    onClick={() => setCurrent(i)}
+                    aria-label={`Show screenshot ${i + 1}`}
+                    aria-current={i === current}
+                    className={`relative h-14 w-20 shrink-0 overflow-hidden rounded-md border bg-primary transition-all duration-200 ${
+                      i === current ? "border-accent ring-1 ring-accent/60" : "border-line opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={src} alt="" loading="lazy" className="h-full w-full object-contain" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="modal-scroll flex-1 overflow-y-auto p-6 sm:p-8">

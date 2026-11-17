@@ -35,10 +35,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
   const { shown, extra } = techChips(project, accent.label, CHIP_LIMIT[variant]);
 
   const thumbHeight = isWide
-    ? "h-40 w-full sm:h-full sm:w-[42%] sm:shrink-0"
+    ? "h-56 w-full sm:h-full sm:w-[46%] sm:shrink-0"
     : isBig
-      ? "h-44 w-full sm:h-[48%]"
-      : "h-32 w-full sm:h-[38%]";
+      ? "h-60 w-full sm:h-[62%]"
+      : "h-52 w-full sm:h-[50%]";
 
   const stop = (e: React.MouseEvent) => e.stopPropagation();
 
@@ -63,36 +63,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
         role="button"
         tabIndex={0}
         aria-label={`View details for ${project.title}`}
-        className={`surface surface-hover spotlight group relative flex min-h-[17rem] cursor-pointer flex-col overflow-hidden sm:h-full ${
+        className={`surface surface-hover spotlight group relative flex min-h-[22rem] cursor-pointer flex-col overflow-hidden sm:h-full ${
           isBig ? "edge-gradient" : ""
         } ${VARIANT_SPAN[variant]} ${isWide ? "sm:flex-row" : ""}`}
       >
         <div className={`relative shrink-0 overflow-hidden bg-primary ${thumbHeight}`}>
-          {/* Blurred backdrop fills the frame so the full screenshot can be shown uncropped */}
+          {/* Blurred backdrop fills the frame; the real screenshot sits on top, fully visible */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={thumbnail}
             alt=""
             aria-hidden
             loading="lazy"
-            className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-xl"
+            className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover opacity-40 blur-2xl"
           />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={thumbnail}
-            alt={project.title}
-            loading="lazy"
-            className="relative h-full w-full object-contain transition-transform duration-[800ms] ease-out group-hover:scale-[1.03]"
-          />
-          <div
-            className={`pointer-events-none absolute inset-0 bg-gradient-to-t ${
-              isWide
-                ? "from-raised/60 via-transparent to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-transparent sm:to-raised/40"
-                : "from-raised/60 via-transparent to-transparent"
-            }`}
-          />
-          {/* Top fade behind the chips */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-primary/65 to-transparent" />
+          {/* Padding keeps the screenshot clear of the chips so nothing is hidden */}
+          <div className={`absolute inset-0 flex items-center justify-center ${isSmall ? "px-3 pb-2.5 pt-10" : "px-4 pb-3 pt-12"}`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={thumbnail}
+              alt={project.title}
+              loading="lazy"
+              className="max-h-full max-w-full rounded-md object-contain shadow-lg shadow-black/40 ring-1 ring-white/10 transition-transform duration-[800ms] ease-out group-hover:scale-[1.03]"
+            />
+          </div>
 
           <div className="pointer-events-none absolute inset-x-3 top-3 flex items-start justify-between gap-2">
             <div className="flex flex-wrap items-center gap-1.5">
@@ -124,7 +118,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
           </div>
 
           {images.length > 1 && !isSmall && (
-            <span className="chip chip-overlay pointer-events-none absolute bottom-3 right-3">
+            <span className="chip chip-overlay pointer-events-none absolute bottom-2 right-2">
               <Images size={10} className="shrink-0" aria-hidden />
               {images.length} screens
             </span>
