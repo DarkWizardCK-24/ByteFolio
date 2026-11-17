@@ -68,18 +68,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, variant }) =>
         } ${VARIANT_SPAN[variant]} ${isWide ? "sm:flex-row" : ""}`}
       >
         <div className={`relative shrink-0 overflow-hidden bg-primary ${thumbHeight}`}>
+          {/* Blurred backdrop fills the frame so the full screenshot can be shown uncropped */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={thumbnail}
+            alt=""
+            aria-hidden
+            loading="lazy"
+            className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-xl"
+          />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={thumbnail}
             alt={project.title}
             loading="lazy"
-            className="h-full w-full object-cover object-top transition-transform duration-[800ms] ease-out group-hover:scale-[1.05]"
+            className="relative h-full w-full object-contain transition-transform duration-[800ms] ease-out group-hover:scale-[1.03]"
           />
           <div
             className={`pointer-events-none absolute inset-0 bg-gradient-to-t ${
               isWide
-                ? "from-raised/90 via-raised/20 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-transparent sm:to-raised/80"
-                : "from-raised via-raised/35 to-transparent"
+                ? "from-raised/60 via-transparent to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-transparent sm:to-raised/40"
+                : "from-raised/60 via-transparent to-transparent"
             }`}
           />
           {/* Top fade behind the chips */}

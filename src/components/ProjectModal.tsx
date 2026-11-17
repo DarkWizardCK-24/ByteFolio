@@ -79,20 +79,32 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           </button>
 
           <div className="relative shrink-0 bg-primary lg:w-[52%]">
-            <div className="relative h-56 overflow-hidden sm:h-72 lg:h-full lg:min-h-[26rem]">
+            <div className="relative h-72 overflow-hidden sm:h-96 lg:h-full lg:min-h-[28rem]">
               <AnimatePresence mode="wait">
-                <motion.img
+                <motion.div
                   key={current}
-                  src={images[current]}
-                  alt={`${project.title} screenshot ${current + 1} of ${images.length}`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.28, ease: "easeOut" }}
-                  className="absolute inset-0 h-full w-full object-cover object-top"
-                />
+                  className="absolute inset-0"
+                >
+                  {/* Blurred backdrop fills the frame so the full screenshot can be shown uncropped */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={images[current]}
+                    alt=""
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-2xl"
+                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={images[current]}
+                    alt={`${project.title} screenshot ${current + 1} of ${images.length}`}
+                    className="absolute inset-0 h-full w-full object-contain px-2 pb-10 pt-14"
+                  />
+                </motion.div>
               </AnimatePresence>
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-secondary/60" />
 
               <div className="pointer-events-none absolute inset-x-4 top-4 flex flex-wrap items-center gap-2">
                 <span
