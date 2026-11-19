@@ -78,6 +78,9 @@ export const webProjects: Project[] = [
       "FastAPI service layer over PostgreSQL on Supabase",
     ],
     images: [
+      "/projects/web/ledgerline/thumb-1-hero.webp",
+      "/projects/web/ledgerline/thumb-2-devices.webp",
+      "/projects/web/ledgerline/thumb-3-gallery.webp",
       "/projects/web/ledgerline/dashboard-desktop.png",
       "/projects/web/ledgerline/journal-desktop.png",
       "/projects/web/ledgerline/profit-and-loss-desktop.png",
@@ -130,6 +133,9 @@ export const webProjects: Project[] = [
       "Imports straight into Ledgerly",
     ],
     images: [
+      "/projects/web/lensly/thumb-1-hero.webp",
+      "/projects/web/lensly/thumb-2-devices.webp",
+      "/projects/web/lensly/thumb-3-gallery.webp",
       "/projects/web/lensly/dashboard-desktop.png",
       "/projects/web/lensly/upload-desktop.png",
       "/projects/web/lensly/review-desktop.png",
